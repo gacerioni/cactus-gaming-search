@@ -1,0 +1,44 @@
+{
+  "name": "cactus-backend",
+  "version": "1.0.0",
+  "description": "Cactus Gaming - Redis Search Backend API",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "redis",
+    "search",
+    "gaming",
+    "api"
+  ],
+  "author": "Redis, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.0.1",
+    "ioredis": "^5.4.2",
+    "dotenv": "^16.4.7",
+    "cors": "^2.8.5",
+    "helmet": "^8.0.0",
+    "openai": "^4.77.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/cors": "^2.8.17",
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.2",
+    "@eslint/js": "^9.18.0",
+    "typescript-eslint": "^8.20.0",
+    "eslint": "^9.18.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  }
+}
+

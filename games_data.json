@@ -1,0 +1,909 @@
+{
+  "games": [
+    {
+      "id_jogo": "1",
+      "nome": "Fortune Tiger",
+      "provider": "PG Soft",
+      "popularity": 100,
+      "aliases": "tigre tigrinho tigrinhu triguinho jogo do tigre fortune tiger fortuna tigre tigrão tigrao jogo do tigrinho tiger pg soft tigrezinho tigre da sorte",
+      "description": "Fortune Tiger is a popular Asian-themed slot game featuring lucky tigers and fortune symbols. Known in Brazil as 'Tigrinho' or 'Jogo do Tigre', this PG Soft game is one of the most searched casino games. Players love it for exciting bonus rounds, multiplier features, wild symbols, and free spins with tiger imagery and Chinese fortune themes."
+    },
+    {
+      "id_jogo": "2",
+      "nome": "Fortune Ox",
+      "provider": "PG Soft",
+      "popularity": 95,
+      "aliases": "boi touro ox fortune ox fortuna boi jogo do boi oxe jogo do touro boi da sorte touro da fortuna boizinho ox pg",
+      "description": "Fortune Ox is an Asian-themed slot featuring the powerful ox symbol representing strength and prosperity. Called 'Jogo do Boi' in Brazil, this PG Soft game offers fortune-themed gameplay with ox and bull imagery. Features include lucky symbols, bonus rounds, and multipliers in a Chinese New Year celebration theme."
+    },
+    {
+      "id_jogo": "3",
+      "nome": "Fortune Rabbit",
+      "provider": "PG Soft",
+      "popularity": 90,
+      "aliases": "coelho rabbit fortune rabbit fortuna coelho jogo do coelho coelhinho jogo do coelhinho coelho da sorte rabbit pg coelhão coelhao",
+      "description": "Fortune Rabbit is a charming slot game with cute rabbit characters and fortune symbols. Known as 'Coelhinho' in Portuguese, this PG Soft game features adorable bunny themes with lucky charms. Players enjoy free spins, wild symbols, and bonus features in this family-friendly Asian fortune game."
+    },
+    {
+      "id_jogo": "4",
+      "nome": "Fortune Mouse",
+      "provider": "PG Soft",
+      "popularity": 85,
+      "aliases": "rato mouse fortune mouse fortuna rato jogo do rato ratinho jogo do ratinho rato da sorte mouse pg ratão ratao",
+      "description": "Fortune Mouse is a delightful slot featuring clever mouse characters and prosperity symbols. Called 'Ratinho' in Brazil, this PG Soft game combines cute rodent imagery with fortune and luck themes. Offers bonus rounds, multipliers, and free spins in a playful Asian-inspired setting."
+    },
+    {
+      "id_jogo": "5",
+      "nome": "Dragon Hatch",
+      "provider": "PG Soft",
+      "popularity": 80,
+      "aliases": "dragao dragon hatch dragão drago nascimento dragao jogo do dragao dragão pg ovo do dragao dragon pg soft",
+      "description": "Dragon Hatch is an exciting slot about dragon eggs hatching into powerful creatures. This PG Soft game features mythical dragon themes with egg-hatching mechanics and fire-breathing action. Players experience unique gameplay with growing dragons, multipliers, and fantasy adventure elements."
+    },
+    {
+      "id_jogo": "6",
+      "nome": "Sweet Bonanza",
+      "provider": "Pragmatic Play",
+      "popularity": 98,
+      "aliases": "sweet bonanza bonansa doce bonanza docinho swet bonansa candy doces bonanza pragmatic bonanza doce sweet bonansa jogo dos doces",
+      "description": "Sweet Bonanza is a colorful candy-themed slot with fruit and sweet symbols. Known as 'Bonansa' or 'Docinho' in Brazil, this Pragmatic Play hit features tumbling reels and multipliers. Players love the vibrant candy graphics, free spins with bombs, and potential for big wins in this sugar-rush game."
+    },
+    {
+      "id_jogo": "7",
+      "nome": "Gates of Olympus",
+      "provider": "Pragmatic Play",
+      "popularity": 97,
+      "aliases": "olympus olimpus olimpos gates portoes portões zeus olimpo olímpus gates olimpus portões do olimpo jogo do olimpo olimpo pragmatic zeus pragmatic",
+      "description": "Gates of Olympus is a Greek mythology slot featuring Zeus and divine powers. Called 'Olimpus' or 'Portões do Olimpo' in Portuguese, this Pragmatic Play game showcases ancient Greek gods. Features cascading reels, Zeus multipliers, free spins, and thunderbolt symbols in an epic mythological adventure."
+    },
+    {
+      "id_jogo": "8",
+      "nome": "Big Bass Bonanza",
+      "provider": "Pragmatic Play",
+      "popularity": 92,
+      "aliases": "bass bonanza pesca fishing pescaria big bass basse jogo da pesca peixe bass pragmatic pescador jogo do peixe",
+      "description": "Big Bass Bonanza is a fishing-themed slot about catching big bass fish. This Pragmatic Play game features fishing rods, tackle boxes, and underwater adventures. Players enjoy fishing mechanics, free spins with fisherman symbols, and the thrill of landing the big catch."
+    },
+    {
+      "id_jogo": "9",
+      "nome": "Starlight Princess",
+      "provider": "Pragmatic Play",
+      "popularity": 94,
+      "aliases": "princess princesa starlight starlite estrela princesa star light jogo da princesa princesa pragmatic princesinha princesa estrela",
+      "description": "Starlight Princess is a magical anime-style slot featuring a cute princess character. Known as 'Princesa' in Brazil, this Pragmatic Play game has kawaii aesthetics and star-themed magic. Features tumbling reels, princess multipliers, free spins, and enchanting visuals in a fantasy kingdom."
+    },
+    {
+      "id_jogo": "10",
+      "nome": "Sugar Rush",
+      "provider": "Pragmatic Play",
+      "popularity": 88,
+      "aliases": "sugar rush sugarush açucar acucar corrida doce shuga",
+      "description": "Sugar Rush is a fast-paced candy racing slot with sweet treats and speed. \n    This Pragmatic Play game combines candy themes with racing excitement and sugar-coated fun. \n    Players experience cluster pays, multipliers, and a rush of colorful confectionery in high-energy gameplay."
+    },
+    {
+      "id_jogo": "11",
+      "nome": "The Dog House",
+      "provider": "Pragmatic Play",
+      "popularity": 86,
+      "aliases": "dog house cachorro casa doghouse doghaus cão",
+      "description": "The Dog House is a fun slot featuring adorable dogs and puppy characters. \n    Called 'Casa do Cachorro' in Portuguese, this Pragmatic Play game showcases various dog breeds. \n    Features sticky wilds, free spins, multipliers, and heartwarming canine companions in a backyard setting."
+    },
+    {
+      "id_jogo": "12",
+      "nome": "Wild West Gold",
+      "provider": "Pragmatic Play",
+      "popularity": 82,
+      "aliases": "wild west faroeste ouro gold oeste selvagem cowboy",
+      "description": "Wild West Gold is a cowboy-themed slot set in the American frontier. \n    Known as 'Faroeste' or 'Oeste Selvagem' in Brazil, this Pragmatic Play game features cowboys and gold. \n    Players enjoy western shootouts, sheriff badges, free spins, and the excitement of the gold rush era."
+    },
+    {
+      "id_jogo": "13",
+      "nome": "Starburst",
+      "provider": "NetEnt",
+      "popularity": 93,
+      "aliases": "starburst starbust star burst estrela explosao explosão",
+      "description": "Starburst is a classic space-themed slot with colorful gem symbols and cosmic vibes. \n    This iconic NetEnt game features expanding wilds, re-spins, and dazzling star explosions. \n    Known for simple yet engaging gameplay with vibrant jewels and arcade-style action in outer space."
+    },
+    {
+      "id_jogo": "14",
+      "nome": "Gonzo's Quest",
+      "provider": "NetEnt",
+      "popularity": 91,
+      "aliases": "gonzo gonzos gonzo's quest busca tesouro treasure",
+      "description": "Gonzo's Quest is an adventure slot following conquistador Gonzo searching for El Dorado treasure. \n    This NetEnt classic features avalanche mechanics, increasing multipliers, and ancient Aztec themes. \n    Players join Gonzo on his quest through jungles and ruins hunting for golden treasures and lost civilizations."
+    },
+    {
+      "id_jogo": "15",
+      "nome": "Dead or Alive",
+      "provider": "NetEnt",
+      "popularity": 84,
+      "aliases": "dead alive vivo morto faroeste western",
+      "description": "Dead or Alive is a gritty Wild West slot with outlaws and frontier justice. \n    This NetEnt game features cowboy shootouts, wanted posters, and high-stakes western action. \n    Known for high volatility, sticky wilds, free spins, and the dangerous life of gunslingers."
+    },
+    {
+      "id_jogo": "16",
+      "nome": "Rich Wilde and the Book of Dead",
+      "provider": "Play'n GO",
+      "popularity": 96,
+      "aliases": "book dead livro mortos bookdead livro dos mortos egito egypt wilde",
+      "description": "Rich Wilde and the Book of Dead is an Egyptian adventure slot exploring ancient tombs. \n    Called 'Livro dos Mortos' in Portuguese, this Play'n GO hit features pharaohs, pyramids, and hieroglyphics. \n    Players follow adventurer Rich Wilde through Egyptian mysteries with expanding symbols and free spins."
+    },
+    {
+      "id_jogo": "17",
+      "nome": "Legacy of Dead",
+      "provider": "Play'n GO",
+      "popularity": 87,
+      "aliases": "legacy dead legado mortos egito egypt",
+      "description": "Legacy of Dead continues the Egyptian adventure with ancient curses and treasures. \n    This Play'n GO sequel features mummies, scarabs, and archaeological discoveries in pyramid tombs. \n    Offers expanding symbols, free spins, and the mystical legacy of pharaohs and ancient Egypt."
+    },
+    {
+      "id_jogo": "18",
+      "nome": "Reactoonz",
+      "provider": "Play'n GO",
+      "popularity": 89,
+      "aliases": "reactoonz reactoons aliens alienigenas monstros monsters",
+      "description": "Reactoonz is a quirky alien-themed slot with cute extraterrestrial creatures. \n    This Play'n GO game features colorful alien characters, cluster pays, and quantum mechanics. \n    Players experience cascading symbols, charging meters, and energetic alien reactions in a cosmic grid."
+    },
+    {
+      "id_jogo": "19",
+      "nome": "Moon Princess",
+      "provider": "Play'n GO",
+      "popularity": 85,
+      "aliases": "moon princess lua princesa princesas anime",
+      "description": "Moon Princess is an anime-style slot with three magical princess characters. \n    This Play'n GO game features sailor moon inspired heroines with unique powers and transformations. \n    Offers cascading reels, princess abilities, free spins, and kawaii aesthetics in a magical girl adventure."
+    },
+    {
+      "id_jogo": "20",
+      "nome": "Fire Joker",
+      "provider": "Play'n GO",
+      "popularity": 81,
+      "aliases": "fire joker fogo coringa joker fire",
+      "description": "Fire Joker is a classic fruit slot with a fiery twist and joker character. \n    This Play'n GO game features traditional fruit symbols, lucky sevens, and blazing joker wilds. \n    Simple 3x3 gameplay with re-spins, wheel of multipliers, and old-school slot machine nostalgia."
+    },
+    {
+      "id_jogo": "21",
+      "nome": "Aviator",
+      "provider": "SPRIBE",
+      "popularity": 99,
+      "aliases": "aviator aviador aviao avião crash aviador jogo do aviador aviater jogo do aviao jogo do avião aviãozinho aviãozinho spribe foguete foguetinho crash game",
+      "description": "Aviator is a unique crash game where a plane flies higher with increasing multipliers. Called 'Aviador' or 'Avião' in Portuguese, this SPRIBE hit revolutionized crash gaming. Players cash out before the plane flies away in this thrilling, fast-paced betting experience."
+    },
+    {
+      "id_jogo": "22",
+      "nome": "Mines",
+      "provider": "SPRIBE",
+      "popularity": 83,
+      "aliases": "mines minas campo minado bombas bombs",
+      "description": "Mines is a strategic game based on minesweeper with hidden bombs and gems. \n    This SPRIBE game features grid-based gameplay where players reveal safe tiles for multipliers. \n    Offers customizable difficulty, risk management, and the tension of avoiding explosive mines."
+    },
+    {
+      "id_jogo": "23",
+      "nome": "Dice",
+      "provider": "SPRIBE",
+      "popularity": 78,
+      "aliases": "dice dados dado dices",
+      "description": "Dice is a simple yet exciting dice rolling game with prediction mechanics.\n    This SPRIBE game lets players bet on dice outcomes with adjustable risk levels.\n    Features instant results, multiplier predictions, and classic dice gambling excitement."
+    },
+    {
+      "id_jogo": "24",
+      "nome": "Crazy Time",
+      "provider": "Evolution",
+      "popularity": 97,
+      "aliases": "crazy time crazytime tempo louco louco time maluco jogo do crazy jogo maluco crazy evolution roleta maluca",
+      "description": "Crazy Time is a live game show with spinning wheels, bonus rounds, and multipliers. Called 'Crazy' or 'Tempo Louco' in Brazil, this Evolution hit combines TV game shows with casino action. Features four exciting bonus games, live hosts, and the thrill of big wheel spinning entertainment."
+    },
+    {
+      "id_jogo": "25",
+      "nome": "Lightning Roulette",
+      "provider": "Evolution",
+      "popularity": 90,
+      "aliases": "lightning roulette relampago roleta raio eletrica",
+      "description": "Lightning Roulette is electrified roulette with random lightning multipliers on lucky numbers.\n    This Evolution game adds excitement to classic roulette with shocking multipliers up to 500x.\n    Features live dealers, electric effects, and the chance for supercharged wins on struck numbers."
+    },
+    {
+      "id_jogo": "26",
+      "nome": "Monopoly Live",
+      "provider": "Evolution",
+      "popularity": 88,
+      "aliases": "monopoly monopolio banco imobiliario live",
+      "description": "Monopoly Live combines the classic board game with live casino wheel spinning.\n    This Evolution game features Mr. Monopoly, property bonuses, and 3D board game rounds.\n    Players experience nostalgic Monopoly gameplay with chance cards, multipliers, and live entertainment."
+    },
+    {
+      "id_jogo": "27",
+      "nome": "Dream Catcher",
+      "provider": "Evolution",
+      "popularity": 82,
+      "aliases": "dream catcher apanhador sonhos roda fortuna wheel",
+      "description": "Dream Catcher is a simple money wheel game with colorful segments and multipliers.\n    This Evolution classic features a large spinning wheel with numbers and multiplier segments.\n    Easy to play with live hosts, straightforward betting, and the excitement of wheel-of-fortune style gaming."
+    },
+    {
+      "id_jogo": "28",
+      "nome": "Fruit Party",
+      "provider": "Pragmatic Play",
+      "popularity": 86,
+      "aliases": "fruit party frutas festa fruta fruity",
+      "description": "Fruit Party is a vibrant fruit-themed slot with cluster pays and multipliers.\n    This Pragmatic Play game features colorful fruits, party vibes, and cascading symbols.\n    Players enjoy free spins, multiplier symbols, and a fruity celebration with tropical party atmosphere."
+    },
+    {
+      "id_jogo": "29",
+      "nome": "Madame Destiny",
+      "provider": "Pragmatic Play",
+      "popularity": 79,
+      "aliases": "madame destiny destino senhora fortuna",
+      "description": "Wolf Gold is a wildlife slot featuring wolves, eagles, and desert landscapes.\n    This Pragmatic Play hit showcases American wilderness with majestic wolf packs and nature.\n    Features money respin, giant symbols, jackpots, and the beauty of wild animals under moonlight."
+    },
+    {
+      "id_jogo": "30",
+      "nome": "Wolf Gold",
+      "provider": "Pragmatic Play",
+      "popularity": 84,
+      "aliases": "wolf gold lobo ouro wolfe",
+      "description": "Aztec Gems is a simple 3x3 slot with ancient Aztec treasures and gem symbols.\n    This Pragmatic Play game features colorful gems, Aztec masks, and straightforward gameplay.\n    Offers quick spins, multipliers, and the mystique of lost Aztec civilization and precious stones."
+    },
+    {
+      "id_jogo": "31",
+      "nome": "Ganesha Gold",
+      "provider": "PG Soft",
+      "popularity": 81,
+      "aliases": "ganesha gold ganesh elefante elephant india",
+      "description": "Ganesha Fortune is a Hindu-themed slot featuring the elephant god Ganesha.\n    This PG Soft game showcases Indian mythology, prosperity symbols, and divine blessings.\n    Features sacred elephants, fortune wheels, free spins, and the spiritual power of Hindu deities."
+    },
+    {
+      "id_jogo": "32",
+      "nome": "Medusa",
+      "provider": "PG Soft",
+      "popularity": 80,
+      "aliases": "medusa meduza gorgona serpente snake",
+      "description": "Mahjong Ways is a tile-matching slot based on the classic Chinese mahjong game.\n    This PG Soft game features traditional mahjong tiles, Asian aesthetics, and ways-to-win mechanics.\n    Players experience cascading tiles, multipliers, and the strategic elegance of mahjong culture."
+    },
+    {
+      "id_jogo": "33",
+      "nome": "Candy Burst",
+      "provider": "PG Soft",
+      "popularity": 77,
+      "aliases": "candy burst doce explosao candies doces",
+      "description": "Candy Burst is a sweet candy-themed slot with colorful confections and sugar rush.\n    This PG Soft game features candy explosions, sweet treats, and vibrant sugary symbols.\n    Offers cascading candies, multipliers, free spins, and a delightful candy shop atmosphere."
+    },
+    {
+      "id_jogo": "34",
+      "nome": "Twin Spin",
+      "provider": "NetEnt",
+      "popularity": 83,
+      "aliases": "twin spin gemeos gêmeos duplo double",
+      "description": "Tome of Madness is a Lovecraftian horror slot with eldritch mysteries and cosmic terror.\n    This Play'n GO game features dark magic, ancient tomes, and Cthulhu mythos themes.\n    Players experience portal mechanics, cascading symbols, and the madness of forbidden knowledge."
+    },
+    {
+      "id_jogo": "35",
+      "nome": "Mega Fortune",
+      "provider": "NetEnt",
+      "popularity": 85,
+      "aliases": "mega fortune fortuna jackpot progressive",
+      "description": "Rise of Olympus is a Greek mythology slot with three powerful gods: Zeus, Poseidon, and Hades.\n    This Play'n GO game features divine powers, Mount Olympus, and godly interventions.\n    Offers cascading reels, god abilities, free spins, and epic battles between Olympian deities."
+    },
+    {
+      "id_jogo": "36",
+      "nome": "Tome of Madness",
+      "provider": "Play'n GO",
+      "popularity": 80,
+      "aliases": "tome madness loucura livro book cthulhu",
+      "description": "Twin Spin is a retro slot combining classic fruit machines with modern twin reel mechanics.\n    This NetEnt game features synchronized reels, disco vibes, and 1980s arcade nostalgia.\n    Players enjoy linked reels, expanding twins, and the excitement of classic slot symbols with a twist."
+    },
+    {
+      "id_jogo": "37",
+      "nome": "Rise of Olympus",
+      "provider": "Play'n GO",
+      "popularity": 87,
+      "aliases": "rise olympus olimpus olimpo ascensao zeus hades poseidon",
+      "description": "Butterfly Staxx is a nature-themed slot with beautiful butterflies and cocoon transformations.\n    This NetEnt game features delicate butterfly symbols, flower gardens, and peaceful nature vibes.\n    Offers re-spins, cocoon symbols, butterfly collections, and the serene beauty of butterfly gardens."
+    },
+    {
+      "id_jogo": "38",
+      "nome": "Plinko",
+      "provider": "SPRIBE",
+      "popularity": 84,
+      "aliases": "plinko plingo bolinha bola queda jogo da bolinha plinko spribe",
+      "description": "Plinko is a ball-dropping game based on the classic Plinko board with pegs and multipliers. This SPRIBE game features balls bouncing through pegs into multiplier slots at the bottom. Players adjust risk levels, watch balls drop, and experience the suspense of Plinko physics."
+    },
+    {
+      "id_jogo": "39",
+      "nome": "Fortune Dragon",
+      "provider": "PG Soft",
+      "popularity": 88,
+      "aliases": "dragon fortune dragao da fortuna dragão fortuna dragon pg jogo do dragao da sorte",
+      "description": "Fortune Dragon is an Asian-themed slot featuring majestic dragons and prosperity symbols. This PG Soft game combines dragon mythology with fortune themes, offering players exciting bonus features, multipliers, and the power of legendary dragons bringing wealth and good luck."
+    },
+    {
+      "id_jogo": "40",
+      "nome": "Spaceman",
+      "provider": "Pragmatic Play",
+      "popularity": 91,
+      "aliases": "spaceman space man astronauta jogo do astronauta espacial homem do espaço crash espacial",
+      "description": "Spaceman is a thrilling crash-style game featuring an astronaut flying through space with increasing multipliers. Players must cash out before the spaceman flies away. This Pragmatic Play hit offers simple yet addictive gameplay with potential for massive wins in outer space adventure."
+    },
+    {
+      "id_jogo": "41",
+      "nome": "Penalty Shoot Out",
+      "provider": "Evoplay",
+      "popularity": 79,
+      "aliases": "penalty penalti futebol soccer football jogo de penalti chute a gol",
+      "description": "Penalty Shoot Out is a football-themed game where players take penalty kicks for multipliers. This Evoplay game combines sports excitement with casino thrills, featuring realistic penalty mechanics, goalkeeper saves, and the tension of scoring goals for big wins."
+    },
+    {
+      "id_jogo": "42",
+      "nome": "Balloon",
+      "provider": "SPRIBE",
+      "popularity": 76,
+      "aliases": "balloon balão balao jogo do balão balãozinho crash balloon",
+      "description": "Balloon is a crash game where a balloon inflates with increasing multipliers. Players must cash out before the balloon pops. This SPRIBE game offers simple mechanics with high tension, colorful graphics, and the excitement of timing your cashout perfectly."
+    },
+    {
+      "id_jogo": "43",
+      "nome": "Fruit Party 2",
+      "provider": "Pragmatic Play",
+      "popularity": 87,
+      "aliases": "fruit party 2 frutas festa fruta fruity party 2 jogo das frutas 2",
+      "description": "Fruit Party 2 is the sequel to the popular fruit-themed slot with enhanced features and bigger multipliers. This Pragmatic Play game features vibrant fruit symbols, cluster pays, cascading wins, and exciting free spins with multiplier symbols for tropical party wins."
+    },
+    {
+      "id_jogo": "44",
+      "nome": "Chicken",
+      "provider": "SPRIBE",
+      "popularity": 75,
+      "aliases": "chicken galinha frango jogo da galinha chicken spribe minesweeper galinha",
+      "description": "Chicken is a strategic game similar to Minesweeper where players reveal safe tiles with chickens while avoiding bones. This SPRIBE game offers customizable risk levels, instant wins, and the thrill of strategic tile selection for multiplier rewards."
+    },
+    {
+      "id_jogo": "45",
+      "nome": "Aztec Bonanza",
+      "provider": "Pragmatic Play",
+      "popularity": 83,
+      "aliases": "aztec bonanza asteca bonanza azteca jogo asteca tesouro asteca pragmatic aztec",
+      "description": "Aztec Bonanza is an adventure slot exploring ancient Aztec treasures and lost civilizations. This Pragmatic Play game features expanding reels, tumbling mechanics, Aztec symbols, and the mystery of ancient temples with golden treasures and massive win potential."
+    },
+    {
+      "id_jogo": "match_001",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Flamengo x Palmeiras - Brasileirão 2026",
+      "provider": "Brasileirão Série A",
+      "popularity": 98,
+      "aliases": "flamengo palmeiras mengao mengão fla porco verdao verdão rubro-negro urubu mengo alviverde classico brasileiro",
+      "description": "Clássico nacional entre Flamengo e Palmeiras válido pela 5ª rodada do Campeonato Brasileiro 2026. Confronto entre os dois maiores campeões recentes do futebol brasileiro, com o Mengão jogando em casa no Maracanã lotado.",
+      "time_casa": "Flamengo",
+      "time_fora": "Palmeiras",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-03-15T16:00:00",
+      "estadio": "Maracanã"
+    },
+    {
+      "id_jogo": "match_002",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Corinthians x São Paulo - Majestoso",
+      "provider": "Brasileirão Série A",
+      "popularity": 97,
+      "aliases": "corinthians sao paulo timao timão bambi tricolor majestoso derby paulista classico paulista fiel soberano",
+      "description": "O Majestoso, clássico entre Corinthians e São Paulo, válido pelo Campeonato Brasileiro 2026. Derby paulista que paralisa a cidade de São Paulo, com o Timão recebendo o Tricolor na Neo Química Arena.",
+      "time_casa": "Corinthians",
+      "time_fora": "São Paulo",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-03-22T18:30:00",
+      "estadio": "Neo Química Arena"
+    },
+    {
+      "id_jogo": "match_003",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Flamengo x Vasco - Clássico dos Milhões",
+      "provider": "Campeonato Carioca",
+      "popularity": 96,
+      "aliases": "flamengo vasco mengao mengão vascao vascão fla classico dos milhoes gigante da colina cruzmaltino rubro-negro",
+      "description": "Clássico dos Milhões, o maior derby do Rio de Janeiro entre Flamengo e Vasco da Gama. Final do Campeonato Carioca 2026 no Maracanã, com torcidas apaixonadas e rivalidade histórica.",
+      "time_casa": "Flamengo",
+      "time_fora": "Vasco",
+      "campeonato": "Campeonato Carioca 2026 - Final",
+      "data_hora": "2026-04-05T16:00:00",
+      "estadio": "Maracanã"
+    },
+    {
+      "id_jogo": "match_004",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Grêmio x Internacional - Grenal",
+      "provider": "Brasileirão Série A",
+      "popularity": 95,
+      "aliases": "gremio internacional grenal tricolor gaucho colorado inter imortal classico gaucho rs porto alegre",
+      "description": "Grenal, o clássico gaúcho entre Grêmio e Internacional. Um dos maiores clássicos do Brasil, válido pelo Brasileirão 2026, com a Arena do Grêmio recebendo o Colorado em confronto decisivo.",
+      "time_casa": "Grêmio",
+      "time_fora": "Internacional",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-03-29T19:00:00",
+      "estadio": "Arena do Grêmio"
+    },
+    {
+      "id_jogo": "match_005",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Flamengo x Fluminense - Fla-Flu",
+      "provider": "Brasileirão Série A",
+      "popularity": 94,
+      "aliases": "flamengo fluminense fla-flu fla flu mengao mengão tricolor carioca rubro-negro po de arroz nense classico carioca",
+      "description": "Fla-Flu, o clássico da rivalidade carioca entre Flamengo e Fluminense. Válido pelo Campeonato Brasileiro 2026, este é um dos derbies mais tradicionais do futebol brasileiro, disputado no Maracanã.",
+      "time_casa": "Flamengo",
+      "time_fora": "Fluminense",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-04-12T16:00:00",
+      "estadio": "Maracanã"
+    },
+    {
+      "id_jogo": "match_006",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Palmeiras x Corinthians - Derby Paulista",
+      "provider": "Brasileirão Série A",
+      "popularity": 96,
+      "aliases": "palmeiras corinthians derby paulista porco timao timão verdao verdão alviverde fiel classico paulista",
+      "description": "Derby Paulista entre Palmeiras e Corinthians, a maior rivalidade do estado de São Paulo. Jogo válido pelo Brasileirão 2026 no Allianz Parque, com atmosfera incendiária entre as torcidas.",
+      "time_casa": "Palmeiras",
+      "time_fora": "Corinthians",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-04-19T16:00:00",
+      "estadio": "Allianz Parque"
+    },
+    {
+      "id_jogo": "match_007",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Atlético-MG x Cruzeiro - Clássico Mineiro",
+      "provider": "Brasileirão Série A",
+      "popularity": 93,
+      "aliases": "atletico mineiro cruzeiro galo raposa classico mineiro cam belo horizonte cabuloso galao galão",
+      "description": "Clássico Mineiro entre Atlético-MG e Cruzeiro, a maior rivalidade de Minas Gerais. Galo e Raposa se enfrentam pelo Campeonato Brasileiro 2026 na Arena MRV em jogo decisivo.",
+      "time_casa": "Atlético-MG",
+      "time_fora": "Cruzeiro",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-04-26T18:30:00",
+      "estadio": "Arena MRV"
+    },
+    {
+      "id_jogo": "match_008",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Botafogo x Flamengo - Clássico da Rivalidade",
+      "provider": "Brasileirão Série A",
+      "popularity": 92,
+      "aliases": "botafogo flamengo fogao fogão mengao mengão glorioso rubro-negro estrela solitaria classico carioca bota fla",
+      "description": "Clássico da Rivalidade entre Botafogo e Flamengo, um dos maiores derbies do Rio de Janeiro. Válido pelo Brasileirão 2026, com o Glorioso recebendo o Mengão no Nilton Santos.",
+      "time_casa": "Botafogo",
+      "time_fora": "Flamengo",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-05-03T16:00:00",
+      "estadio": "Nilton Santos"
+    },
+    {
+      "id_jogo": "match_009",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Santos x Palmeiras - Clássico da Saudade",
+      "provider": "Brasileirão Série A",
+      "popularity": 91,
+      "aliases": "santos palmeiras peixe porco classico da saudade verdao verdão alvinegro praiano santastico",
+      "description": "Clássico da Saudade entre Santos e Palmeiras, rivalidade histórica do futebol paulista. Jogo válido pelo Campeonato Brasileiro 2026 na Vila Belmiro, casa do Peixe.",
+      "time_casa": "Santos",
+      "time_fora": "Palmeiras",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-05-10T16:00:00",
+      "estadio": "Vila Belmiro"
+    },
+    {
+      "id_jogo": "match_010",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Flamengo x Atlético-MG - Libertadores 2026",
+      "provider": "Copa Libertadores",
+      "popularity": 97,
+      "aliases": "flamengo atletico mineiro mengao mengão galo libertadores conmebol rubro-negro cam semifinal",
+      "description": "Semifinal da Copa Libertadores 2026 entre Flamengo e Atlético-MG. Jogo de ida no Maracanã, com o Mengão buscando vaga na final da competição mais importante da América do Sul.",
+      "time_casa": "Flamengo",
+      "time_fora": "Atlético-MG",
+      "campeonato": "Copa Libertadores 2026 - Semifinal",
+      "data_hora": "2026-09-23T21:30:00",
+      "estadio": "Maracanã"
+    },
+    {
+      "id_jogo": "match_011",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Palmeiras x Fluminense - Copa do Brasil",
+      "provider": "Copa do Brasil",
+      "popularity": 94,
+      "aliases": "palmeiras fluminense porco flu verdao verdão tricolor carioca copa do brasil cbf semifinal",
+      "description": "Semifinal da Copa do Brasil 2026 entre Palmeiras e Fluminense. Jogo de volta no Allianz Parque, com o Verdão buscando vaga na final da competição nacional.",
+      "time_casa": "Palmeiras",
+      "time_fora": "Fluminense",
+      "campeonato": "Copa do Brasil 2026 - Semifinal",
+      "data_hora": "2026-10-15T21:45:00",
+      "estadio": "Allianz Parque"
+    },
+    {
+      "id_jogo": "match_012",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Corinthians x Flamengo - Brasileirão 2026",
+      "provider": "Brasileirão Série A",
+      "popularity": 95,
+      "aliases": "corinthians flamengo timao timão mengao mengão fiel rubro-negro classico nacional",
+      "description": "Clássico nacional entre Corinthians e Flamengo, dois dos maiores clubes do Brasil. Jogo decisivo pelo Campeonato Brasileiro 2026 na Neo Química Arena.",
+      "time_casa": "Corinthians",
+      "time_fora": "Flamengo",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-06-14T16:00:00",
+      "estadio": "Neo Química Arena"
+    },
+    {
+      "id_jogo": "match_013",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "São Paulo x Palmeiras - Choque-Rei",
+      "provider": "Brasileirão Série A",
+      "popularity": 93,
+      "aliases": "sao paulo palmeiras choque-rei tricolor porco verdao verdão bambi soberano classico paulista",
+      "description": "Choque-Rei, clássico entre São Paulo e Palmeiras. Rivalidade histórica do futebol paulista válida pelo Brasileirão 2026 no Morumbi.",
+      "time_casa": "São Paulo",
+      "time_fora": "Palmeiras",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-06-21T16:00:00",
+      "estadio": "Morumbi"
+    },
+    {
+      "id_jogo": "match_014",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Vasco x Botafogo - Clássico da Amizade",
+      "provider": "Brasileirão Série A",
+      "popularity": 90,
+      "aliases": "vasco botafogo vascao vascão fogao fogão classico da amizade gigante da colina glorioso cruzmaltino",
+      "description": "Clássico da Amizade entre Vasco e Botafogo, derby carioca tradicional. Jogo válido pelo Campeonato Brasileiro 2026 em São Januário.",
+      "time_casa": "Vasco",
+      "time_fora": "Botafogo",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-06-28T16:00:00",
+      "estadio": "São Januário"
+    },
+    {
+      "id_jogo": "match_015",
+      "tipo": "futebol",
+      "categoria": "masculino_profissional",
+      "nome": "Flamengo x Internacional - Brasileirão 2026",
+      "provider": "Brasileirão Série A",
+      "popularity": 92,
+      "aliases": "flamengo internacional mengao mengão inter colorado rubro-negro classico nacional",
+      "description": "Confronto nacional entre Flamengo e Internacional pelo Campeonato Brasileiro 2026. O Mengão recebe o Colorado no Maracanã em jogo importante pela liderança.",
+      "time_casa": "Flamengo",
+      "time_fora": "Internacional",
+      "campeonato": "Brasileirão Série A 2026",
+      "data_hora": "2026-07-05T16:00:00",
+      "estadio": "Maracanã"
+    },
+    {
+      "id_jogo": "match_016",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Corinthians Feminino x Palmeiras Feminino - Brasileirão Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 88,
+      "aliases": "corinthians feminino palmeiras feminino timao timão porco futebol feminino mulheres derby paulista feminino",
+      "description": "Derby Paulista feminino entre Corinthians e Palmeiras pelo Campeonato Brasileiro Feminino 2026. As Brabas do Timão enfrentam o Verdão em clássico emocionante.",
+      "time_casa": "Corinthians Feminino",
+      "time_fora": "Palmeiras Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-05-17T15:00:00",
+      "estadio": "Neo Química Arena"
+    },
+    {
+      "id_jogo": "match_017",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Flamengo Feminino x Fluminense Feminino - Fla-Flu Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 86,
+      "aliases": "flamengo feminino fluminense feminino fla-flu feminino mengao mengão flu futebol feminino mulheres classico carioca",
+      "description": "Fla-Flu feminino, clássico carioca entre Flamengo e Fluminense pelo Campeonato Brasileiro Feminino 2026. Rivalidade histórica no futebol feminino brasileiro.",
+      "time_casa": "Flamengo Feminino",
+      "time_fora": "Fluminense Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-05-24T15:00:00",
+      "estadio": "Gávea"
+    },
+    {
+      "id_jogo": "match_018",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "São Paulo Feminino x Internacional Feminino - Brasileirão Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 84,
+      "aliases": "sao paulo feminino internacional feminino tricolor colorado futebol feminino mulheres gurias coloradas",
+      "description": "Confronto entre São Paulo e Internacional pelo Campeonato Brasileiro Feminino 2026. As Gurias Coloradas visitam o Tricolor paulista em jogo decisivo.",
+      "time_casa": "São Paulo Feminino",
+      "time_fora": "Internacional Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-05-31T15:00:00",
+      "estadio": "Morumbi"
+    },
+    {
+      "id_jogo": "match_019",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Palmeiras Feminino x São Paulo Feminino - Choque-Rei Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 85,
+      "aliases": "palmeiras feminino sao paulo feminino choque-rei feminino porco tricolor futebol feminino mulheres classico paulista",
+      "description": "Choque-Rei feminino entre Palmeiras e São Paulo pelo Brasileirão Feminino 2026. Clássico paulista com as melhores equipes femininas do estado.",
+      "time_casa": "Palmeiras Feminino",
+      "time_fora": "São Paulo Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-06-07T15:00:00",
+      "estadio": "Allianz Parque"
+    },
+    {
+      "id_jogo": "match_020",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Corinthians Feminino x Flamengo Feminino - Libertadores Feminina",
+      "provider": "Libertadores Feminina",
+      "popularity": 89,
+      "aliases": "corinthians feminino flamengo feminino timao timão mengao mengão libertadores feminina conmebol futebol feminino",
+      "description": "Final da Copa Libertadores Feminina 2026 entre Corinthians e Flamengo. As Brabas enfrentam o Mengão na decisão da competição mais importante da América do Sul.",
+      "time_casa": "Corinthians Feminino",
+      "time_fora": "Flamengo Feminino",
+      "campeonato": "Libertadores Feminina 2026 - Final",
+      "data_hora": "2026-10-22T18:00:00",
+      "estadio": "Neo Química Arena"
+    },
+    {
+      "id_jogo": "match_021",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Grêmio Feminino x Internacional Feminino - Grenal Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 83,
+      "aliases": "gremio feminino internacional feminino grenal feminino tricolor gaucho colorado futebol feminino gurias coloradas",
+      "description": "Grenal feminino entre Grêmio e Internacional pelo Campeonato Brasileiro Feminino 2026. Clássico gaúcho com as Gurias Coloradas enfrentando o Tricolor.",
+      "time_casa": "Grêmio Feminino",
+      "time_fora": "Internacional Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-06-14T15:00:00",
+      "estadio": "Arena do Grêmio"
+    },
+    {
+      "id_jogo": "match_022",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Atlético-MG Feminino x Cruzeiro Feminino - Clássico Mineiro Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 82,
+      "aliases": "atletico mineiro feminino cruzeiro feminino galo raposa classico mineiro feminino futebol feminino mulheres",
+      "description": "Clássico Mineiro feminino entre Atlético-MG e Cruzeiro pelo Brasileirão Feminino 2026. Galo e Raposa se enfrentam no futebol feminino mineiro.",
+      "time_casa": "Atlético-MG Feminino",
+      "time_fora": "Cruzeiro Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-06-21T15:00:00",
+      "estadio": "Arena MRV"
+    },
+    {
+      "id_jogo": "match_023",
+      "tipo": "futebol",
+      "categoria": "feminino",
+      "nome": "Santos Feminino x Palmeiras Feminino - Clássico da Saudade Feminino",
+      "provider": "Brasileirão Feminino",
+      "popularity": 81,
+      "aliases": "santos feminino palmeiras feminino peixe porco classico da saudade feminino futebol feminino sereias da vila",
+      "description": "Clássico da Saudade feminino entre Santos e Palmeiras pelo Brasileirão Feminino 2026. As Sereias da Vila recebem o Verdão na Vila Belmiro.",
+      "time_casa": "Santos Feminino",
+      "time_fora": "Palmeiras Feminino",
+      "campeonato": "Brasileirão Feminino 2026",
+      "data_hora": "2026-06-28T15:00:00",
+      "estadio": "Vila Belmiro"
+    },
+    {
+      "id_jogo": "match_024",
+      "tipo": "futebol",
+      "categoria": "base_sub20",
+      "nome": "Flamengo Sub-20 x Vasco Sub-20 - Copa do Brasil Sub-20",
+      "provider": "Copa do Brasil Sub-20",
+      "popularity": 78,
+      "aliases": "flamengo sub-20 vasco sub-20 mengao mengão vascao vascão base juvenil sub20 copinha",
+      "description": "Clássico carioca nas categorias de base entre Flamengo Sub-20 e Vasco Sub-20 pela Copa do Brasil Sub-20. Revelação de jovens talentos no Ninho do Urubu.",
+      "time_casa": "Flamengo Sub-20",
+      "time_fora": "Vasco Sub-20",
+      "campeonato": "Copa do Brasil Sub-20 2026",
+      "data_hora": "2026-07-12T15:00:00",
+      "estadio": "Ninho do Urubu"
+    },
+    {
+      "id_jogo": "match_025",
+      "tipo": "futebol",
+      "categoria": "base_sub20",
+      "nome": "Palmeiras Sub-20 x Corinthians Sub-20 - Paulista Sub-20",
+      "provider": "Paulista Sub-20",
+      "popularity": 77,
+      "aliases": "palmeiras sub-20 corinthians sub-20 porco timao timão base juvenil sub20 derby paulista base",
+      "description": "Derby Paulista nas categorias de base entre Palmeiras Sub-20 e Corinthians Sub-20. Clássico paulista com os futuros craques dos dois clubes.",
+      "time_casa": "Palmeiras Sub-20",
+      "time_fora": "Corinthians Sub-20",
+      "campeonato": "Paulista Sub-20 2026",
+      "data_hora": "2026-07-19T15:00:00",
+      "estadio": "Academia de Futebol"
+    },
+    {
+      "id_jogo": "match_026",
+      "tipo": "futebol",
+      "categoria": "base_sub20",
+      "nome": "São Paulo Sub-20 x Santos Sub-20 - Clássico San-São Sub-20",
+      "provider": "Paulista Sub-20",
+      "popularity": 76,
+      "aliases": "sao paulo sub-20 santos sub-20 tricolor peixe base juvenil sub20 san-sao classico paulista",
+      "description": "Clássico San-São nas categorias de base entre São Paulo Sub-20 e Santos Sub-20. Confronto entre as principais escolas de formação do futebol paulista.",
+      "time_casa": "São Paulo Sub-20",
+      "time_fora": "Santos Sub-20",
+      "campeonato": "Paulista Sub-20 2026",
+      "data_hora": "2026-07-26T15:00:00",
+      "estadio": "CFA Cotia"
+    },
+    {
+      "id_jogo": "match_027",
+      "tipo": "futebol",
+      "categoria": "base_sub20",
+      "nome": "Grêmio Sub-20 x Internacional Sub-20 - Grenal Sub-20",
+      "provider": "Gaúcho Sub-20",
+      "popularity": 75,
+      "aliases": "gremio sub-20 internacional sub-20 grenal sub-20 tricolor gaucho colorado base juvenil sub20",
+      "description": "Grenal nas categorias de base entre Grêmio Sub-20 e Internacional Sub-20. Clássico gaúcho com os jovens talentos do Rio Grande do Sul.",
+      "time_casa": "Grêmio Sub-20",
+      "time_fora": "Internacional Sub-20",
+      "campeonato": "Gaúcho Sub-20 2026",
+      "data_hora": "2026-08-02T15:00:00",
+      "estadio": "CT Luiz Carvalho"
+    },
+    {
+      "id_jogo": "match_028",
+      "tipo": "futebol",
+      "categoria": "base_sub17",
+      "nome": "Flamengo Sub-17 x Fluminense Sub-17 - Fla-Flu Sub-17",
+      "provider": "Carioca Sub-17",
+      "popularity": 72,
+      "aliases": "flamengo sub-17 fluminense sub-17 fla-flu sub-17 mengao mengão flu base juvenil sub17",
+      "description": "Fla-Flu nas categorias de base Sub-17 entre Flamengo e Fluminense. Clássico carioca com os jovens talentos em formação no Ninho do Urubu.",
+      "time_casa": "Flamengo Sub-17",
+      "time_fora": "Fluminense Sub-17",
+      "campeonato": "Carioca Sub-17 2026",
+      "data_hora": "2026-08-09T14:00:00",
+      "estadio": "Ninho do Urubu"
+    },
+    {
+      "id_jogo": "match_029",
+      "tipo": "futebol",
+      "categoria": "base_sub17",
+      "nome": "Atlético-MG Sub-17 x Cruzeiro Sub-17 - Clássico Mineiro Sub-17",
+      "provider": "Mineiro Sub-17",
+      "popularity": 71,
+      "aliases": "atletico mineiro sub-17 cruzeiro sub-17 galo raposa classico mineiro sub-17 base juvenil sub17",
+      "description": "Clássico Mineiro nas categorias de base Sub-17 entre Atlético-MG e Cruzeiro. Galo e Raposa revelando jovens talentos mineiros.",
+      "time_casa": "Atlético-MG Sub-17",
+      "time_fora": "Cruzeiro Sub-17",
+      "campeonato": "Mineiro Sub-17 2026",
+      "data_hora": "2026-08-16T14:00:00",
+      "estadio": "Cidade do Galo"
+    },
+    {
+      "id_jogo": "match_030",
+      "tipo": "futebol",
+      "categoria": "base_sub17",
+      "nome": "Corinthians Sub-17 x São Paulo Sub-17 - Majestoso Sub-17",
+      "provider": "Paulista Sub-17",
+      "popularity": 73,
+      "aliases": "corinthians sub-17 sao paulo sub-17 timao timão tricolor majestoso sub-17 base juvenil sub17",
+      "description": "Majestoso nas categorias de base Sub-17 entre Corinthians e São Paulo. Derby paulista com os futuros craques do futebol brasileiro em formação.",
+      "time_casa": "Corinthians Sub-17",
+      "time_fora": "São Paulo Sub-17",
+      "campeonato": "Paulista Sub-17 2026",
+      "data_hora": "2026-08-23T14:00:00",
+      "estadio": "CT Dr. Joaquim Grava"
+    }
+  ],
+  "synonym_groups": [
+    {
+      "id": "syn:tigre",
+      "terms": [
+        "tigre",
+        "tigrinho",
+        "tigrinhu",
+        "triguinho",
+        "jogo do tigre",
+        "tigrão",
+        "tigrao",
+        "tigrezinho"
+      ]
+    },
+    {
+      "id": "syn:aviator",
+      "terms": [
+        "aviator",
+        "aviador",
+        "aviao",
+        "avião",
+        "aviater",
+        "aviãozinho",
+        "foguete",
+        "foguetinho"
+      ]
+    },
+    {
+      "id": "syn:olympus",
+      "terms": [
+        "olympus",
+        "olimpus",
+        "olimpos",
+        "olimpo",
+        "olímpus"
+      ]
+    },
+    {
+      "id": "syn:bonanza",
+      "terms": [
+        "bonanza",
+        "bonansa"
+      ]
+    },
+    {
+      "id": "syn:starburst",
+      "terms": [
+        "starburst",
+        "starbust"
+      ]
+    },
+    {
+      "id": "syn:gonzo",
+      "terms": [
+        "gonzo",
+        "gonzos",
+        "gonzo's"
+      ]
+    },
+    {
+      "id": "syn:crazy",
+      "terms": [
+        "crazy",
+        "crazytime",
+        "crazy time"
+      ]
+    },
+    {
+      "id": "syn:book",
+      "terms": [
+        "book",
+        "bookdead",
+        "book dead",
+        "livro",
+        "livro dos mortos"
+      ]
+    },
+    {
+      "id": "syn:sugar",
+      "terms": [
+        "sugar",
+        "sugarush",
+        "sugar rush",
+        "shuga"
+      ]
+    },
+    {
+      "id": "syn:princess",
+      "terms": [
+        "princess",
+        "princesa",
+        "princesas"
+      ]
+    }
+  ]
+}

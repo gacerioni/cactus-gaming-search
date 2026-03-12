@@ -1,0 +1,10 @@
+name = "cactus-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Secrets (configure via: wrangler secret put BACKEND_URL)
+# BACKEND_URL = https://api-backend.platformengineer.io
+
+[env.production]
+name = "cactus-worker"
+
