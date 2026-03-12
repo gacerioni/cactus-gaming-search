@@ -1,0 +1,175 @@
+{
+  "games": [
+    {
+      "id_jogo": "1",
+      "nome": "Fortune Tiger",
+      "provider": "PG Soft",
+      "aliases": "tigrinho jogo do tigre fortun tigre tigre da fortuna",
+      "popularity": 100,
+      "description": "Slot oriental com o tigre da fortuna e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "2",
+      "nome": "Fortune Ox",
+      "provider": "PG Soft",
+      "aliases": "boi touro ox jogo do boi",
+      "popularity": 95,
+      "description": "Slot asiático com o boi da fortuna e símbolos de prosperidade.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "3",
+      "nome": "Fortune Mouse",
+      "provider": "PG Soft",
+      "aliases": "rato mouse jogo do rato",
+      "popularity": 90,
+      "description": "Slot com o rato da fortuna e temas de sorte asiática.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "4",
+      "nome": "Fortune Rabbit",
+      "provider": "PG Soft",
+      "aliases": "coelho rabbit jogo do coelho coelhinho",
+      "popularity": 90,
+      "description": "Slot com coelho da sorte e símbolos de fortuna.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "5",
+      "nome": "Dragon Hatch",
+      "provider": "PG Soft",
+      "aliases": "dragao dragon dragão",
+      "popularity": 85,
+      "description": "Slot com dragões e mecânica de eclosão de ovos.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "6",
+      "nome": "Penalty Shoot Out",
+      "provider": "PG Soft",
+      "aliases": "penalti penalty futebol classico",
+      "popularity": 75,
+      "description": "Jogo de pênaltis com mecânica crash.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "7",
+      "nome": "Gates of Olympus",
+      "provider": "Pragmatic Play",
+      "aliases": "gates olimpo zeus portoes",
+      "popularity": 95,
+      "description": "Slot mitológico com Zeus e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "8",
+      "nome": "Gates of Olympus 1000",
+      "provider": "Pragmatic Play",
+      "aliases": "gates olimpo zeus 1000",
+      "popularity": 90,
+      "description": "Versão aprimorada do Gates of Olympus com multiplicadores até 1000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "9",
+      "nome": "Sweet Bonanza",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sweet bonanza frutas",
+      "popularity": 95,
+      "description": "Slot de frutas e doces com multiplicadores e tumble feature.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "10",
+      "nome": "Sweet Bonanza Candyland",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sweet candyland live",
+      "popularity": 85,
+      "description": "Versão live do Sweet Bonanza com apresentador ao vivo.",
+      "categoria": "live",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "11",
+      "nome": "Big Bass Bonanza",
+      "provider": "Pragmatic Play",
+      "aliases": "pesca bass pescador peixe",
+      "popularity": 90,
+      "description": "Slot de pesca com pescador e peixes dourados.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "12",
+      "nome": "Big Bass Splash",
+      "provider": "Pragmatic Play",
+      "aliases": "pesca bass splash peixe",
+      "popularity": 85,
+      "description": "Continuação do Big Bass com mais features de pesca.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "13",
+      "nome": "Spaceman",
+      "provider": "Pragmatic Play",
+      "aliases": "astronauta spaceman espaco crash",
+      "popularity": 90,
+      "description": "Jogo crash com astronauta no espaço.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "14",
+      "nome": "Sugar Rush",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sugar rush candy",
+      "popularity": 85,
+      "description": "Slot de doces com cluster pays e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "15",
+      "nome": "Starlight Princess",
+      "provider": "Pragmatic Play",
+      "aliases": "princesa starlight anime",
+      "popularity": 90,
+      "description": "Slot anime com princesa e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "16",
+      "nome": "Wolf Gold",
+      "provider": "Pragmatic Play",
+      "aliases": "lobo wolf gold ouro",
+      "popularity": 80,
+      "description": "Slot com lobos e tema do oeste americano.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "17",
+      "nome": "Aviator",
+      "provider": "Spribe",
+      "aliases": "aviator aviao avião crash aviãozinho",
+      "popularity": 100,
+      "description": "Jogo crash mais popular com avião que decola.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    }
+  ],
+  "synonym_groups": []
+}

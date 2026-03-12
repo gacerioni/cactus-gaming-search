@@ -44,7 +44,10 @@ def create_indexes_with_vectors(client):
         'SCHEMA',
         'nome', 'TEXT', 'WEIGHT', '5', 'SORTABLE',
         'aliases', 'TEXT', 'WEIGHT', '2',  # ← CAMPO CRÍTICO para mengao, bambi, etc
+        'description', 'TEXT', 'WEIGHT', '1',  # ← Descrição do jogo
         'provider', 'TAG', 'SORTABLE',
+        'categoria', 'TAG', 'SORTABLE',  # ← slot, crash, live, etc
+        'tags', 'TEXT',  # ← FS, CERT, etc
         'id_jogo', 'TAG',
         'popularity', 'NUMERIC', 'SORTABLE',
         # VECTOR FIELD
@@ -91,7 +94,10 @@ def seed_games_with_embeddings(client, games):
             'nome': game_data['nome'],
             'provider': game_data['provider'],
             'aliases': game_data['aliases'],  # ← CRÍTICO! String com todos os termos
-            'popularity': str(game_data.get('popularity', 50))
+            'popularity': str(game_data.get('popularity', 50)),
+            'description': game_data.get('description', ''),
+            'categoria': game_data.get('categoria', 'slot'),
+            'tags': game_data.get('tags', '')
         }
 
         # Adicionar embedding se existir
