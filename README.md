@@ -4,10 +4,17 @@ Search-as-a-Service para casas de apostas com Redis Cloud.
 
 **Features:** Autocomplete • Full-text Search • Vector Search (IA) • Edge Computing
 
-> **⚠️ IMPORTANTE:** Este projeto tem 3 componentes separados:
+## 🌐 URLs em Produção
+
+- **Frontend:** https://defbbe54.cactus-demo.pages.dev
+- **Worker (API):** https://cactus-worker.platformengineer.workers.dev
+- **Backend:** https://api-backend.platformengineer.io
+
+> **⚠️ IMPORTANTE:** Este projeto tem 4 componentes separados:
 > - `seed/` - Script Python (popular Redis)
-> - `backend/` - API Node.js (tem seu próprio package.json)
-> - `worker/` - Cloudflare Worker (tem seu próprio package.json)
+> - `backend/` - API Node.js (AWS EC2)
+> - `worker/` - Cloudflare Worker (Edge Proxy)
+> - `frontend/` - Demo HTML (Cloudflare Pages)
 >
 > **Não existe `package.json` na raiz!** Entre em cada pasta antes de rodar `npm install`.
 
@@ -49,10 +56,13 @@ curl "http://localhost:3000/api/autocomplete?q=tig"
 
 ```
 cactus-gaming-search/
-├── seed/          # Python - Popular Redis com embeddings OpenAI
-├── backend/       # Node.js - API Express + ioredis
-├── worker/        # Cloudflare Worker - Edge proxy
-└── games_data.json
+├── seed/              # Python - Popular Redis com embeddings OpenAI
+├── backend/           # Node.js - API Express + ioredis (AWS EC2)
+├── worker/            # Cloudflare Worker - Edge proxy + CORS
+├── frontend/          # Demo HTML (Cloudflare Pages)
+│   └── index.html     # Frontend completo
+├── games_data.json    # 45 jogos com metadados
+└── test-api.sh        # Testes automatizados
 ```
 
 ---

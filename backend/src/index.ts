@@ -15,7 +15,11 @@ const PORT = process.env.PORT || 3000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
 
 // Middleware
-app.use(helmet());
+// Helmet with relaxed CSP for CORS compatibility
+app.use(helmet({
+  contentSecurityPolicy: false,  // Disable CSP to allow cross-origin requests
+  crossOriginResourcePolicy: false,  // Allow cross-origin resource sharing
+}));
 app.use(cors({
   origin: CORS_ORIGIN,
   methods: ['GET', 'POST', 'OPTIONS'],

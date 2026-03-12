@@ -236,5 +236,24 @@ npm install
 
 ---
 
+## 🎯 Próximos Passos
+
+Depois que o backend estiver rodando:
+
+1. **Configurar Cloudflare Worker** - Ver `CLOUDFLARE_SETUP.md`
+2. **Deploy do Frontend** - Ver `frontend/README.md`
+3. **Testar de diferentes locais** - Verificar latência global
+4. **Configurar domínio customizado** (opcional)
+
+---
+
+## 📚 Documentação Relacionada
+
+- **`CLOUDFLARE_SETUP.md`** - Deploy do Worker + Frontend no Cloudflare
+- **`frontend/README.md`** - Instruções específicas do frontend
+- **`SETUP.md`** - Troubleshooting de erros comuns
+
+---
+
 ✅ **Pronto!** Seu Search-as-a-Service está no ar.
 
