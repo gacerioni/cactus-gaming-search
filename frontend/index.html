@@ -159,9 +159,11 @@
     </div>
 
     <script>
-        // CONFIGURAÇÃO: URL do Cloudflare Worker
+        // CONFIGURAÇÃO: URL do Cloudflare Worker (PRODUÇÃO)
         const API_URL = 'https://cactus-worker.platformengineer.workers.dev';
-        // Para teste local: const API_URL = 'http://localhost:3000';
+
+        // Para teste local descomente a linha abaixo:
+        // const API_URL = 'http://localhost:3000';
         
         const searchInput = document.getElementById('searchInput');
         const autocompleteDiv = document.getElementById('autocomplete');
