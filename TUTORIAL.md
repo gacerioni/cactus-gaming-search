@@ -195,19 +195,44 @@ curl -X POST https://worker.SEU_DOMINIO.com/api/vector-search \
 
 ## 🔧 Troubleshooting
 
-**Erro: Could not connect to Redis**
+### TypeScript Build Errors
+
+Se você ver erros como `TS6133` ou `TS7030` ao rodar `npm run build`:
+
+```bash
+# Certifique-se de que está na pasta backend
+cd backend/
+
+# Limpe e reinstale
+rm -rf node_modules package-lock.json dist/
+npm install
+npm run build
+```
+
+Os erros foram corrigidos no código (variáveis não usadas prefixadas com `_`, funções com `Promise<void>`).
+
+### Erro: Could not connect to Redis
 ```bash
 redis-cli -u $REDIS_URL PING
 ```
 
-**Backend não inicia**
+### Backend não inicia
 ```bash
 pm2 logs cactus-backend
 ```
 
-**Worker não conecta no backend**
+### Worker não conecta no backend
 - Verificar CORS no backend `.env`
 - Verificar `BACKEND_URL` no wrangler.toml
+
+### npm install na raiz do projeto
+**Erro:** `npm error enoent Could not read package.json`
+
+**Solução:** Entre na pasta `backend/` primeiro:
+```bash
+cd backend/
+npm install
+```
 
 ---
 

@@ -15,14 +15,15 @@ const openai = new OpenAI({
  * Vector search usando FT.SEARCH com KNN
  * Usa OpenAI para gerar embedding do query
  */
-export async function handleVectorSearch(req: Request, res: Response) {
+export async function handleVectorSearch(req: Request, res: Response): Promise<void> {
   try {
     const { query, k } = req.body;
 
     if (!query) {
-      return res.status(400).json({
+      res.status(400).json({
         error: 'Query is required',
       });
+      return;
     }
 
     const numResults = k || 10;

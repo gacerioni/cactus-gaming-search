@@ -4,6 +4,13 @@ Search-as-a-Service para casas de apostas com Redis Cloud.
 
 **Features:** Autocomplete • Full-text Search • Vector Search (IA) • Edge Computing
 
+> **⚠️ IMPORTANTE:** Este projeto tem 3 componentes separados:
+> - `seed/` - Script Python (popular Redis)
+> - `backend/` - API Node.js (tem seu próprio package.json)
+> - `worker/` - Cloudflare Worker (tem seu próprio package.json)
+>
+> **Não existe `package.json` na raiz!** Entre em cada pasta antes de rodar `npm install`.
+
 ---
 
 ## 🚀 Quick Start
@@ -20,8 +27,13 @@ python seed_production_vectors.py
 
 ### 2. Rodar Backend
 ```bash
+# IMPORTANTE: Entrar na pasta backend primeiro!
 cd backend/
+
+# Configurar credenciais
 cp .env.example .env  # Adicionar REDIS_URL e OPENAI_API_KEY
+
+# Instalar e rodar
 npm install
 npm run dev
 ```
@@ -78,5 +90,6 @@ POST /api/vector-search
 
 ## 📖 Mais Info
 
-Veja [TUTORIAL.md](TUTORIAL.md) para deploy completo em produção.
+- **Problemas de setup?** Veja [SETUP.md](SETUP.md)
+- **Deploy em produção:** Veja [TUTORIAL.md](TUTORIAL.md)
 

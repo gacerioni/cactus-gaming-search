@@ -8,13 +8,14 @@ import { parseAutocompleteResults } from '../utils/parser';
  * Autocomplete usando FT.SUGGET
  * Porta da lógica Python: app.py linhas 75-113
  */
-export async function handleAutocomplete(req: Request, res: Response) {
+export async function handleAutocomplete(req: Request, res: Response): Promise<void> {
   try {
     const query = req.query.q as string;
     const maxResults = parseInt(req.query.max as string) || 10;
 
     if (!query || query.length < 2) {
-      return res.json({ suggestions: [] });
+      res.json({ suggestions: [] });
+      return;
     }
 
     const redis = getRedisClient();

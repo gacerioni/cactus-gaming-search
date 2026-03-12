@@ -9,14 +9,15 @@ import { parseSearchResults } from '../utils/parser';
  * Full-text search usando FT.SEARCH com fallback fuzzy
  * Porta da lógica Python: app.py linhas 116-156
  */
-export async function handleSearch(req: Request, res: Response) {
+export async function handleSearch(req: Request, res: Response): Promise<void> {
   try {
     const { query, filters } = req.body;
 
     if (!query) {
-      return res.status(400).json({
+      res.status(400).json({
         error: 'Query is required',
       });
+      return;
     }
 
     const redis = getRedisClient();
