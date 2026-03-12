@@ -133,8 +133,16 @@ export class HybridSearchService {
    */
   private async fuzzySearch(redis: any, expandedTerms: string[], _filters?: any): Promise<SearchResult[]> {
     try {
-      // Cria query fuzzy com termos expandidos
-      const fuzzyQuery = expandedTerms.map(term => `%${term}%`).join(' | ');
+      // Cria query fuzzy com termos expandidos usando wildcard prefix/suffix
+      // RediSearch syntax: *term* para wildcard, ou term* para prefix
+      const fuzzyQuery = expandedTerms
+        .filter(term => term.length > 2) // Ignora termos muito curtos
+        .map(term => `*${term}*`)
+        .join(' | ');
+
+      if (!fuzzyQuery) {
+        return [];
+      }
 
       const results = await redis.call(
         'FT.SEARCH',
