@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import { getRedisClient } from '../redis';
 import { parseSearchResults } from '../utils/parser';
+import OpenAI from 'openai';
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 /**
  * POST /api/search
@@ -79,10 +85,54 @@ export async function handleSearch(req: Request, res: Response): Promise<void> {
     }
 
     // LAYER 3: Vector search fallback (último recurso)
-    // TODO: Implementar KNN search se ainda não achou nada
-    // if (games.length === 0) {
-    //   searchMethod = 'vector';
-    // }
+    if (games.length === 0) {
+      try {
+        console.log('🧠 Fallback para vector search...');
+
+        // 1. Generate embedding for query using OpenAI
+        const embeddingResponse = await openai.embeddings.create({
+          model: 'text-embedding-3-small',
+          input: query,
+        });
+
+        const queryEmbedding = embeddingResponse.data[0].embedding;
+
+        // 2. Convert embedding to buffer (FLOAT32)
+        const buffer = Buffer.allocUnsafe(queryEmbedding.length * 4);
+        queryEmbedding.forEach((value, index) => {
+          buffer.writeFloatLE(value, index * 4);
+        });
+
+        // 3. Vector search: FT.SEARCH idx:jogos "*=>[KNN k @description_vector $vec]" PARAMS 2 vec <blob> DIALECT 2
+        const results = await redis.call(
+          'FT.SEARCH',
+          INDEX_NAME,
+          `*=>[KNN 20 @description_vector $vec AS score]`,
+          'PARAMS',
+          '2',
+          'vec',
+          buffer,
+          'RETURN',
+          '4',
+          'nome',
+          'provider',
+          'aliases',
+          'score',
+          'SORTBY',
+          'score',
+          'DIALECT',
+          '2'
+        ) as any[];
+
+        games = parseSearchResults(results);
+        totalResults = results[0] || 0;
+        searchMethod = 'vector';
+
+        console.log(`✅ Vector search retornou ${games.length} resultados`);
+      } catch (error) {
+        console.error('Vector search error:', error);
+      }
+    }
 
     res.json({
       query,
