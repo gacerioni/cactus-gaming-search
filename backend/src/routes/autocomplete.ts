@@ -20,10 +20,10 @@ export async function handleAutocomplete(req: Request, res: Response): Promise<v
 
     const redis = getRedisClient();
 
-    // FT.SUGGET ac:games <query> WITHPAYLOADS WITHSCORES FUZZY MAX <maxResults>
+    // FT.SUGGET ac:jogos <query> WITHPAYLOADS WITHSCORES FUZZY MAX <maxResults>
     const results = await redis.call(
       'FT.SUGGET',
-      'ac:games',
+      'ac:jogos',  // Mudou de ac:games para ac:jogos
       query,
       'WITHPAYLOADS',
       'WITHSCORES',

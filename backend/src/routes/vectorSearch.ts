@@ -44,21 +44,20 @@ export async function handleVectorSearch(req: Request, res: Response): Promise<v
 
     const redis = getRedisClient();
 
-    // 3. Vector search: FT.SEARCH idx:games "*=>[KNN k @embedding $vec]" PARAMS 2 vec <blob> DIALECT 2
+    // 3. Vector search: FT.SEARCH idx:jogos "*=>[KNN k @description_vector $vec]" PARAMS 2 vec <blob> DIALECT 2
     const results = await redis.call(
       'FT.SEARCH',
-      'idx:games',
-      `*=>[KNN ${numResults} @embedding $vec AS score]`,
+      'idx:jogos',  // Mudou de idx:games para idx:jogos
+      `*=>[KNN ${numResults} @description_vector $vec AS score]`,  // Mudou de @embedding para @description_vector
       'PARAMS',
       '2',
       'vec',
       buffer,
       'RETURN',
-      '5',
+      '4',
       'nome',
       'provider',
-      'categoria',
-      'descricao',
+      'aliases',
       'score',
       'SORTBY',
       'score',

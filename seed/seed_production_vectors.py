@@ -1,8 +1,10 @@
 """
 Seed Redis Cloud com schema de produção + Vector Search
 Baseado no backoffice Cactus Gaming
+
+SCHEMA: HASH (flat) - igual ao Python original
+Permite aliases, sinônimos e busca multi-camada
 """
-import os
 import sys
 import json
 from pathlib import Path
@@ -24,146 +26,133 @@ def load_games_data():
         sys.exit(1)
 
 def create_indexes_with_vectors(client):
-    """Criar índices RediSearch com suporte a vector search"""
+    """Criar índices RediSearch com suporte a vector search - HASH SCHEMA"""
     print("🔧 Criando índices...")
-    
+
     try:
         # Dropar índices existentes
-        client.execute_command('FT.DROPINDEX', 'idx:games')
+        client.execute_command('FT.DROPINDEX', 'idx:jogos')
         print("  ✓ Índice antigo removido")
     except:
         pass
-    
-    # Índice principal COM vector search
+
+    # Índice principal COM vector search - USANDO HASH (igual Python original)
     client.execute_command(
-        'FT.CREATE', 'idx:games',
-        'ON', 'JSON',
-        'PREFIX', '1', 'game:',
+        'FT.CREATE', 'idx:jogos',
+        'ON', 'HASH',
+        'PREFIX', '1', 'jogo:',
         'SCHEMA',
-        '$.nome', 'AS', 'nome', 'TEXT', 'SORTABLE',
-        '$.provider', 'AS', 'provider', 'TAG', 'SORTABLE',
-        '$.categoria', 'AS', 'categoria', 'TAG', 'SORTABLE',
-        '$.tipo_cactus', 'AS', 'tipo_cactus', 'TAG',
-        '$.badges[*]', 'AS', 'badges', 'TAG',
-        '$.descricao', 'AS', 'descricao', 'TEXT',
-        '$.termos_busca[*]', 'AS', 'termos_busca', 'TEXT',
-        '$.seo.keywords[*]', 'AS', 'keywords', 'TEXT',
+        'nome', 'TEXT', 'WEIGHT', '5', 'SORTABLE',
+        'aliases', 'TEXT', 'WEIGHT', '2',  # ← CAMPO CRÍTICO para mengao, bambi, etc
+        'provider', 'TAG', 'SORTABLE',
+        'id_jogo', 'TAG',
+        'popularity', 'NUMERIC', 'SORTABLE',
         # VECTOR FIELD
-        '$.embedding', 'AS', 'embedding', 'VECTOR', 'HNSW', '6',
+        'description_vector', 'VECTOR', 'FLAT', '6',
         'TYPE', 'FLOAT32',
         'DIM', '1536',  # OpenAI text-embedding-3-small
         'DISTANCE_METRIC', 'COSINE'
     )
-    print("  ✓ Índice principal criado (idx:games) com vector search")
+    print("  ✓ Índice principal criado (idx:jogos) com HASH + vector search")
 
 def seed_games_with_embeddings(client, games):
-    """Seed de jogos COM embeddings OpenAI"""
+    """Seed de jogos COM embeddings OpenAI - HASH SCHEMA"""
     print(f"\n🎮 Inserindo {len(games)} jogos...")
-    
+
     # Inicializar gerador de embeddings
     print("🧠 Gerando embeddings com OpenAI...")
     generator = get_embedding_generator()
-    
+
     # Preparar textos para batch embedding
     texts = []
-    game_objects = []
-    
+    game_ids = []
+
     for game_data in games:
-        # Converter para schema de produção
-        game = convert_to_production_schema(game_data)
-        
-        # Texto para embedding (descrição do jogo)
-        description = game_data.get('description', game_data.get('descricao', ''))
+        description = game_data.get('description', '')
         if description:
             texts.append(description)
-            game_objects.append(game)
-    
+            game_ids.append(game_data['id_jogo'])
+
     # Gerar embeddings em batch (mais eficiente)
     print(f"📡 Chamando OpenAI API para {len(texts)} descrições...")
     embeddings = generator.generate_batch(texts)
-    
-    # Salvar jogos com embeddings
-    for game, embedding in zip(game_objects, embeddings):
-        # Adicionar embedding ao objeto
-        game['embedding'] = embedding
-        
-        # Salvar no Redis como JSON
-        client.json().set(f"game:{game['id']}", '$', game)
-        print(f"  ✓ {game['nome']} ({game['provider']})")
 
-def convert_to_production_schema(game_data):
-    """Converte dados do games_data.json para schema de produção"""
-    # Extrair termos de busca dos aliases
-    aliases = game_data.get('aliases', '')
-    termos_busca = [term.strip() for term in aliases.split() if len(term.strip()) > 2]
-    
-    return {
-        "id": game_data.get('id_jogo', game_data.get('id')),
-        "nome": game_data['nome'],
-        "provider": game_data['provider'],
-        "tipo_cactus": "Slot",  # Default
-        "tipo_provedor": "Slot",
-        "categoria": "slot",
-        "badges": ["FS", "CERT"],
-        "descricao": game_data.get('description', game_data.get('descricao', '')),
-        "termos_busca": termos_busca[:10],  # Limitar a 10 termos
-        "thumbnail_principal": "https://images.unsplash.com/photo-1596838132731-3301c3fd4317",
-        "thumbnails": {
-            "300_250": "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=300&h=250",
-            "home_banner": "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=1200&h=400",
-            "mobile_hero": "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400&h=600"
-        },
-        "seo": {
-            "titulo": f"{game_data['nome']} - Jogue Agora",
-            "meta_description": f"Experimente {game_data['nome']}, jogo {game_data['provider']}.",
-            "keywords": [game_data['nome'].lower(), game_data['provider'].lower()]
+    # Criar dicionário de embeddings
+    embedding_map = dict(zip(game_ids, embeddings))
+
+    # Salvar jogos como HASH
+    import struct
+    for game_data in games:
+        key = f"jogo:{game_data['id_jogo']}"
+
+        # Preparar dados flat para HASH
+        hash_data = {
+            'id_jogo': game_data['id_jogo'],
+            'nome': game_data['nome'],
+            'provider': game_data['provider'],
+            'aliases': game_data['aliases'],  # ← CRÍTICO! String com todos os termos
+            'popularity': str(game_data.get('popularity', 50))
         }
-    }
+
+        # Adicionar embedding se existir
+        if game_data['id_jogo'] in embedding_map:
+            embedding = embedding_map[game_data['id_jogo']]
+            # Converter para bytes (FLOAT32)
+            embedding_bytes = struct.pack(f'{len(embedding)}f', *embedding)
+            hash_data['description_vector'] = embedding_bytes
+
+        # Salvar no Redis como HASH
+        client.hset(key, mapping=hash_data)
+        print(f"  ✓ {game_data['nome']} ({game_data['provider']})")
 
 def seed_autocomplete(client, games):
-    """Seed de autocomplete"""
-    print("\n💡 Criando sugestões de autocomplete...")
-    
-    # Limpar autocomplete existente
+    """Seed de autocomplete usando FT.SUGADD"""
+    print("\n🔍 Populando autocomplete...")
+
+    suggestion_key = "ac:jogos"
+
+    # Limpar sugestões antigas
     try:
-        client.execute_command('DEL', 'ac:games')
+        client.delete(suggestion_key)
     except:
         pass
-    
-    for game_data in games:
-        game = convert_to_production_schema(game_data)
-        
-        # Nome oficial
+
+    suggestion_count = 0
+
+    for game in games:
+        # Adicionar nome principal
         client.execute_command(
-            'FT.SUGADD', 'ac:games', game['nome'], 1.0, 'PAYLOAD', game['id']
+            'FT.SUGADD', suggestion_key,
+            game['nome'],
+            game.get('popularity', 50),
+            'PAYLOAD', game['id_jogo']
         )
-        
-        # Termos de busca (apelidos)
-        for termo in game['termos_busca'][:5]:  # Top 5 termos
-            try:
-                client.execute_command(
-                    'FT.SUGADD', 'ac:games', termo, 0.9, 'PAYLOAD', game['id']
-                )
-            except:
-                pass  # Ignorar duplicatas
-        
-        # Provider
-        try:
-            client.execute_command(
-                'FT.SUGADD', 'ac:games', game['provider'], 0.7, 'PAYLOAD', game['id']
-            )
-        except:
-            pass
-        
-        print(f"  ✓ {game['nome']}: {len(game['termos_busca']) + 2} sugestões")
+        suggestion_count += 1
+
+        # Adicionar aliases individuais
+        aliases = game.get('aliases', '').split()
+        for alias in aliases[:10]:  # Limitar a 10 aliases por jogo
+            if len(alias) > 2:
+                try:
+                    client.execute_command(
+                        'FT.SUGADD', suggestion_key,
+                        alias,
+                        game.get('popularity', 50) * 0.8,  # Score menor para aliases
+                        'PAYLOAD', game['id_jogo']
+                    )
+                    suggestion_count += 1
+                except:
+                    pass  # Ignorar duplicatas
+
+    print(f"  ✓ {suggestion_count} sugestões adicionadas")
 
 def seed_synonyms(client, synonym_groups):
-    """Seed de sinônimos"""
+    """Seed de sinônimos - CRÍTICO para mengao, bambi, etc"""
     print("\n🔄 Criando sinônimos...")
-    
+
     for group in synonym_groups:
         client.execute_command(
-            'FT.SYNUPDATE', 'idx:games', group['id'], *group['terms']
+            'FT.SYNUPDATE', 'idx:jogos', group['id'], *group['terms']  # idx:jogos (HASH)
         )
         print(f"  ✓ {group['id']}: {', '.join(group['terms'][:3])}...")
 
@@ -208,13 +197,16 @@ def main():
     print("✅ SEED COMPLETO!")
     print("=" * 60)
     print(f"\n📊 Estatísticas:")
-    print(f"  • {len(games)} jogos cadastrados")
+    print(f"  • {len(games)} jogos cadastrados (HASH schema)")
     print(f"  • {len(games)} embeddings gerados (OpenAI 1536D)")
-    print(f"  • Índice: idx:games (TEXT + TAG + VECTOR)")
-    print(f"  • Autocomplete: ac:games")
+    print(f"  • {len(synonym_groups)} grupos de sinônimos")
+    print(f"  • Índice: idx:jogos (HASH + VECTOR)")
+    print(f"  • Autocomplete: ac:jogos")
     print(f"\n🧪 Testar:")
-    print(f"  FT.SEARCH idx:games 'tigre' LIMIT 0 10")
-    print(f"  FT.SUGGET ac:games 'tig' FUZZY MAX 10")
+    print(f"  FT.SEARCH idx:jogos 'mengao' LIMIT 0 10  # Deve achar Flamengo")
+    print(f"  FT.SEARCH idx:jogos 'bambi' LIMIT 0 10   # Deve achar São Paulo")
+    print(f"  FT.SEARCH idx:jogos 'tigrinho' LIMIT 0 10  # Deve achar Fortune Tiger")
+    print(f"  FT.SUGGET ac:jogos 'tig' FUZZY MAX 10")
     print()
 
 if __name__ == '__main__':

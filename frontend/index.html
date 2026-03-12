@@ -142,17 +142,20 @@
 <body>
     <div class="container">
         <h1>🌵 Cactus Gaming</h1>
-        <p class="subtitle">Redis Search Demo - Autocomplete + Full-text + Vector Search</p>
-        
+        <p class="subtitle">Search-as-a-Service com Redis</p>
+
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Digite para buscar jogos... (ex: tigre, aviator, olympus)">
+            <input type="text" id="searchInput" placeholder="Digite para buscar... (ex: mengao, bambi, tigrinho)">
             <div class="autocomplete" id="autocomplete"></div>
         </div>
-        
+
         <div class="buttons">
-            <button class="btn-search" onclick="search()">🔍 Buscar (Full-text)</button>
-            <button class="btn-vector" onclick="vectorSearch()">🧠 Busca Semântica (Vector)</button>
+            <button class="btn-search" onclick="search()">🔍 Buscar</button>
         </div>
+
+        <p style="text-align: center; color: #666; font-size: 14px; margin-top: 10px;">
+            💡 Busca inteligente: Autocomplete → Sinônimos → Fuzzy → Vector Search
+        </p>
         
         <div id="error"></div>
         <div id="results"></div>
@@ -205,23 +208,32 @@
             search();
         }
         
-        // Search
+        // Search - Multi-layer intelligent search
         async function search() {
             const query = searchInput.value;
             if (!query) return;
-            
+
             errorDiv.innerHTML = '';
             resultsDiv.innerHTML = '<div class="loading">🔍 Buscando...</div>';
-            
+
             try {
                 const response = await fetch(`${API_URL}/api/search`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ query })
                 });
-                
+
                 const data = await response.json();
-                displayResults(data, 'Full-text Search');
+
+                // Mostrar qual método foi usado
+                const methodLabels = {
+                    'full-text': '🔍 Full-text Search (com sinônimos)',
+                    'fuzzy': '🔀 Fuzzy Match',
+                    'vector': '🧠 Vector Search (semântica)'
+                };
+
+                const methodLabel = methodLabels[data.searchMethod] || 'Busca';
+                displayResults(data, methodLabel);
             } catch (err) {
                 showError('Erro na busca: ' + err.message);
             }

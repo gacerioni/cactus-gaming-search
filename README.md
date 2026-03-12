@@ -1,22 +1,44 @@
 # 🌵 Cactus Gaming - Redis Search as a Service
 
-Search-as-a-Service para casas de apostas com Redis Cloud.
+**Search-as-a-Service** completo usando Redis, similar ao Algolia/Meilisearch.
 
-**Features:** Autocomplete • Full-text Search • Vector Search (IA) • Edge Computing
+**Features:**
+- 🔍 **Autocomplete** - Sugestões em tempo real
+- 📝 **Full-text Search** - Busca com sinônimos ("mengao" → Flamengo)
+- 🔀 **Fuzzy Match** - Tolerância a erros de digitação
+- 🧠 **Vector Search** - Busca semântica com IA
 
 ## 🌐 URLs em Produção
 
-- **Frontend:** https://defbbe54.cactus-demo.pages.dev
+- **Frontend:** https://8496f414.cactus-demo.pages.dev
 - **Worker (API):** https://cactus-worker.platformengineer.workers.dev
 - **Backend:** https://api-backend.platformengineer.io
 
+## 🎯 Experiência de Busca
+
+Digite **"mengao"** → Acha Flamengo ✅
+Digite **"bambi"** → Acha São Paulo ✅
+Digite **"tigrinho"** → Acha Fortune Tiger ✅
+
+**Como funciona:**
+1. Autocomplete mostra sugestões enquanto digita
+2. Busca usa sinônimos (mengao = flamengo = fla)
+3. Se não achar, tenta fuzzy match
+4. Se ainda não achar, usa vector search (semântica)
+
 > **⚠️ IMPORTANTE:** Este projeto tem 4 componentes separados:
-> - `seed/` - Script Python (popular Redis)
+> - `seed/` - Script Python (popular Redis com HASH schema)
 > - `backend/` - API Node.js (AWS EC2)
 > - `worker/` - Cloudflare Worker (Edge Proxy)
 > - `frontend/` - Demo HTML (Cloudflare Pages)
 >
 > **Não existe `package.json` na raiz!** Entre em cada pasta antes de rodar `npm install`.
+
+## 📚 Documentação
+
+- **[DEPLOY_GUIDE.md](DEPLOY_GUIDE.md)** - Guia completo de deploy e re-deploy
+- **[TUTORIAL.md](TUTORIAL.md)** - Manutenção do backend no EC2
+- **[CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md)** - Setup do Worker e Pages
 
 ---
 
