@@ -29,10 +29,10 @@ export const SEARCH_CONFIG = {
   indexName: 'idx:jogos',
 
   // Threshold mínimo de score para incluir resultado
-  minScore: 0.2,      // Reduzido para retornar mais resultados
+  minScore: 0.15,      // Reduzido para retornar mais resultados
 
-  // Threshold específico para vector search
-  vectorMinScore: 0.7,  // VSS precisa de score >= 0.7 para ser considerado
+  // Threshold específico para vector search (distância máxima aceitável)
+  vectorMinScore: 1.5,  // Aceita resultados com distância até 1.5 (mais permissivo)
 };
 
 export type SearchConfig = typeof SEARCH_CONFIG;
