@@ -65,15 +65,13 @@ export class ScoringService {
 
     // Processa resultados Vector (já vem com score do Redis)
     // IMPORTANTE: Redis KNN retorna DISTÂNCIA (menor = melhor)
-    // vectorMinScore é um threshold de distância máxima aceitável
-    vectorResults.forEach((result) => {
+    // KNN já limita os resultados, então aceitamos todos
+    vectorResults.forEach((result, index) => {
       const distance = result.score || 999; // Distance score from Redis
-      // Só adiciona se a distância for <= vectorMinScore (mais próximo = melhor)
-      if (distance <= this.vectorMinScore) {
-        // Normaliza distância para score 0-1 (inverte: menor distância = maior score)
-        const normalizedScore = Math.max(0, 1 - distance);
-        this.addOrUpdateResult(resultMap, result, 'vector', normalizedScore, aliasMatches);
-      }
+      // Normaliza distância para score 0-1 usando posição no ranking
+      // Primeiro resultado = score mais alto, decai exponencialmente
+      const normalizedScore = this.calculatePositionScore(index, vectorResults.length);
+      this.addOrUpdateResult(resultMap, result, 'vector', normalizedScore, aliasMatches);
     });
 
     // Calcula score final e ordena
