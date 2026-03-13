@@ -1,0 +1,745 @@
+{
+  "expansion_games": [
+    {
+      "id_jogo": "101",
+      "nome": "Palmeiras - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "palmeiras porco verdao alviverde academia de futebol palestra italia",
+      "popularity": 98,
+      "description": "Aposte no próximo jogo do Palmeiras. Verdão, maior campeão brasileiro, com tradição e títulos da Libertadores.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "102",
+      "nome": "Flamengo - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "flamengo mengao mengão rubro-negro urubu nação fla crf",
+      "popularity": 100,
+      "description": "Aposte no próximo jogo do Flamengo. Mengão, time mais popular do Brasil, com torcida apaixonada.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "103",
+      "nome": "Corinthians - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "corinthians timao timão coringao coringão fiel alvinegro sccp",
+      "popularity": 98,
+      "description": "Aposte no próximo jogo do Corinthians. Timão, time do povo, com a Fiel torcida.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "104",
+      "nome": "São Paulo - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "sao paulo bambi tricolor soberano morumbi spfc",
+      "popularity": 95,
+      "description": "Aposte no próximo jogo do São Paulo. Tricolor paulista, time de tradição e títulos mundiais.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "105",
+      "nome": "Santos - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "santos peixe alvinegro praiano vila belmiro",
+      "popularity": 90,
+      "description": "Aposte no próximo jogo do Santos. Peixe, time de Pelé e Neymar, tradição santista.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "106",
+      "nome": "Vasco - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "vasco vascao vascão gigante da colina cruzmaltino almirante",
+      "popularity": 88,
+      "description": "Aposte no próximo jogo do Vasco. Gigante da Colina, tradição carioca.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "107",
+      "nome": "Botafogo - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "botafogo fogao fogão glorioso alvinegro estrela solitaria",
+      "popularity": 87,
+      "description": "Aposte no próximo jogo do Botafogo. Fogão, time glorioso do Rio de Janeiro.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "108",
+      "nome": "Fluminense - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "fluminense flu tricolor carioca po de arroz laranjeiras",
+      "popularity": 86,
+      "description": "Aposte no próximo jogo do Fluminense. Tricolor carioca, time de tradição.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "109",
+      "nome": "Atlético Mineiro - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "atletico mineiro galo alvinegro cam massa galoucura",
+      "popularity": 92,
+      "description": "Aposte no próximo jogo do Atlético Mineiro. Galo, campeão da Libertadores.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "110",
+      "nome": "Cruzeiro - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "cruzeiro raposa celeste cabuloso toca da raposa",
+      "popularity": 89,
+      "description": "Aposte no próximo jogo do Cruzeiro. Raposa, time de tradição mineira.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "111",
+      "nome": "Internacional - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "internacional inter colorado colorao colorão beira-rio sci",
+      "popularity": 90,
+      "description": "Aposte no próximo jogo do Internacional. Colorado gaúcho, rival do Grêmio.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "112",
+      "nome": "Grêmio - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "gremio tricolor gaucho imortal arena gremista fbpa",
+      "popularity": 91,
+      "description": "Aposte no próximo jogo do Grêmio. Tricolor gaúcho, time imortal.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "113",
+      "nome": "Athletico Paranaense - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "athletico paranaense furacao furacão cap atletico",
+      "popularity": 85,
+      "description": "Aposte no próximo jogo do Athletico. Furacão paranaense.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "114",
+      "nome": "Coritiba - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "coritiba coxa coxa branca verdao paranaense",
+      "popularity": 82,
+      "description": "Aposte no próximo jogo do Coritiba. Coxa, time tradicional do Paraná.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "115",
+      "nome": "Fortaleza - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "fortaleza leao do pici laion tricolor de aco",
+      "popularity": 84,
+      "description": "Aposte no próximo jogo do Fortaleza. Leão do Pici, força do Nordeste.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "116",
+      "nome": "Ceará - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "ceara vozao vozão alvinegro cearense",
+      "popularity": 81,
+      "description": "Aposte no próximo jogo do Ceará. Vozão, tradição cearense.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "117",
+      "nome": "Bahia - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "bahia esquadrao de aco tricolor baiano bbmp",
+      "popularity": 83,
+      "description": "Aposte no próximo jogo do Bahia. Esquadrão de Aço, tradição baiana.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "118",
+      "nome": "Vitória - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "vitoria leao da barra rubro-negro baiano",
+      "popularity": 79,
+      "description": "Aposte no próximo jogo do Vitória. Leão da Barra, rival do Bahia.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "119",
+      "nome": "Sport - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "sport recife leao da ilha rubro-negro pernambucano",
+      "popularity": 80,
+      "description": "Aposte no próximo jogo do Sport. Leão da Ilha, tradição pernambucana.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "120",
+      "nome": "Santa Cruz - Próximo Jogo",
+      "provider": "Sportsbet",
+      "aliases": "santa cruz cobra coral tricolor do arruda",
+      "popularity": 77,
+      "description": "Aposte no próximo jogo do Santa Cruz. Cobra Coral, rival do Sport.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "121",
+      "nome": "Palmeiras vs Flamengo",
+      "provider": "Sportsbet",
+      "aliases": "palmeiras flamengo porco mengao verdao classico nacional",
+      "popularity": 99,
+      "description": "Clássico nacional entre Palmeiras e Flamengo. Porco vs Mengão, os maiores do Brasil.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "122",
+      "nome": "Flamengo vs Corinthians",
+      "provider": "Sportsbet",
+      "aliases": "flamengo corinthians mengao timao classico nacional",
+      "popularity": 98,
+      "description": "Clássico nacional entre Flamengo e Corinthians. Mengão vs Timão.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "123",
+      "nome": "Champions League - Ao Vivo",
+      "provider": "Sportsbet",
+      "aliases": "champions league ucl liga dos campeoes uefa europa",
+      "popularity": 100,
+      "description": "Aposte ao vivo na Champions League. A maior competição de clubes da Europa.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "124",
+      "nome": "Premier League - Ao Vivo",
+      "provider": "Sportsbet",
+      "aliases": "premier league epl futebol ingles inglaterra",
+      "popularity": 97,
+      "description": "Aposte ao vivo na Premier League. O melhor futebol inglês.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "125",
+      "nome": "La Liga - Ao Vivo",
+      "provider": "Sportsbet",
+      "aliases": "la liga espanha futebol espanhol liga espanhola",
+      "popularity": 95,
+      "description": "Aposte ao vivo na La Liga. O melhor futebol espanhol.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "126",
+      "nome": "UFC - Amanda Nunes",
+      "provider": "Sportsbet",
+      "aliases": "ufc amanda nunes leoa mma luta vale-tudo",
+      "popularity": 88,
+      "description": "Aposte nas lutas de Amanda Nunes. A Leoa, maior lutadora de todos os tempos.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "127",
+      "nome": "UFC - Deiveson Figueiredo",
+      "provider": "Sportsbet",
+      "aliases": "ufc deiveson figueiredo deus da guerra mma luta",
+      "popularity": 86,
+      "description": "Aposte nas lutas de Deiveson Figueiredo. Deus da Guerra brasileiro.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "128",
+      "nome": "UFC - Gilbert Burns",
+      "provider": "Sportsbet",
+      "aliases": "ufc gilbert burns durinho mma jiu-jitsu",
+      "popularity": 84,
+      "description": "Aposte nas lutas de Gilbert Burns. Durinho, faixa-preta de jiu-jitsu.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "129",
+      "nome": "Fórmula 1 - Grande Prêmio",
+      "provider": "Sportsbet",
+      "aliases": "formula 1 f1 corrida automobilismo gp grande premio",
+      "popularity": 92,
+      "description": "Aposte ao vivo na Fórmula 1. A categoria máxima do automobilismo.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "130",
+      "nome": "NBA - Golden State Warriors",
+      "provider": "Sportsbet",
+      "aliases": "nba warriors golden state basquete basketball curry",
+      "popularity": 89,
+      "description": "Aposte nos jogos do Golden State Warriors. Time de Stephen Curry.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "131",
+      "nome": "NBA - Miami Heat",
+      "provider": "Sportsbet",
+      "aliases": "nba heat miami basquete basketball",
+      "popularity": 87,
+      "description": "Aposte nos jogos do Miami Heat. Tradição da NBA.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "132",
+      "nome": "NFL - Super Bowl",
+      "provider": "Sportsbet",
+      "aliases": "nfl super bowl futebol americano superbowl",
+      "popularity": 94,
+      "description": "Aposte no Super Bowl. A final do futebol americano.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "133",
+      "nome": "Tênis - Grand Slam",
+      "provider": "Sportsbet",
+      "aliases": "tenis grand slam wimbledon roland garros us open australian open",
+      "popularity": 88,
+      "description": "Aposte nos Grand Slams de tênis. Os maiores torneios do mundo.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "201",
+      "nome": "Fortune Dragon",
+      "provider": "PG Soft",
+      "aliases": "dragao dragon fortuna jogo do dragao",
+      "popularity": 92,
+      "description": "Slot asiático com dragão da fortuna. Símbolos orientais e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "202",
+      "nome": "Fortune Gems",
+      "provider": "PG Soft",
+      "aliases": "gemas gems joias pedras preciosas",
+      "popularity": 88,
+      "description": "Slot com gemas da fortuna e símbolos de riqueza asiática.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "203",
+      "nome": "Ganesha Gold",
+      "provider": "PG Soft",
+      "aliases": "ganesha ganesh elefante deus hindu",
+      "popularity": 87,
+      "description": "Slot com tema hindu e o deus Ganesha. Símbolos de prosperidade.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "204",
+      "nome": "Caishen Wins",
+      "provider": "PG Soft",
+      "aliases": "caishen deus da riqueza fortuna chinesa",
+      "popularity": 86,
+      "description": "Slot com Caishen, o deus chinês da riqueza. Multiplicadores e bônus.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "205",
+      "nome": "Double Fortune",
+      "provider": "PG Soft",
+      "aliases": "dupla fortuna double sorte dobro",
+      "popularity": 85,
+      "description": "Slot com tema de fortuna dupla e símbolos asiáticos de sorte.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "206",
+      "nome": "Piggy Gold",
+      "provider": "PG Soft",
+      "aliases": "porquinho pig ouro jogo do porco",
+      "popularity": 84,
+      "description": "Slot com porquinho dourado e símbolos de prosperidade.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "207",
+      "nome": "Treasures of Aztec",
+      "provider": "PG Soft",
+      "aliases": "azteca tesouro aztec ouro asteca",
+      "popularity": 83,
+      "description": "Slot com tema asteca e tesouros perdidos. Multiplicadores e rodadas grátis.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "208",
+      "nome": "Jungle Delight",
+      "provider": "PG Soft",
+      "aliases": "selva jungle floresta animais",
+      "popularity": 82,
+      "description": "Slot com tema de selva e animais exóticos. Bônus e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "209",
+      "nome": "Gem Saviour",
+      "provider": "PG Soft",
+      "aliases": "gemas gems salvador heroi",
+      "popularity": 81,
+      "description": "Slot com herói salvador de gemas. Mecânica única e bônus.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "210",
+      "nome": "Medusa",
+      "provider": "PG Soft",
+      "aliases": "medusa mitologia grega gorgona",
+      "popularity": 80,
+      "description": "Slot com tema de Medusa e mitologia grega. Rodadas grátis e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "211",
+      "nome": "Buffalo Win",
+      "provider": "PG Soft",
+      "aliases": "bufalo buffalo bisonte",
+      "popularity": 79,
+      "description": "Slot com tema de búfalo americano. Símbolos selvagens e bônus.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "212",
+      "nome": "Wild Bandito",
+      "provider": "PG Soft",
+      "aliases": "bandido bandito faroeste western",
+      "popularity": 78,
+      "description": "Slot com tema de faroeste e bandidos. Multiplicadores e rodadas grátis.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "213",
+      "nome": "Candy Bonanza",
+      "provider": "Pragmatic Play",
+      "aliases": "doce candy bala bombom",
+      "popularity": 90,
+      "description": "Slot com tema de doces e balas. Similar ao Sweet Bonanza.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "214",
+      "nome": "Fruit Party 2",
+      "provider": "Pragmatic Play",
+      "aliases": "frutas fruit festa party",
+      "popularity": 89,
+      "description": "Sequência do popular Fruit Party. Frutas coloridas e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "215",
+      "nome": "Sugar Rush Xmas",
+      "provider": "Pragmatic Play",
+      "aliases": "natal christmas doce sugar xmas",
+      "popularity": 87,
+      "description": "Versão natalina do Sugar Rush. Doces e tema de Natal.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "216",
+      "nome": "Starlight Christmas",
+      "provider": "Pragmatic Play",
+      "aliases": "natal christmas princesa starlight",
+      "popularity": 86,
+      "description": "Versão natalina do Starlight Princess. Tema de Natal e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "217",
+      "nome": "Great Rhino Megaways",
+      "provider": "Pragmatic Play",
+      "aliases": "rinoceronte rhino megaways africa",
+      "popularity": 85,
+      "description": "Slot com tema africano e rinocerontes. Mecânica Megaways.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "218",
+      "nome": "Chilli Heat",
+      "provider": "Pragmatic Play",
+      "aliases": "pimenta chilli mexico mexicano",
+      "popularity": 84,
+      "description": "Slot com tema mexicano e pimentas. Jackpot progressivo.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "219",
+      "nome": "Hot to Burn",
+      "provider": "Pragmatic Play",
+      "aliases": "fogo fire queimar frutas classico",
+      "popularity": 83,
+      "description": "Slot clássico com frutas em chamas. Símbolos tradicionais.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "220",
+      "nome": "Fire Strike",
+      "provider": "Pragmatic Play",
+      "aliases": "fogo fire strike chamas",
+      "popularity": 82,
+      "description": "Slot com tema de fogo e chamas. Multiplicadores e respin.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "301",
+      "nome": "Crash X",
+      "provider": "Turbo Games",
+      "aliases": "crash x foguete rocket multiplicador",
+      "popularity": 91,
+      "description": "Jogo de crash com foguete. Multiplicador crescente, saque antes de explodir.",
+      "categoria": "crash",
+      "tags": "CRASH"
+    },
+    {
+      "id_jogo": "302",
+      "nome": "Lucky Jet",
+      "provider": "Gaming Corps",
+      "aliases": "lucky jet jato aviao aviador",
+      "popularity": 89,
+      "description": "Jogo de crash com jato da sorte. Similar ao Aviator.",
+      "categoria": "crash",
+      "tags": "CRASH"
+    },
+    {
+      "id_jogo": "303",
+      "nome": "Rocket Queen",
+      "provider": "Caleta Gaming",
+      "aliases": "rocket rainha foguete espacial",
+      "popularity": 86,
+      "description": "Jogo de crash com tema espacial. Multiplicadores altos.",
+      "categoria": "crash",
+      "tags": "CRASH"
+    },
+    {
+      "id_jogo": "304",
+      "nome": "Space XY",
+      "provider": "BGaming",
+      "aliases": "space xy espacial foguete",
+      "popularity": 85,
+      "description": "Jogo de crash espacial. Multiplicadores e gráficos modernos.",
+      "categoria": "crash",
+      "tags": "CRASH"
+    },
+    {
+      "id_jogo": "305",
+      "nome": "Zeppelin",
+      "provider": "Aviatrix",
+      "aliases": "zeppelin dirigivel balao crash",
+      "popularity": 84,
+      "description": "Jogo de crash com dirigível. Multiplicador crescente.",
+      "categoria": "crash",
+      "tags": "CRASH"
+    },
+    {
+      "id_jogo": "401",
+      "nome": "Blackjack Brasileiro",
+      "provider": "Evolution",
+      "aliases": "blackjack 21 vinte e um cartas brasil",
+      "popularity": 93,
+      "description": "Blackjack ao vivo com dealer brasileiro. Mesa em português.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "402",
+      "nome": "Roleta Brasileira",
+      "provider": "Evolution",
+      "aliases": "roleta roulette brasil brasileira",
+      "popularity": 94,
+      "description": "Roleta ao vivo com dealer brasileiro. Narração em português.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "403",
+      "nome": "Baccarat Squeeze",
+      "provider": "Evolution",
+      "aliases": "baccarat bacara squeeze cartas",
+      "popularity": 88,
+      "description": "Baccarat ao vivo com squeeze dramático. Alta qualidade.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "404",
+      "nome": "Dragon Tiger",
+      "provider": "Evolution",
+      "aliases": "dragao tigre dragon tiger cartas",
+      "popularity": 86,
+      "description": "Jogo de cartas ao vivo Dragon Tiger. Simples e rápido.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "405",
+      "nome": "Deal or No Deal",
+      "provider": "Evolution",
+      "aliases": "deal no deal maletas show",
+      "popularity": 87,
+      "description": "Game show ao vivo Deal or No Deal. Maletas e multiplicadores.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "406",
+      "nome": "Gonzo's Treasure Hunt",
+      "provider": "Evolution",
+      "aliases": "gonzo tesouro treasure hunt aventura",
+      "popularity": 85,
+      "description": "Game show ao vivo com Gonzo. Caça ao tesouro e multiplicadores.",
+      "categoria": "live",
+      "tags": "LIVE CASINO"
+    },
+    {
+      "id_jogo": "501",
+      "nome": "Book of Ra",
+      "provider": "Novomatic",
+      "aliases": "livro ra egito egipcio farao",
+      "popularity": 90,
+      "description": "Slot clássico com tema egípcio. Livro de Rá e faraós.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "502",
+      "nome": "Cleopatra",
+      "provider": "IGT",
+      "aliases": "cleopatra egito rainha egipcia",
+      "popularity": 88,
+      "description": "Slot clássico com Cleópatra. Tema egípcio e rodadas grátis.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "503",
+      "nome": "Eye of Horus",
+      "provider": "Blueprint Gaming",
+      "aliases": "olho horus egito egipcio",
+      "popularity": 87,
+      "description": "Slot com tema egípcio e o olho de Hórus. Multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "504",
+      "nome": "Legacy of Dead",
+      "provider": "Play'n GO",
+      "aliases": "legado mortos egito egipcio",
+      "popularity": 86,
+      "description": "Slot com tema egípcio. Similar ao Book of Dead.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "505",
+      "nome": "Immortal Romance",
+      "provider": "Microgaming",
+      "aliases": "romance imortal vampiro amor",
+      "popularity": 85,
+      "description": "Slot com tema de vampiros e romance. História envolvente.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "506",
+      "nome": "Thunderstruck II",
+      "provider": "Microgaming",
+      "aliases": "thunder trovao thor mitologia nordica",
+      "popularity": 84,
+      "description": "Slot com tema de mitologia nórdica. Thor e deuses.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "507",
+      "nome": "Vikings Go Berzerk",
+      "provider": "Yggdrasil",
+      "aliases": "vikings viking guerreiro nordico",
+      "popularity": 83,
+      "description": "Slot com tema viking. Guerreiros e batalhas épicas.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "508",
+      "nome": "Valley of the Gods",
+      "provider": "Yggdrasil",
+      "aliases": "vale deuses egito egipcio",
+      "popularity": 82,
+      "description": "Slot com tema egípcio e vale dos deuses. Mecânica única.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "509",
+      "nome": "Samba Carnival",
+      "provider": "Play'n GO",
+      "aliases": "samba carnaval brasil brasileiro rio",
+      "popularity": 81,
+      "description": "Slot com tema de carnaval brasileiro. Samba e festa.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "510",
+      "nome": "Football Glory",
+      "provider": "Yggdrasil",
+      "aliases": "futebol football gloria copa",
+      "popularity": 80,
+      "description": "Slot com tema de futebol. Copa do mundo e glória.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    }
+  ]
+}
+
