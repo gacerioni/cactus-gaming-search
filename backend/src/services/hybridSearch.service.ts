@@ -77,6 +77,9 @@ export class HybridSearchService {
     if (vectorGames.length > 0) searchMethods.push('vector');
 
     console.log(`📊 Results: FTS=${ftsGames.length}, Fuzzy=${fuzzyGames.length}, Vector=${vectorGames.length}`);
+    console.log(`  FTS games:`, ftsGames.map(g => g.nome).slice(0, 5));
+    console.log(`  Fuzzy games:`, fuzzyGames.map(g => g.nome).slice(0, 5));
+    console.log(`  Vector games:`, vectorGames.map(g => g.nome).slice(0, 5));
 
     // Identifica matches via alias
     const aliasMatches = this.identifyAliasMatches(query, [...ftsGames, ...fuzzyGames, ...vectorGames]);
