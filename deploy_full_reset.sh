@@ -67,6 +67,10 @@ echo "📊 Step 8: Check PM2 status"
 ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'pm2 list && pm2 logs cactus-backend --lines 20 --nostream'"
 
 echo ""
+echo "🌐 Step 9: Deploy Frontend to Cloudflare Pages"
+ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'export CLOUDFLARE_API_TOKEN=\"lvV3rlj0HWTYyQUZ2cNZTrueGmutwX_72uft7zkR\" && cd $PROJECT_DIR && npx wrangler pages deploy frontend --project-name=cactus-demo'"
+
+echo ""
 echo "✅ DEPLOY COMPLETE!"
 echo ""
 echo "🧪 Test the search:"
