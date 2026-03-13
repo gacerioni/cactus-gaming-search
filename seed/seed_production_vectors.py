@@ -12,7 +12,8 @@ from redis_client import get_redis_client
 from embeddings import get_embedding_generator
 
 # Carregar dados do arquivo JSON existente
-GAMES_DATA_FILE = Path(__file__).parent.parent / "games_data.json"
+# Sempre usar o arquivo da raiz do projeto, não o da pasta seed
+GAMES_DATA_FILE = Path(__file__).resolve().parent.parent / "games_data.json"
 
 def load_games_data():
     """Carrega dados do games_data.json"""
@@ -20,6 +21,13 @@ def load_games_data():
         with open(GAMES_DATA_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
         print(f"✅ Loaded {len(data['games'])} games from games_data.json")
+
+        # DEBUG: Verificar aliases do Fortune Tiger
+        ft = [g for g in data['games'] if g['nome'] == 'Fortune Tiger']
+        if ft:
+            print(f"🐯 DEBUG - Fortune Tiger aliases no JSON: {ft[0]['aliases'][:80]}...")
+            print(f"🐯 DEBUG - Tamanho completo: {len(ft[0]['aliases'])} caracteres")
+
         return data
     except FileNotFoundError:
         print(f"❌ ERROR: {GAMES_DATA_FILE} not found!")
@@ -109,7 +117,17 @@ def seed_games_with_embeddings(client, games):
 
         # Salvar no Redis como HASH
         client.hset(key, mapping=hash_data)
-        print(f"  ✓ {game_data['nome']} ({game_data['provider']})")
+
+        # Debug: verificar se aliases foram salvos corretamente
+        if game_data['nome'] == 'Fortune Tiger':
+            stored_aliases_raw = client.hget(key, 'aliases')
+            stored_aliases = stored_aliases_raw.decode('utf-8') if isinstance(stored_aliases_raw, bytes) else stored_aliases_raw
+            print(f"  ✓ {game_data['nome']} ({game_data['provider']})")
+            print(f"    DEBUG - Aliases originais: {game_data['aliases'][:80]}...")
+            print(f"    DEBUG - Aliases armazenados: {stored_aliases[:80]}...")
+            print(f"    DEBUG - Match: {stored_aliases == game_data['aliases']}")
+        else:
+            print(f"  ✓ {game_data['nome']} ({game_data['provider']})")
 
 def seed_autocomplete(client, games):
     """Seed de autocomplete usando FT.SUGADD"""

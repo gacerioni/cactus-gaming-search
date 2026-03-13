@@ -137,6 +137,42 @@
             font-size: 14px;
             margin-bottom: 15px;
         }
+        .badges {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-fts {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .badge-fuzzy {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        .badge-vector {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        .score {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -266,30 +302,56 @@
                 showError(data.error);
                 return;
             }
-            
+
             const games = data.games || [];
-            
+
             if (games.length === 0) {
                 resultsDiv.innerHTML = '<div class="loading">😕 Nenhum resultado encontrado</div>';
                 return;
             }
-            
-            let html = `<div class="stats">📊 ${method} - ${data.total} resultados encontrados</div>`;
-            
+
+            // Mostrar métodos de busca usados
+            const searchMethods = data.searchMethods || [];
+            const methodBadges = searchMethods.map(m => {
+                const badges = {
+                    'fts': '<span class="badge badge-fts">🔍 FTS</span>',
+                    'fuzzy': '<span class="badge badge-fuzzy">🔀 Fuzzy</span>',
+                    'vector': '<span class="badge badge-vector">🧠 Vector</span>'
+                };
+                return badges[m] || '';
+            }).join('');
+
+            let html = `<div class="stats">📊 ${data.total} resultados encontrados ${methodBadges ? '• Métodos: ' + methodBadges : ''}</div>`;
+
             games.forEach(game => {
                 const nome = game.nome || game['$.nome'] || 'Sem nome';
                 const provider = game.provider || game['$.provider'] || 'Desconhecido';
-                const descricao = game.descricao || game['$.descricao'] || '';
-                
+                const descricao = game.description || game.descricao || game['$.descricao'] || '';
+                const score = game.score !== undefined ? game.score : null;
+
+                // Badges de método para cada jogo (se disponível)
+                let gameBadges = '';
+                if (game.matchedBy) {
+                    const methodMap = {
+                        'fts': '<span class="badge badge-fts">FTS</span>',
+                        'fuzzy': '<span class="badge badge-fuzzy">Fuzzy</span>',
+                        'vector': '<span class="badge badge-vector">Vector</span>'
+                    };
+                    gameBadges = `<div class="badges">${methodMap[game.matchedBy] || ''} ${score !== null ? `<span class="score">Score: ${score.toFixed(2)}</span>` : ''}</div>`;
+                } else if (score !== null) {
+                    gameBadges = `<div class="badges"><span class="score">Score: ${score.toFixed(2)}</span></div>`;
+                }
+
                 html += `
                     <div class="result-item">
                         <div class="result-title">${nome}</div>
                         <div class="result-provider">${provider}</div>
+                        ${gameBadges}
                         ${descricao ? `<div class="result-description">${descricao}</div>` : ''}
                     </div>
                 `;
             });
-            
+
             resultsDiv.innerHTML = html;
         }
         

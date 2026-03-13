@@ -11,13 +11,153 @@
       "tags": "FS CERT"
     },
     {
+      "id_jogo": "2",
+      "nome": "Fortune Ox",
+      "provider": "PG Soft",
+      "aliases": "boi touro ox jogo do boi",
+      "popularity": 95,
+      "description": "Slot asiático com o boi da fortuna e símbolos de prosperidade.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "3",
+      "nome": "Fortune Mouse",
+      "provider": "PG Soft",
+      "aliases": "rato mouse jogo do rato",
+      "popularity": 90,
+      "description": "Slot com o rato da fortuna e temas de sorte asiática.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "4",
+      "nome": "Fortune Rabbit",
+      "provider": "PG Soft",
+      "aliases": "coelho rabbit jogo do coelho coelhinho",
+      "popularity": 90,
+      "description": "Slot com coelho da sorte e símbolos de fortuna.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "5",
+      "nome": "Dragon Hatch",
+      "provider": "PG Soft",
+      "aliases": "dragao dragon dragão",
+      "popularity": 85,
+      "description": "Slot com dragões e mecânica de eclosão de ovos.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
       "id_jogo": "6",
       "nome": "Penalty Shoot Out",
       "provider": "PG Soft",
-      "aliases": "penalti penalty futebol classico shoot out chute a gol cobranças de penalti soccer football",
+      "aliases": "penalti penalty futebol classico",
       "popularity": 75,
-      "description": "Penalty Shoot Out é um jogo de futebol da PG Soft com mecânica de crash. Simula cobranças de pênaltis onde o jogador decide quando sacar antes do goleiro defender. Tema esportivo com campo de futebol e torcida.",
+      "description": "Jogo de pênaltis com mecânica crash.",
       "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "7",
+      "nome": "Gates of Olympus",
+      "provider": "Pragmatic Play",
+      "aliases": "gates olimpo zeus portoes",
+      "popularity": 95,
+      "description": "Slot mitológico com Zeus e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "8",
+      "nome": "Gates of Olympus 1000",
+      "provider": "Pragmatic Play",
+      "aliases": "gates olimpo zeus 1000",
+      "popularity": 90,
+      "description": "Versão aprimorada do Gates of Olympus com multiplicadores até 1000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "9",
+      "nome": "Sweet Bonanza",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sweet bonanza frutas",
+      "popularity": 95,
+      "description": "Slot de frutas e doces com multiplicadores e tumble feature.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "10",
+      "nome": "Sweet Bonanza Candyland",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sweet candyland live",
+      "popularity": 85,
+      "description": "Versão live do Sweet Bonanza com apresentador ao vivo.",
+      "categoria": "live",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "11",
+      "nome": "Big Bass Bonanza",
+      "provider": "Pragmatic Play",
+      "aliases": "pesca bass pescador peixe",
+      "popularity": 90,
+      "description": "Slot de pesca com pescador e peixes dourados.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "12",
+      "nome": "Big Bass Splash",
+      "provider": "Pragmatic Play",
+      "aliases": "pesca bass splash peixe",
+      "popularity": 85,
+      "description": "Continuação do Big Bass com mais features de pesca.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "13",
+      "nome": "Spaceman",
+      "provider": "Pragmatic Play",
+      "aliases": "astronauta spaceman espaco crash",
+      "popularity": 90,
+      "description": "Jogo crash com astronauta no espaço.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "14",
+      "nome": "Sugar Rush",
+      "provider": "Pragmatic Play",
+      "aliases": "doce sugar rush candy",
+      "popularity": 85,
+      "description": "Slot de doces com cluster pays e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "15",
+      "nome": "Starlight Princess",
+      "provider": "Pragmatic Play",
+      "aliases": "princesa starlight anime",
+      "popularity": 90,
+      "description": "Slot anime com princesa e multiplicadores.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "16",
+      "nome": "Wolf Gold",
+      "provider": "Pragmatic Play",
+      "aliases": "lobo wolf gold ouro",
+      "popularity": 80,
+      "description": "Slot com lobos e tema do oeste americano.",
+      "categoria": "slot",
       "tags": "FS CERT"
     },
     {
@@ -28,6 +168,136 @@
       "popularity": 100,
       "description": "Aviator é o jogo crash mais popular da Spribe. Um avião decola e o multiplicador aumenta até ele voar embora. Jogador deve sacar antes do avião sumir. Conhecido como aviãozinho, é o crash game mais jogado no Brasil.",
       "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "18",
+      "nome": "JetX",
+      "provider": "SmartSoft Gaming",
+      "aliases": "jetx jet jato foguete crash smartsoft",
+      "popularity": 85,
+      "description": "JetX é um crash game com jato supersônico. O multiplicador cresce enquanto o jato voa. Sacar no momento certo é a chave para ganhar grandes prêmios.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "19",
+      "nome": "Balloon",
+      "provider": "Turbo Games",
+      "aliases": "balloon balao balão crash turbo",
+      "popularity": 75,
+      "description": "Balloon é um crash game onde um balão sobe e o multiplicador aumenta. Cuidado para não estourar! Sacar antes do estouro garante o prêmio.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "20",
+      "nome": "Mines",
+      "provider": "Spribe",
+      "aliases": "mines minas campo minado bombas explosao",
+      "popularity": 90,
+      "description": "Mines é um jogo de estratégia onde você escolhe quadrados seguros em um campo minado. Cada escolha certa aumenta o multiplicador. Quanto mais arriscar, maior o prêmio.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "21",
+      "nome": "Flamengo vs Corinthians",
+      "provider": "Sportsbet",
+      "aliases": "flamengo corinthians mengao timao fla mengão timão classico brasileiro derby",
+      "popularity": 95,
+      "description": "Clássico brasileiro entre Flamengo e Corinthians. Mengão contra Timão em uma das maiores rivalidades do futebol nacional. Apostas ao vivo e pré-jogo.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "22",
+      "nome": "Palmeiras vs São Paulo",
+      "provider": "Sportsbet",
+      "aliases": "palmeiras sao paulo verdao bambi choque-rei choque rei classico paulista derby",
+      "popularity": 95,
+      "description": "Choque-Rei paulista entre Palmeiras e São Paulo. Verdão contra Bambi no maior clássico de São Paulo. Emoção garantida nas apostas esportivas.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "23",
+      "nome": "Santos vs Vasco",
+      "provider": "Sportsbet",
+      "aliases": "santos vasco peixe gigante da colina classico brasileiro",
+      "popularity": 80,
+      "description": "Clássico entre Santos e Vasco da Gama. O Peixe contra o Gigante da Colina em confronto histórico do futebol brasileiro.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "24",
+      "nome": "Grêmio vs Internacional",
+      "provider": "Sportsbet",
+      "aliases": "gremio internacional grenal tricolor colorado classico gaucho derby",
+      "popularity": 90,
+      "description": "Grenal - o maior clássico do sul do Brasil. Grêmio tricolor contra Internacional colorado em rivalidade histórica gaúcha.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "25",
+      "nome": "Cruzeiro vs Atlético MG",
+      "provider": "Sportsbet",
+      "aliases": "cruzeiro atletico mineiro raposa galo classico mineiro derby belo horizonte",
+      "popularity": 85,
+      "description": "Clássico mineiro entre Cruzeiro e Atlético MG. A Raposa contra o Galo no maior derby de Minas Gerais.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "26",
+      "nome": "Book of Dead",
+      "provider": "Play'n GO",
+      "aliases": "book of dead livro dos mortos egito egipcio farao",
+      "popularity": 90,
+      "description": "Book of Dead é um slot egípcio clássico da Play'n GO. Explore tumbas com Rich Wilde em busca do livro dos mortos. Free spins com símbolos expansíveis.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "27",
+      "nome": "Gonzo's Quest",
+      "provider": "NetEnt",
+      "aliases": "gonzo quest gonzos aventura explorador",
+      "popularity": 85,
+      "description": "Gonzo's Quest é um slot de aventura da NetEnt. Siga o explorador Gonzo em busca de El Dorado com avalanche de símbolos e multiplicadores crescentes.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "28",
+      "nome": "Starburst",
+      "provider": "NetEnt",
+      "aliases": "starburst estrela star burst joias gems",
+      "popularity": 90,
+      "description": "Starburst é o slot mais icônico da NetEnt. Joias cósmicas brilhantes com wilds expansíveis e re-spins. Simples e viciante.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "29",
+      "nome": "Mega Moolah",
+      "provider": "Microgaming",
+      "aliases": "mega moolah jackpot progressive safari leao",
+      "popularity": 95,
+      "description": "Mega Moolah é o slot de jackpot progressivo mais famoso do mundo. Tema de safari africano com 4 jackpots progressivos. Milhões em prêmios.",
+      "categoria": "slot",
+      "tags": "FS JACKPOT"
+    },
+    {
+      "id_jogo": "30",
+      "nome": "Fruit Party",
+      "provider": "Pragmatic Play",
+      "aliases": "fruit party frutas festa doce candy",
+      "popularity": 85,
+      "description": "Fruit Party é um slot colorido de frutas da Pragmatic Play. Cluster pays com multiplicadores até 256x. Frutas dançantes e muita diversão.",
+      "categoria": "slot",
       "tags": "FS CERT"
     }
   ],
