@@ -4,9 +4,9 @@
       "id_jogo": "1",
       "nome": "Fortune Tiger",
       "provider": "PG Soft",
-      "aliases": "tigrinho jogo do tigre fortun tigre tigre da fortuna",
+      "aliases": "tigrinho jogo do tigre fortun tigre tigre da fortuna triguinho tigrinhu tigrao tigre fortune tiger pg soft tigrão",
       "popularity": 100,
-      "description": "Slot oriental com o tigre da fortuna e multiplicadores.",
+      "description": "Fortune Tiger é um slot asiático da PG Soft com tema de tigre da sorte. Conhecido no Brasil como Tigrinho, apresenta símbolos orientais, multiplicadores e rodadas grátis com tigres dourados e temas de fortuna chinesa.",
       "categoria": "slot",
       "tags": "FS CERT"
     },
@@ -14,9 +14,9 @@
       "id_jogo": "6",
       "nome": "Penalty Shoot Out",
       "provider": "PG Soft",
-      "aliases": "penalti penalty futebol classico",
+      "aliases": "penalti penalty futebol classico shoot out chute a gol cobranças de penalti soccer football",
       "popularity": 75,
-      "description": "Jogo de pênaltis com mecânica crash.",
+      "description": "Penalty Shoot Out é um jogo de futebol da PG Soft com mecânica de crash. Simula cobranças de pênaltis onde o jogador decide quando sacar antes do goleiro defender. Tema esportivo com campo de futebol e torcida.",
       "categoria": "crash",
       "tags": "FS CERT"
     },
@@ -24,9 +24,9 @@
       "id_jogo": "17",
       "nome": "Aviator",
       "provider": "Spribe",
-      "aliases": "aviator aviao avião crash aviãozinho",
+      "aliases": "aviator aviao avião crash aviãozinho aviador aviaozinho jogo do aviao jogo do avião spribe",
       "popularity": 100,
-      "description": "Jogo crash mais popular com avião que decola.",
+      "description": "Aviator é o jogo crash mais popular da Spribe. Um avião decola e o multiplicador aumenta até ele voar embora. Jogador deve sacar antes do avião sumir. Conhecido como aviãozinho, é o crash game mais jogado no Brasil.",
       "categoria": "crash",
       "tags": "FS CERT"
     }

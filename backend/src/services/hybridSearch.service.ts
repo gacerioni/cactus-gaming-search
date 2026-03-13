@@ -135,10 +135,24 @@ export class HybridSearchService {
     try {
       // Cria query fuzzy com termos expandidos usando wildcard prefix/suffix
       // RediSearch syntax: *term* para wildcard, ou term* para prefix
-      const fuzzyQuery = expandedTerms
+      // Também adiciona variações com 1 caractere de diferença para typos
+      const fuzzyTerms = new Set<string>();
+
+      expandedTerms
         .filter(term => term.length > 2) // Ignora termos muito curtos
-        .map(term => `*${term}*`)
-        .join(' | ');
+        .forEach(term => {
+          // Adiciona termo original com wildcards
+          fuzzyTerms.add(`*${term}*`);
+
+          // Para termos >= 5 chars, adiciona variações com wildcards internos
+          // Ex: "triguinho" → "*trigu*" (pega "tigrinho")
+          if (term.length >= 5) {
+            const prefix = term.substring(0, Math.floor(term.length * 0.6));
+            fuzzyTerms.add(`*${prefix}*`);
+          }
+        });
+
+      const fuzzyQuery = Array.from(fuzzyTerms).join(' | ');
 
       if (!fuzzyQuery) {
         return [];
@@ -200,7 +214,18 @@ export class HybridSearchService {
         '2'
       ) as any[];
 
-      return parseSearchResults(results);
+      const games = parseSearchResults(results);
+
+      // 4. Filtra por vectorMinScore (rejeita resultados com score muito baixo)
+      const vectorMinScore = (this.config as any).vectorMinScore || 0.7;
+      const filtered = games.filter(game => {
+        const score = parseFloat(game.score || '0');
+        return score >= vectorMinScore;
+      });
+
+      console.log(`🧠 Vector search: ${games.length} results, ${filtered.length} after threshold (>= ${vectorMinScore})`);
+
+      return filtered;
     } catch (error) {
       console.warn('Vector search failed:', error);
       return [];

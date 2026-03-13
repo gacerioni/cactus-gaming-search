@@ -5,10 +5,10 @@
 export const SEARCH_CONFIG = {
   // Pesos para scoring híbrido (0-1)
   weights: {
-    fts: 0.4,           // Full-text search (exact match)
-    fuzzy: 0.3,         // Fuzzy search (typo tolerance)
-    vector: 0.8,        // Vector search (semantic similarity)
-    aliasBoost: 0.3,    // Bonus para matches via aliases
+    fts: 1.0,           // Full-text search (exact match) - PESO MÁXIMO
+    fuzzy: 0.6,         // Fuzzy search (typo tolerance)
+    vector: 0.5,        // Vector search (semantic similarity) - REDUZIDO
+    aliasBoost: 0.4,    // Bonus para matches via aliases
   },
 
   // Parâmetros de busca
@@ -29,7 +29,10 @@ export const SEARCH_CONFIG = {
   indexName: 'idx:jogos',
 
   // Threshold mínimo de score para incluir resultado
-  minScore: 0.1,
+  minScore: 0.3,      // Aumentado de 0.1 para 0.3
+
+  // Threshold específico para vector search
+  vectorMinScore: 0.7,  // VSS precisa de score >= 0.7 para ser considerado
 };
 
 export type SearchConfig = typeof SEARCH_CONFIG;
