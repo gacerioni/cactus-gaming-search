@@ -95,7 +95,8 @@ export class ScoringService {
     score: number,
     aliasMatches: Set<string>
   ): void {
-    const id = result.id;
+    // Use 'key' (from Redis) or 'id' as unique identifier
+    const id = (result as any).key || result.id;
     
     if (!resultMap.has(id)) {
       // Novo resultado
