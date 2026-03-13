@@ -299,6 +299,506 @@
       "description": "Fruit Party é um slot colorido de frutas da Pragmatic Play. Cluster pays com multiplicadores até 256x. Frutas dançantes e muita diversão.",
       "categoria": "slot",
       "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "31",
+      "nome": "Botafogo vs Fluminense",
+      "provider": "Sportsbet",
+      "aliases": "botafogo fluminense fogao flu classico carioca derby rio",
+      "popularity": 85,
+      "description": "Clássico Vovô - Botafogo contra Fluminense no maior derby carioca. Fogão versus Flu em rivalidade histórica do Rio de Janeiro.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "32",
+      "nome": "Flamengo vs Fluminense",
+      "provider": "Sportsbet",
+      "aliases": "flamengo fluminense fla flu mengao classico carioca derby rio",
+      "popularity": 95,
+      "description": "Fla-Flu - o clássico das multidões. Flamengo contra Fluminense no maior clássico do Rio de Janeiro. Mengão versus Flu em rivalidade centenária.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "33",
+      "nome": "São Paulo vs Corinthians",
+      "provider": "Sportsbet",
+      "aliases": "sao paulo corinthians bambi timao majestoso classico paulista derby",
+      "popularity": 90,
+      "description": "Majestoso - São Paulo contra Corinthians. Bambi versus Timão no clássico paulista de maior rivalidade.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "34",
+      "nome": "Bahia vs Vitória",
+      "provider": "Sportsbet",
+      "aliases": "bahia vitoria ba-vi esquadrao leao classico baiano derby salvador",
+      "popularity": 75,
+      "description": "Ba-Vi - o clássico baiano entre Bahia e Vitória. Esquadrão de Aço contra Leão da Barra em rivalidade de Salvador.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "35",
+      "nome": "Sport vs Santa Cruz",
+      "provider": "Sportsbet",
+      "aliases": "sport santa cruz leao cobra coral classico pernambucano derby recife",
+      "popularity": 70,
+      "description": "Clássico das Multidões pernambucano. Sport Recife contra Santa Cruz em rivalidade histórica de Pernambuco.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "36",
+      "nome": "Fortaleza vs Ceará",
+      "provider": "Sportsbet",
+      "aliases": "fortaleza ceara classico-rei cearense derby vozao leao",
+      "popularity": 75,
+      "description": "Clássico-Rei cearense. Fortaleza contra Ceará no maior derby do nordeste. Leão do Pici versus Vozão.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "37",
+      "nome": "Coritiba vs Athletico PR",
+      "provider": "Sportsbet",
+      "aliases": "coritiba athletico paranaense atletiba coxa furacao classico paranaense derby curitiba",
+      "popularity": 75,
+      "description": "Atletiba - o clássico paranaense. Coritiba Coxa Branca contra Athletico Furacão em rivalidade de Curitiba.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT"
+    },
+    {
+      "id_jogo": "38",
+      "nome": "Brasil vs Argentina",
+      "provider": "Sportsbet",
+      "aliases": "brasil argentina selecao brasileira albiceleste classico sul-americano copa america eliminatorias",
+      "popularity": 100,
+      "description": "O maior clássico sul-americano. Brasil contra Argentina em rivalidade histórica. Seleção Brasileira versus Albiceleste.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT INTERNATIONAL"
+    },
+    {
+      "id_jogo": "39",
+      "nome": "Real Madrid vs Barcelona",
+      "provider": "Sportsbet",
+      "aliases": "real madrid barcelona el clasico merengues blaugrana espanha laliga",
+      "popularity": 100,
+      "description": "El Clásico - Real Madrid contra Barcelona. O maior clássico do futebol mundial. Merengues versus Blaugrana.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT INTERNATIONAL"
+    },
+    {
+      "id_jogo": "40",
+      "nome": "Manchester United vs Liverpool",
+      "provider": "Sportsbet",
+      "aliases": "manchester united liverpool red devils reds premier league inglaterra",
+      "popularity": 95,
+      "description": "O maior clássico inglês. Manchester United Red Devils contra Liverpool Reds em rivalidade histórica da Premier League.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT INTERNATIONAL"
+    },
+    {
+      "id_jogo": "41",
+      "nome": "Seleção Brasileira - Eliminatórias",
+      "provider": "Sportsbet",
+      "aliases": "brasil selecao brasileira eliminatorias copa do mundo canarinho",
+      "popularity": 100,
+      "description": "Seleção Brasileira nas Eliminatórias da Copa do Mundo. Canarinho em busca da vaga no mundial.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT INTERNATIONAL"
+    },
+    {
+      "id_jogo": "42",
+      "nome": "UFC - Charles Oliveira",
+      "provider": "Sportsbet",
+      "aliases": "ufc charles oliveira do bronx mma luta vale-tudo",
+      "popularity": 90,
+      "description": "Charles Do Bronx Oliveira no UFC. O brasileiro campeão dos leves em lutas emocionantes de MMA.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT MMA"
+    },
+    {
+      "id_jogo": "43",
+      "nome": "UFC - Alex Poatan Pereira",
+      "provider": "Sportsbet",
+      "aliases": "ufc alex pereira poatan mma luta kickboxing",
+      "popularity": 95,
+      "description": "Alex Poatan Pereira no UFC. O brasileiro campeão dos meio-pesados com nocautes devastadores.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT MMA"
+    },
+    {
+      "id_jogo": "44",
+      "nome": "Vôlei - Seleção Brasileira",
+      "provider": "Sportsbet",
+      "aliases": "volei selecao brasileira volleyball liga das nacoes mundial",
+      "popularity": 85,
+      "description": "Seleção Brasileira de Vôlei. Campeões olímpicos e mundiais em ação na Liga das Nações e Mundiais.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT VOLLEYBALL"
+    },
+    {
+      "id_jogo": "45",
+      "nome": "NBA - Los Angeles Lakers",
+      "provider": "Sportsbet",
+      "aliases": "nba lakers los angeles basquete basketball lebron",
+      "popularity": 90,
+      "description": "Los Angeles Lakers na NBA. Basquete americano com LeBron James e estrelas do Lakers.",
+      "categoria": "esporte",
+      "tags": "LIVE SPORT NBA"
+    },
+    {
+      "id_jogo": "46",
+      "nome": "Crazy Time",
+      "provider": "Evolution",
+      "aliases": "crazy time evolution live casino game show",
+      "popularity": 100,
+      "description": "Crazy Time é o game show ao vivo mais popular da Evolution. Roda da fortuna com bônus incríveis: Cash Hunt, Pachinko, Coin Flip e Crazy Time.",
+      "categoria": "live",
+      "tags": "LIVE CERT"
+    },
+    {
+      "id_jogo": "47",
+      "nome": "Monopoly Live",
+      "provider": "Evolution",
+      "aliases": "monopoly live banco imobiliario evolution game show",
+      "popularity": 90,
+      "description": "Monopoly Live combina a roda da fortuna com o tabuleiro do Banco Imobiliário. Bônus 2 Rolls e 4 Rolls com Mr. Monopoly.",
+      "categoria": "live",
+      "tags": "LIVE CERT"
+    },
+    {
+      "id_jogo": "48",
+      "nome": "Lightning Roulette",
+      "provider": "Evolution",
+      "aliases": "lightning roulette relampago roleta evolution live",
+      "popularity": 95,
+      "description": "Lightning Roulette é a roleta ao vivo com multiplicadores de até 500x. Raios atingem números sortudos a cada rodada.",
+      "categoria": "live",
+      "tags": "LIVE CERT"
+    },
+    {
+      "id_jogo": "49",
+      "nome": "Dream Catcher",
+      "provider": "Evolution",
+      "aliases": "dream catcher roda da fortuna money wheel evolution",
+      "popularity": 80,
+      "description": "Dream Catcher é a roda da fortuna ao vivo da Evolution. Simples e emocionante com multiplicadores 2x e 7x.",
+      "categoria": "live",
+      "tags": "LIVE CERT"
+    },
+    {
+      "id_jogo": "50",
+      "nome": "Mega Ball",
+      "provider": "Evolution",
+      "aliases": "mega ball bingo evolution live loteria",
+      "popularity": 85,
+      "description": "Mega Ball combina bingo com loteria ao vivo. 51 bolas sorteadas e multiplicadores de até 100x na Mega Ball.",
+      "categoria": "live",
+      "tags": "LIVE CERT"
+    },
+    {
+      "id_jogo": "51",
+      "nome": "Plinko",
+      "provider": "Spribe",
+      "aliases": "plinko bolinha queda spribe",
+      "popularity": 80,
+      "description": "Plinko é um jogo onde a bolinha cai por pinos até atingir multiplicadores. Escolha o risco e veja onde a sorte te leva.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "52",
+      "nome": "Dice",
+      "provider": "Spribe",
+      "aliases": "dice dado roll spribe",
+      "popularity": 75,
+      "description": "Dice é um jogo de dados simples e rápido. Escolha over ou under e teste sua sorte com multiplicadores ajustáveis.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "53",
+      "nome": "Goal",
+      "provider": "Spribe",
+      "aliases": "goal gol futebol penalty spribe",
+      "popularity": 80,
+      "description": "Goal é um jogo de pênaltis instantâneo. Escolha onde chutar e torça para o goleiro não defender.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "54",
+      "nome": "HiLo",
+      "provider": "Spribe",
+      "aliases": "hilo hi lo maior menor cartas spribe",
+      "popularity": 70,
+      "description": "HiLo é um jogo de cartas onde você aposta se a próxima carta será maior ou menor. Multiplicadores crescentes a cada acerto.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "55",
+      "nome": "Keno",
+      "provider": "Spribe",
+      "aliases": "keno loteria numeros bingo spribe",
+      "popularity": 75,
+      "description": "Keno é uma loteria instantânea. Escolha seus números da sorte e veja quantos são sorteados para ganhar prêmios.",
+      "categoria": "crash",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "56",
+      "nome": "Wanted Dead or a Wild",
+      "provider": "Hacksaw Gaming",
+      "aliases": "wanted dead wild oeste faroeste hacksaw",
+      "popularity": 85,
+      "description": "Wanted Dead or a Wild é um slot de faroeste da Hacksaw Gaming. Bandidos, xerifes e multiplicadores até 12,500x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "57",
+      "nome": "The Dog House",
+      "provider": "Pragmatic Play",
+      "aliases": "dog house cachorro cao pet pragmatic",
+      "popularity": 85,
+      "description": "The Dog House é um slot de cachorrinhos fofo da Pragmatic Play. Wilds pegajosos e multiplicadores até 6,750x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "58",
+      "nome": "The Dog House Megaways",
+      "provider": "Pragmatic Play",
+      "aliases": "dog house megaways cachorro cao pet pragmatic",
+      "popularity": 90,
+      "description": "The Dog House Megaways é a versão turbinada com até 117,649 formas de ganhar. Cachorros e multiplicadores ilimitados.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "59",
+      "nome": "Madame Destiny Megaways",
+      "provider": "Pragmatic Play",
+      "aliases": "madame destiny megaways cigana fortuna pragmatic",
+      "popularity": 80,
+      "description": "Madame Destiny Megaways é um slot místico com a cigana da fortuna. Bola de cristal e multiplicadores progressivos.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "60",
+      "nome": "John Hunter and the Tomb of the Scarab Queen",
+      "provider": "Pragmatic Play",
+      "aliases": "john hunter tomb scarab egito egipcio pragmatic",
+      "popularity": 75,
+      "description": "John Hunter explora tumbas egípcias em busca da Rainha Escaravelho. Aventura com multiplicadores e free spins.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "61",
+      "nome": "Fruit Shop Megaways",
+      "provider": "NetEnt",
+      "aliases": "fruit shop megaways frutas netent",
+      "popularity": 75,
+      "description": "Fruit Shop Megaways é um slot clássico de frutas com mecânica Megaways. Até 117,649 formas de ganhar.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "62",
+      "nome": "Dead or Alive 2",
+      "provider": "NetEnt",
+      "aliases": "dead or alive oeste faroeste netent",
+      "popularity": 85,
+      "description": "Dead or Alive 2 é um slot de faroeste com alta volatilidade. Sticky wilds e multiplicadores até 111,111x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "63",
+      "nome": "Reactoonz",
+      "provider": "Play'n GO",
+      "aliases": "reactoonz aliens extraterrestres cluster playngo",
+      "popularity": 85,
+      "description": "Reactoonz é um slot de aliens fofinhos com cluster pays. Cascatas e multiplicadores quânticos até 4,570x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "64",
+      "nome": "Reactoonz 2",
+      "provider": "Play'n GO",
+      "aliases": "reactoonz 2 aliens extraterrestres cluster playngo",
+      "popularity": 90,
+      "description": "Reactoonz 2 é a sequência turbinada com mais aliens e features. Energoon wilds e multiplicadores ilimitados.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "65",
+      "nome": "Rise of Olympus",
+      "provider": "Play'n GO",
+      "aliases": "rise olympus zeus hades poseidon deuses gregos playngo",
+      "popularity": 90,
+      "description": "Rise of Olympus reúne Zeus, Hades e Poseidon. Três deuses gregos com poderes especiais e multiplicadores até 5,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "66",
+      "nome": "Moon Princess",
+      "provider": "Play'n GO",
+      "aliases": "moon princess anime sailor moon princesas playngo",
+      "popularity": 90,
+      "description": "Moon Princess é um slot anime com três princesas mágicas. Cluster pays e multiplicadores até 5,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "67",
+      "nome": "Jammin' Jars",
+      "provider": "Push Gaming",
+      "aliases": "jammin jars geleia frutas cluster push gaming",
+      "popularity": 90,
+      "description": "Jammin' Jars é um slot de potes de geleia dançantes. Cluster pays com multiplicadores progressivos até 20,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "68",
+      "nome": "Jammin' Jars 2",
+      "provider": "Push Gaming",
+      "aliases": "jammin jars 2 geleia frutas cluster push gaming",
+      "popularity": 85,
+      "description": "Jammin' Jars 2 traz mais potes de geleia e features. Giga Jar e multiplicadores até 50,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "69",
+      "nome": "Razor Shark",
+      "provider": "Push Gaming",
+      "aliases": "razor shark tubarao oceano push gaming",
+      "popularity": 90,
+      "description": "Razor Shark é um slot subaquático com tubarões ferozes. Mystery stacks e multiplicadores até 50,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "70",
+      "nome": "Fat Banker",
+      "provider": "Push Gaming",
+      "aliases": "fat banker banqueiro dinheiro push gaming",
+      "popularity": 75,
+      "description": "Fat Banker é um slot sobre um banqueiro ganancioso. Cofres de ouro e multiplicadores até 50,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "71",
+      "nome": "Money Train 2",
+      "provider": "Relax Gaming",
+      "aliases": "money train trem dinheiro oeste relax gaming",
+      "popularity": 90,
+      "description": "Money Train 2 é um slot de trem do oeste com bandidos. Bonus game com multiplicadores persistentes até 50,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "72",
+      "nome": "Money Train 3",
+      "provider": "Relax Gaming",
+      "aliases": "money train 3 trem dinheiro oeste relax gaming",
+      "popularity": 95,
+      "description": "Money Train 3 é a sequência explosiva com mais bandidos e features. Multiplicadores até 100,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "73",
+      "nome": "Bonanza",
+      "provider": "Big Time Gaming",
+      "aliases": "bonanza megaways mineracao ouro btg",
+      "popularity": 95,
+      "description": "Bonanza é o slot Megaways original da Big Time Gaming. Mineração de ouro com até 117,649 formas de ganhar.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "74",
+      "nome": "Extra Chilli",
+      "provider": "Big Time Gaming",
+      "aliases": "extra chilli megaways pimenta mexico btg",
+      "popularity": 85,
+      "description": "Extra Chilli é um slot mexicano picante com Megaways. Feature drop e multiplicadores ilimitados.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "75",
+      "nome": "White Rabbit",
+      "provider": "Big Time Gaming",
+      "aliases": "white rabbit alice wonderland megaways btg",
+      "popularity": 80,
+      "description": "White Rabbit segue Alice no País das Maravilhas. Megaways expansível até 248,832 formas de ganhar.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "76",
+      "nome": "Buffalo King Megaways",
+      "provider": "Pragmatic Play",
+      "aliases": "buffalo king megaways bisonte america pragmatic",
+      "popularity": 80,
+      "description": "Buffalo King Megaways é um slot de bisões americanos. Até 200,704 formas de ganhar e multiplicadores crescentes.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "77",
+      "nome": "Mustang Gold",
+      "provider": "Pragmatic Play",
+      "aliases": "mustang gold cavalo oeste pragmatic",
+      "popularity": 75,
+      "description": "Mustang Gold é um slot de cavalos selvagens do oeste. Jackpots e money collect feature.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "78",
+      "nome": "Pirate Gold Deluxe",
+      "provider": "Pragmatic Play",
+      "aliases": "pirate gold piratas tesouro pragmatic",
+      "popularity": 75,
+      "description": "Pirate Gold Deluxe é um slot de piratas em busca de tesouros. Money symbols e multiplicadores até 32,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "79",
+      "nome": "Wild West Gold",
+      "provider": "Pragmatic Play",
+      "aliases": "wild west gold oeste faroeste pragmatic",
+      "popularity": 80,
+      "description": "Wild West Gold é um slot de faroeste com xerifes e bandidos. Sticky wilds e multiplicadores até 10,000x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
+    },
+    {
+      "id_jogo": "80",
+      "nome": "Aztec Gems",
+      "provider": "Pragmatic Play",
+      "aliases": "aztec gems asteca joias pragmatic",
+      "popularity": 70,
+      "description": "Aztec Gems é um slot asteca simples e rápido. Joias preciosas e multiplicadores até 375x.",
+      "categoria": "slot",
+      "tags": "FS CERT"
     }
   ],
   "synonym_groups": []
