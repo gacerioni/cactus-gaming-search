@@ -77,11 +77,6 @@ export class ScoringService {
       result.finalScore = this.calculateFinalScore(result);
     });
 
-    console.log(`🎯 Scored ${scoredResults.length} unique results before filtering`);
-    scoredResults.slice(0, 5).forEach(r => {
-      console.log(`  - ${r.nome}: score=${r.finalScore.toFixed(3)}, sources=${JSON.stringify(r.sources)}`);
-    });
-
     return scoredResults.sort((a, b) => b.finalScore - a.finalScore);
   }
 
