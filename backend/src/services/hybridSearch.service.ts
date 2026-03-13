@@ -43,8 +43,7 @@ export class HybridSearchService {
   private scoringService: ScoringService;
 
   constructor(private config: HybridSearchConfig) {
-    const vectorMinScore = (config as any).vectorMinScore || 0.7;
-    this.scoringService = new ScoringService(config.weights, vectorMinScore);
+    this.scoringService = new ScoringService(config.weights);
   }
 
   /**

@@ -34,10 +34,8 @@ export interface SearchConfig {
 }
 
 export class ScoringService {
-  private vectorMinScore: number;
-
-  constructor(private weights: SearchWeights, vectorMinScore: number = 0.7) {
-    this.vectorMinScore = vectorMinScore;
+  constructor(private weights: SearchWeights) {
+    // Vector search agora usa ranking KNN, sem threshold
   }
 
   /**
@@ -67,7 +65,6 @@ export class ScoringService {
     // IMPORTANTE: Redis KNN retorna DISTÂNCIA (menor = melhor)
     // KNN já limita os resultados, então aceitamos todos
     vectorResults.forEach((result, index) => {
-      const distance = result.score || 999; // Distance score from Redis
       // Normaliza distância para score 0-1 usando posição no ranking
       // Primeiro resultado = score mais alto, decai exponencialmente
       const normalizedScore = this.calculatePositionScore(index, vectorResults.length);
