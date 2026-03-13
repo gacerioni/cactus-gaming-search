@@ -6,9 +6,9 @@ export const SEARCH_CONFIG = {
   // Pesos para scoring híbrido (0-1)
   weights: {
     fts: 1.0,           // Full-text search (exact match) - PESO MÁXIMO
-    fuzzy: 0.6,         // Fuzzy search (typo tolerance)
-    vector: 0.5,        // Vector search (semantic similarity) - REDUZIDO
-    aliasBoost: 0.4,    // Bonus para matches via aliases
+    fuzzy: 0.7,         // Fuzzy search (typo tolerance) - AUMENTADO
+    vector: 0.3,        // Vector search (semantic similarity) - REDUZIDO para evitar false positives
+    aliasBoost: 0.5,    // Bonus para matches via aliases - AUMENTADO
   },
 
   // Parâmetros de busca
