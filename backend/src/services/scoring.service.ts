@@ -28,8 +28,17 @@ export interface SearchWeights {
   aliasBoost: number;
 }
 
+export interface SearchConfig {
+  weights: SearchWeights;
+  vectorMinScore?: number;
+}
+
 export class ScoringService {
-  constructor(private weights: SearchWeights) {}
+  private vectorMinScore: number;
+
+  constructor(private weights: SearchWeights, vectorMinScore: number = 0.7) {
+    this.vectorMinScore = vectorMinScore;
+  }
 
   /**
    * Combina e deduplica resultados de múltiplas fontes
@@ -55,9 +64,13 @@ export class ScoringService {
     });
 
     // Processa resultados Vector (já vem com score do Redis)
+    // Filtra por vectorMinScore para rejeitar resultados de baixa qualidade
     vectorResults.forEach((result) => {
       const score = result.score || 0;
-      this.addOrUpdateResult(resultMap, result, 'vector', score, aliasMatches);
+      // Só adiciona se o score do vector for >= vectorMinScore
+      if (score >= this.vectorMinScore) {
+        this.addOrUpdateResult(resultMap, result, 'vector', score, aliasMatches);
+      }
     });
 
     // Calcula score final e ordena

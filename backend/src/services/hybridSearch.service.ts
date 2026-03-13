@@ -43,7 +43,8 @@ export class HybridSearchService {
   private scoringService: ScoringService;
 
   constructor(private config: HybridSearchConfig) {
-    this.scoringService = new ScoringService(config.weights);
+    const vectorMinScore = (config as any).vectorMinScore || 0.7;
+    this.scoringService = new ScoringService(config.weights, vectorMinScore);
   }
 
   /**
@@ -216,16 +217,9 @@ export class HybridSearchService {
 
       const games = parseSearchResults(results);
 
-      // 4. Filtra por vectorMinScore (rejeita resultados com score muito baixo)
-      const vectorMinScore = (this.config as any).vectorMinScore || 0.7;
-      const filtered = games.filter(game => {
-        const score = parseFloat(game.score || '0');
-        return score >= vectorMinScore;
-      });
+      console.log(`🧠 Vector search: ${games.length} results`);
 
-      console.log(`🧠 Vector search: ${games.length} results, ${filtered.length} after threshold (>= ${vectorMinScore})`);
-
-      return filtered;
+      return games;
     } catch (error) {
       console.warn('Vector search failed:', error);
       return [];
