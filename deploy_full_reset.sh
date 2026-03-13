@@ -27,28 +27,7 @@ ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'cd $PROJECT_DIR && git pull origin
 
 echo ""
 echo "🗑️  Step 4: Clean Redis (drop index + flush games)"
-ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'cd $PROJECT_DIR/seed && python3 << EOF
-import redis
-client = redis.Redis(host=\"localhost\", port=6379, decode_responses=True)
-
-# Drop index
-try:
-    client.execute_command(\"FT.DROPINDEX\", \"idx:jogos\", \"DD\")
-    print(\"✓ Dropped index idx:jogos\")
-except:
-    print(\"✓ Index did not exist\")
-
-# Flush all game keys
-keys = client.keys(\"jogo:*\")
-if keys:
-    client.delete(*keys)
-    print(f\"✓ Deleted {len(keys)} game keys\")
-else:
-    print(\"✓ No game keys to delete\")
-
-print(\"✅ Redis cleaned\")
-EOF
-'"
+ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'cd $PROJECT_DIR/seed && python3 clean_redis.py'"
 
 echo ""
 echo "🌱 Step 5: Seed Redis with new data"
