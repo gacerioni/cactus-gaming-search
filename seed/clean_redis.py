@@ -3,8 +3,14 @@
 Limpa o Redis: drop index + delete all game keys
 """
 import redis
+import os
+from dotenv import load_dotenv
 
-client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+# Load .env from backend directory
+load_dotenv('../backend/.env')
+redis_url = os.getenv('REDIS_URL', 'redis://localhost:6379')
+
+client = redis.from_url(redis_url, decode_responses=True)
 
 # Drop index
 try:
