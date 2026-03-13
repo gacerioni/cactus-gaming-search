@@ -2,7 +2,7 @@
 
 # Script de teste da API Cactus Gaming Search
 # Uso: ./test-api.sh [URL]
-# Exemplo: ./test-api.sh https://worker.platformengineer.io
+# Exemplo: ./test-api.sh https://api-backend.platformengineer.io
 
 # Cores para output
 GREEN='\033[0;32m'
@@ -10,8 +10,8 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# URL base (padrão: localhost)
-BASE_URL="${1:-http://localhost:3000}"
+# URL base (padrão: produção)
+BASE_URL="${1:-https://api-backend.platformengineer.io}"
 
 echo "🧪 Testing Cactus Gaming Search API"
 echo "📡 Base URL: $BASE_URL"

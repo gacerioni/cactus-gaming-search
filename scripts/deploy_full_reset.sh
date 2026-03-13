@@ -9,6 +9,7 @@ echo ""
 SSH_KEY="/Users/gabriel.cerioni/.ssh/gabs-se-sales-ssh-keypair.pem"
 SERVER="ubuntu@18.212.93.54"
 PROJECT_DIR="/root/cactus-gaming-search"
+API_URL="https://api-backend.platformengineer.io"
 
 echo "📦 Step 1: Build backend locally"
 cd backend
@@ -52,8 +53,11 @@ ssh -i "$SSH_KEY" "$SERVER" "sudo -i bash -c 'export CLOUDFLARE_API_TOKEN=\"lvV3
 echo ""
 echo "✅ DEPLOY COMPLETE!"
 echo ""
+echo "✅ DEPLOY COMPLETE!"
+echo ""
 echo "🧪 Test the search:"
-echo "curl -X POST http://18.212.93.54:3000/api/search -H 'Content-Type: application/json' -d '{\"query\": \"jogo do felino asiatico kkk\"}'"
+echo "curl -X POST https://api-backend.platformengineer.io/api/search -H 'Content-Type: application/json' -d '{\"query\": \"mengao\"}'"
 echo ""
 echo "🌐 Frontend: https://128b1c88.cactus-demo.pages.dev"
+echo "🔧 Backend API: https://api-backend.platformengineer.io"
 

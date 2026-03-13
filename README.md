@@ -11,7 +11,7 @@
 ## 🌐 URLs em Produção
 
 - **Frontend:** https://128b1c88.cactus-demo.pages.dev
-- **Backend API:** http://18.212.93.54:3000
+- **Backend API:** https://api-backend.platformengineer.io
 - **Servidor:** AWS EC2 (Ubuntu) - 18.212.93.54
 
 ## 🎯 Experiência de Busca
