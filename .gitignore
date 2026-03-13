@@ -45,3 +45,13 @@ pm2.log
 # Redis dumps
 dump.rdb
 
+# Temporary files
+*.tmp
+*.bak
+*.backup
+demo-*.html
+games_expansion.json
+test_*.py
+
+# Deploy logs
+deploy.log

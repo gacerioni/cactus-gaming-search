@@ -10,9 +10,9 @@
 
 ## 🌐 URLs em Produção
 
-- **Frontend:** https://8496f414.cactus-demo.pages.dev
-- **Worker (API):** https://cactus-worker.platformengineer.workers.dev
-- **Backend:** https://api-backend.platformengineer.io
+- **Frontend:** https://128b1c88.cactus-demo.pages.dev
+- **Backend API:** http://18.212.93.54:3000
+- **Servidor:** AWS EC2 (Ubuntu) - 18.212.93.54
 
 ## 🎯 Experiência de Busca
 
@@ -36,9 +36,22 @@ Digite **"tigrinho"** → Acha Fortune Tiger ✅
 
 ## 📚 Documentação
 
-- **[DEPLOY_GUIDE.md](DEPLOY_GUIDE.md)** - Guia completo de deploy e re-deploy
-- **[TUTORIAL.md](TUTORIAL.md)** - Manutenção do backend no EC2
-- **[CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md)** - Setup do Worker e Pages
+Toda a documentação está organizada em [`docs/`](./docs/):
+
+- **[docs/SETUP.md](./docs/SETUP.md)** - Configuração inicial do projeto
+- **[docs/TUTORIAL.md](./docs/TUTORIAL.md)** - Tutorial de uso
+- **[docs/DEPLOY_GUIDE.md](./docs/DEPLOY_GUIDE.md)** - Guia completo de deploy
+- **[docs/CLOUDFLARE_SETUP.md](./docs/CLOUDFLARE_SETUP.md)** - Setup do Cloudflare
+- **[docs/README.md](./docs/README.md)** - Índice completo da documentação
+
+## 🚀 Scripts
+
+Scripts de deploy e manutenção em [`scripts/`](./scripts/):
+
+- **[scripts/deploy_frontend.sh](./scripts/deploy_frontend.sh)** - Deploy rápido do frontend (~30s)
+- **[scripts/deploy_full_reset.sh](./scripts/deploy_full_reset.sh)** - Deploy completo com reindexação (~5min)
+- **[scripts/test-api.sh](./scripts/test-api.sh)** - Testes da API
+- **[scripts/README.md](./scripts/README.md)** - Documentação dos scripts
 
 ---
 
@@ -78,13 +91,30 @@ curl "http://localhost:3000/api/autocomplete?q=tig"
 
 ```
 cactus-gaming-search/
-├── seed/              # Python - Popular Redis com embeddings OpenAI
-├── backend/           # Node.js - API Express + ioredis (AWS EC2)
-├── worker/            # Cloudflare Worker - Edge proxy + CORS
-├── frontend/          # Demo HTML (Cloudflare Pages)
-│   └── index.html     # Frontend completo
-├── games_data.json    # 45 jogos com metadados
-└── test-api.sh        # Testes automatizados
+├── docs/                      # 📚 Documentação completa
+│   ├── README.md              # Índice da documentação
+│   ├── SETUP.md               # Setup inicial
+│   ├── TUTORIAL.md            # Tutorial de uso
+│   ├── DEPLOY_GUIDE.md        # Guia de deploy
+│   └── CLOUDFLARE_SETUP.md    # Setup do Cloudflare
+├── scripts/                   # 🚀 Scripts de deploy
+│   ├── README.md              # Documentação dos scripts
+│   ├── deploy_frontend.sh     # Deploy rápido do frontend
+│   ├── deploy_full_reset.sh   # Deploy completo com reindexação
+│   └── test-api.sh            # Testes da API
+├── seed/                      # 🌱 Python - Popular Redis com embeddings
+│   ├── seed_production_vectors.py
+│   ├── clean_redis.py
+│   └── requirements.txt
+├── backend/                   # 🔧 Node.js - API Express + ioredis
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/                  # 🎨 Frontend HTML (Cloudflare Pages)
+│   └── index.html
+├── worker/                    # ⚡ Cloudflare Worker (não usado atualmente)
+├── games_data.json            # 🎮 154 jogos com metadados e aliases
+└── README.md                  # Este arquivo
 ```
 
 ---
@@ -120,8 +150,20 @@ POST /api/vector-search
 
 ---
 
+## 📊 Estatísticas do Projeto
+
+- **154 jogos** cadastrados com aliases brasileiros
+- **Busca híbrida:** FTS + Fuzzy + Vector Search (KNN)
+- **Embeddings:** OpenAI text-embedding-3-small (1536D)
+- **Performance:** ~200-600ms por busca
+- **Recall:** 8-15 resultados relevantes por query
+
+---
+
 ## 📖 Mais Info
 
-- **Problemas de setup?** Veja [SETUP.md](SETUP.md)
-- **Deploy em produção:** Veja [TUTORIAL.md](TUTORIAL.md)
+- **Problemas de setup?** Veja [docs/SETUP.md](./docs/SETUP.md)
+- **Deploy em produção:** Veja [docs/DEPLOY_GUIDE.md](./docs/DEPLOY_GUIDE.md)
+- **Dúvidas sobre scripts:** Veja [scripts/README.md](./scripts/README.md)
+- **Documentação completa:** Veja [docs/README.md](./docs/README.md)
 
