@@ -13,7 +13,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -95,42 +95,116 @@
             background: #764ba2;
             color: white;
         }
-        .results {
-            margin-top: 30px;
-        }
-        .result-item {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            border-left: 5px solid #667eea;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .result-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-        }
-        .result-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
+        /* Category filter chips */
+        .category-filters {
             display: flex;
-            align-items: center;
-            flex-wrap: wrap;
             gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-        .result-provider {
+        .chip {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #555;
+            transition: all 0.2s;
+        }
+        .chip:hover { border-color: #667eea; color: #667eea; }
+        .chip.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .chip .chip-count {
+            background: rgba(0,0,0,0.1);
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-left: 4px;
+        }
+        .chip.active .chip-count { background: rgba(255,255,255,0.3); }
+
+        /* Results grid */
+        .results { margin-top: 30px; }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .game-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0f0f0;
+        }
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .game-card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea22, #764ba222);
+        }
+        .game-card-body {
+            padding: 16px;
+        }
+        .game-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .game-card-provider {
             color: #667eea;
             font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 13px;
+            margin-bottom: 8px;
         }
-        .result-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 14px;
+        .game-card-desc {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+            max-height: 36px;
+            overflow: hidden;
+        }
+        .game-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-top: 1px solid #f0f0f0;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .badge-cat {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .badge-cat-slot { background: #E3F2FD; color: #1565C0; }
+        .badge-cat-crash { background: #FFF3E0; color: #E65100; }
+        .badge-cat-live { background: #F3E5F5; color: #7B1FA2; }
+        .badge-cat-esporte { background: #E8F5E9; color: #2E7D32; }
+        .badge-rtp {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            background: #E8F5E9;
+            color: #2E7D32;
         }
         .loading {
             text-align: center;
@@ -211,10 +285,12 @@
             <button class="btn-search" onclick="search()">🔍 Buscar</button>
         </div>
 
+        <div class="category-filters" id="categoryFilters"></div>
+
         <p style="text-align: center; color: #666; font-size: 14px; margin-top: 10px;">
             💡 Busca inteligente: Autocomplete → Sinônimos → Fuzzy → Vector Search
         </p>
-        
+
         <div id="error"></div>
         <div id="results"></div>
     </div>
@@ -222,184 +298,159 @@
     <script>
         // CONFIGURAÇÃO: URL do Cloudflare Worker (PRODUÇÃO)
         const API_URL = 'https://cactus-worker.platformengineer.workers.dev';
-
-        // Para teste local descomente a linha abaixo:
         // const API_URL = 'http://localhost:3000';
-        
+
         const searchInput = document.getElementById('searchInput');
         const autocompleteDiv = document.getElementById('autocomplete');
         const resultsDiv = document.getElementById('results');
         const errorDiv = document.getElementById('error');
-        
+        const categoryFiltersDiv = document.getElementById('categoryFilters');
+
         let debounceTimer;
-        
-        // Autocomplete
+        let selectedCategory = null;
+
+        // Category icons/labels
+        const catMeta = {
+            slot: { icon: '🎰', label: 'Slots' },
+            crash: { icon: '🚀', label: 'Crash' },
+            live: { icon: '🎥', label: 'Live Casino' },
+            esporte: { icon: '⚽', label: 'Esportes' },
+        };
+
+        // Load categories on startup
+        async function loadCategories() {
+            try {
+                const r = await fetch(`${API_URL}/api/categories`);
+                const data = await r.json();
+                if (!data.categories) return;
+                let html = `<span class="chip active" onclick="selectCategory(null, this)">Todos</span>`;
+                data.categories.forEach(c => {
+                    const meta = catMeta[c.name] || { icon: '📁', label: c.name };
+                    html += `<span class="chip" onclick="selectCategory('${c.name}', this)">${meta.icon} ${meta.label} <span class="chip-count">${c.count}</span></span>`;
+                });
+                categoryFiltersDiv.innerHTML = html;
+            } catch (e) { console.error('Categories error:', e); }
+        }
+
+        function selectCategory(cat, el) {
+            selectedCategory = cat;
+            categoryFiltersDiv.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            if (searchInput.value) search();
+        }
+
+        // Autocomplete (preserved)
         searchInput.addEventListener('input', (e) => {
             clearTimeout(debounceTimer);
             const query = e.target.value;
-            
-            if (query.length < 2) {
-                autocompleteDiv.classList.remove('show');
-                return;
-            }
-            
+            if (query.length < 2) { autocompleteDiv.classList.remove('show'); return; }
             debounceTimer = setTimeout(() => {
                 fetch(`${API_URL}/api/autocomplete?q=${encodeURIComponent(query)}`)
                     .then(r => r.json())
                     .then(data => {
                         if (data.suggestions && data.suggestions.length > 0) {
                             autocompleteDiv.innerHTML = data.suggestions
-                                .map(s => `<div class="autocomplete-item" onclick="selectSuggestion('${s.text}')">${s.text}</div>`)
+                                .map(s => `<div class="autocomplete-item" onclick="selectSuggestion('${s.text.replace(/'/g, "\\'")}')">${s.text}</div>`)
                                 .join('');
                             autocompleteDiv.classList.add('show');
-                        } else {
-                            autocompleteDiv.classList.remove('show');
-                        }
+                        } else { autocompleteDiv.classList.remove('show'); }
                     })
                     .catch(err => console.error('Autocomplete error:', err));
             }, 300);
         });
-        
+
         function selectSuggestion(text) {
             searchInput.value = text;
             autocompleteDiv.classList.remove('show');
             search();
         }
-        
-        // Search - Multi-layer intelligent search
+
+        // Hybrid search (preserved logic)
         async function search() {
             const query = searchInput.value;
             if (!query) return;
-
             errorDiv.innerHTML = '';
             resultsDiv.innerHTML = '<div class="loading">🔍 Buscando...</div>';
-
             try {
+                const body = { query };
+                if (selectedCategory) body.filters = { categoria: selectedCategory };
                 const response = await fetch(`${API_URL}/api/search`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query })
+                    body: JSON.stringify(body)
                 });
-
                 const data = await response.json();
-
-                // Mostrar qual método foi usado
-                const methodLabels = {
-                    'full-text': '🔍 Full-text Search (com sinônimos)',
-                    'fuzzy': '🔀 Fuzzy Match',
-                    'vector': '🧠 Vector Search (semântica)'
-                };
-
-                const methodLabel = methodLabels[data.searchMethod] || 'Busca';
-                displayResults(data, methodLabel);
-            } catch (err) {
-                showError('Erro na busca: ' + err.message);
-            }
+                displayResults(data);
+            } catch (err) { showError('Erro na busca: ' + err.message); }
         }
-        
-        // Vector Search
-        async function vectorSearch() {
-            const query = searchInput.value;
-            if (!query) return;
-            
-            errorDiv.innerHTML = '';
-            resultsDiv.innerHTML = '<div class="loading">🧠 Buscando semanticamente...</div>';
-            
-            try {
-                const response = await fetch(`${API_URL}/api/vector-search`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query })
-                });
-                
-                const data = await response.json();
-                displayResults(data, 'Vector Search (Semântica)');
-            } catch (err) {
-                showError('Erro na busca vetorial: ' + err.message);
-            }
-        }
-        
-        function displayResults(data, method) {
-            if (data.error) {
-                showError(data.error);
-                return;
-            }
 
+        function displayResults(data) {
+            if (data.error) { showError(data.error); return; }
             const games = data.games || [];
-
             if (games.length === 0) {
                 resultsDiv.innerHTML = '<div class="loading">😕 Nenhum resultado encontrado</div>';
                 return;
             }
 
-            // Mostrar métodos de busca usados
             const searchMethods = data.searchMethods || [];
             const methodBadges = searchMethods.map(m => {
-                const badges = {
-                    'fts': '<span class="badge badge-fts">🔍 FTS</span>',
-                    'fuzzy': '<span class="badge badge-fuzzy">🔀 Fuzzy</span>',
-                    'vector': '<span class="badge badge-vector">🧠 Vector</span>'
-                };
-                return badges[m] || '';
+                const b = { fts:'<span class="badge badge-fts">🔍 FTS</span>', fuzzy:'<span class="badge badge-fuzzy">🔀 Fuzzy</span>', vector:'<span class="badge badge-vector">🧠 Vector</span>' };
+                return b[m] || '';
             }).join(' ');
-
-            // Tempo de execução
             const execTime = data.executionTime ? `⚡ ${data.executionTime}ms` : '';
 
-            // Header com métodos e tempo
-            let header = `<div class="stats">📊 ${data.total} resultado${data.total > 1 ? 's' : ''} encontrado${data.total > 1 ? 's' : ''}`;
-            if (methodBadges) {
-                header += `<br><strong>Métodos usados:</strong> ${methodBadges}`;
-            }
-            if (execTime) {
-                header += ` ${execTime}`;
-            }
-            header += `</div>`;
-
-            let html = header;
+            let html = `<div class="stats">📊 ${data.total} resultado${data.total > 1 ? 's' : ''}`;
+            if (methodBadges) html += `<br><strong>Métodos:</strong> ${methodBadges}`;
+            if (execTime) html += ` ${execTime}`;
+            html += `</div><div class="results-grid">`;
 
             games.forEach(game => {
-                const nome = game.nome || game['$.nome'] || 'Sem nome';
-                const provider = game.provider || game['$.provider'] || 'Desconhecido';
-                const descricao = game.description || game.descricao || game['$.descricao'] || '';
-                const score = game.score !== undefined ? game.score : null;
+                const nome = game.nome || 'Sem nome';
+                const provider = game.provider || '';
+                const desc = game.description || '';
+                const image = game.image || 'https://picsum.photos/seed/default/400/300';
+                const rtp = game.rtp;
+                const cat = game.categoria || '';
+                const score = game.score;
 
-                // Score badge
-                let scoreBadge = '';
-                if (score !== null) {
-                    scoreBadge = `<span class="score">Score: ${score.toFixed(2)}</span>`;
-                }
+                const catClass = `badge-cat-${cat}`;
+                const catLabel = catMeta[cat]?.icon ? `${catMeta[cat].icon} ${cat}` : cat;
+                const rtpHtml = rtp ? `<span class="badge-rtp">RTP ${rtp}%</span>` : '';
+                const scoreHtml = score !== undefined && score !== null ? `<span class="score">Score: ${Number(score).toFixed(2)}</span>` : '';
 
                 html += `
-                    <div class="result-item">
-                        <div class="result-title">${nome} ${scoreBadge}</div>
-                        <div class="result-provider">${provider}</div>
-                        ${descricao ? `<div class="result-description">${descricao}</div>` : ''}
+                <div class="game-card">
+                    <img class="game-card-img" src="${image}" alt="${nome}" loading="lazy" onerror="this.src='https://picsum.photos/seed/fallback/400/300'">
+                    <div class="game-card-body">
+                        <div class="game-card-title">${nome}</div>
+                        <div class="game-card-provider">${provider}</div>
+                        ${desc ? `<div class="game-card-desc">${desc}</div>` : ''}
                     </div>
-                `;
+                    <div class="game-card-footer">
+                        <span class="badge-cat ${catClass}">${catLabel}</span>
+                        ${rtpHtml}
+                        ${scoreHtml}
+                    </div>
+                </div>`;
             });
 
+            html += `</div>`;
             resultsDiv.innerHTML = html;
         }
-        
+
         function showError(message) {
             errorDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
             resultsDiv.innerHTML = '';
         }
-        
-        // Enter para buscar
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                search();
-            }
-        });
-        
-        // Fechar autocomplete ao clicar fora
+
+        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') search(); });
         document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !autocompleteDiv.contains(e.target)) {
+            if (!searchInput.contains(e.target) && !autocompleteDiv.contains(e.target))
                 autocompleteDiv.classList.remove('show');
-            }
         });
+
+        // Init
+        loadCategories();
     </script>
 </body>
 </html>

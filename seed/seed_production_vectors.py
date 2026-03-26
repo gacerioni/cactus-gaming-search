@@ -57,6 +57,9 @@ def create_indexes_with_vectors(client):
         'categoria', 'TAG', 'SORTABLE',  # ← slot, crash, live, etc
         'tags', 'TEXT',  # ← FS, CERT, etc
         'id_jogo', 'TAG',
+        'slug', 'TEXT',
+        'image', 'TEXT',
+        'rtp', 'TEXT',
         'popularity', 'NUMERIC', 'SORTABLE',
         # VECTOR FIELD
         'description_vector', 'VECTOR', 'FLAT', '6',
@@ -105,7 +108,10 @@ def seed_games_with_embeddings(client, games):
             'popularity': str(game_data.get('popularity', 50)),
             'description': game_data.get('description', ''),
             'categoria': game_data.get('categoria', 'slot'),
-            'tags': game_data.get('tags', '')
+            'tags': game_data.get('tags', ''),
+            'image': game_data.get('image', ''),
+            'rtp': str(game_data.get('rtp') or ''),
+            'slug': game_data.get('slug', ''),
         }
 
         # Adicionar embedding se existir

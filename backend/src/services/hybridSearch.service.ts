@@ -108,14 +108,27 @@ export class HybridSearchService {
   }
 
   /**
+   * Build filter prefix for RediSearch query
+   */
+  private buildFilterPrefix(filters?: any): string {
+    if (!filters?.categoria) return '';
+    // Escape TAG value and build filter
+    const cat = filters.categoria.replace(/[^a-zA-Z0-9_àáâãéêíóôõúç]/g, '\\$&');
+    return `@categoria:{${cat}} `;
+  }
+
+  /**
    * Full-text search
    */
-  private async ftsSearch(redis: any, query: string, _filters?: any): Promise<SearchResult[]> {
+  private async ftsSearch(redis: any, query: string, filters?: any): Promise<SearchResult[]> {
     try {
+      const filterPrefix = this.buildFilterPrefix(filters);
+      const ftsQuery = filterPrefix ? `(${filterPrefix}) ${query}` : query;
+
       const results = await redis.call(
         'FT.SEARCH',
         INDEX_NAME,
-        query,
+        ftsQuery,
         'LIMIT',
         '0',
         this.config.limits.fts.toString()
@@ -131,7 +144,7 @@ export class HybridSearchService {
   /**
    * Fuzzy search com termos expandidos
    */
-  private async fuzzySearch(redis: any, expandedTerms: string[], _filters?: any): Promise<SearchResult[]> {
+  private async fuzzySearch(redis: any, expandedTerms: string[], filters?: any): Promise<SearchResult[]> {
     try {
       // Cria query fuzzy com termos expandidos usando wildcard prefix/suffix
       // RediSearch syntax: *term* para wildcard, ou term* para prefix
@@ -158,10 +171,13 @@ export class HybridSearchService {
         return [];
       }
 
+      const filterPrefix = this.buildFilterPrefix(filters);
+      const finalQuery = filterPrefix ? `(${filterPrefix}) (${fuzzyQuery})` : fuzzyQuery;
+
       const results = await redis.call(
         'FT.SEARCH',
         INDEX_NAME,
-        fuzzyQuery,
+        finalQuery,
         'LIMIT',
         '0',
         this.config.limits.fuzzy.toString()
@@ -177,7 +193,7 @@ export class HybridSearchService {
   /**
    * Vector search (KNN)
    */
-  private async vectorSearch(redis: any, query: string, _filters?: any): Promise<SearchResult[]> {
+  private async vectorSearch(redis: any, query: string, filters?: any): Promise<SearchResult[]> {
     try {
       // 1. Generate embedding
       const embeddingResponse = await openai.embeddings.create({
@@ -193,20 +209,29 @@ export class HybridSearchService {
         buffer.writeFloatLE(value, index * 4);
       });
 
-      // 3. KNN search
+      // 3. KNN search with optional category pre-filter
+      const filterPrefix = this.buildFilterPrefix(filters);
+      const knnQuery = filterPrefix
+        ? `(${filterPrefix})=>[KNN ${this.config.limits.vector} @description_vector $vec AS score]`
+        : `*=>[KNN ${this.config.limits.vector} @description_vector $vec AS score]`;
+
       const results = await redis.call(
         'FT.SEARCH',
         INDEX_NAME,
-        `*=>[KNN ${this.config.limits.vector} @description_vector $vec AS score]`,
+        knnQuery,
         'PARAMS',
         '2',
         'vec',
         buffer,
         'RETURN',
-        '4',
+        '8',
         'nome',
         'provider',
         'aliases',
+        'categoria',
+        'image',
+        'rtp',
+        'slug',
         'score',
         'SORTBY',
         'score',

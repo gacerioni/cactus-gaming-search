@@ -6,6 +6,7 @@ import { getRedisClient } from './redis';
 import { handleAutocomplete } from './routes/autocomplete';
 import { handleSearch } from './routes/search';
 import { handleVectorSearch } from './routes/vectorSearch';
+import { handleCategories } from './routes/categories';
 
 // Load environment variables
 dotenv.config();
@@ -40,6 +41,7 @@ app.get('/health', (_req: Request, res: Response) => {
 app.get('/api/autocomplete', handleAutocomplete);
 app.post('/api/search', handleSearch);
 app.post('/api/vector-search', handleVectorSearch);
+app.get('/api/categories', handleCategories);
 
 // 404 handler
 app.use((req: Request, res: Response) => {

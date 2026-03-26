@@ -8,7 +8,10 @@
       "popularity": 100,
       "description": "Fortune Tiger é um slot asiático da PG Soft com tema de tigre da sorte. Conhecido no Brasil como Tigrinho, apresenta símbolos orientais, multiplicadores e rodadas grátis com tigres dourados e temas de fortuna chinesa.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-tiger",
+      "rtp": 96.81,
+      "image": "https://picsum.photos/seed/fortune-tiger/400/300"
     },
     {
       "id_jogo": "2",
@@ -18,7 +21,10 @@
       "popularity": 95,
       "description": "Slot asiático com o boi da fortuna e símbolos de prosperidade.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-ox",
+      "rtp": 96.75,
+      "image": "https://picsum.photos/seed/fortune-ox/400/300"
     },
     {
       "id_jogo": "3",
@@ -28,7 +34,10 @@
       "popularity": 90,
       "description": "Slot com o rato da fortuna e temas de sorte asiática.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-mouse",
+      "rtp": 96.76,
+      "image": "https://picsum.photos/seed/fortune-mouse/400/300"
     },
     {
       "id_jogo": "4",
@@ -38,7 +47,10 @@
       "popularity": 90,
       "description": "Slot com coelho da sorte e símbolos de fortuna.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-rabbit",
+      "rtp": 96.71,
+      "image": "https://picsum.photos/seed/fortune-rabbit/400/300"
     },
     {
       "id_jogo": "5",
@@ -48,7 +60,10 @@
       "popularity": 85,
       "description": "Slot com dragões e mecânica de eclosão de ovos.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "dragon-hatch",
+      "rtp": 96.74,
+      "image": "https://picsum.photos/seed/dragon-hatch/400/300"
     },
     {
       "id_jogo": "6",
@@ -58,7 +73,10 @@
       "popularity": 75,
       "description": "Jogo de pênaltis com mecânica crash.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "penalty-shoot-out",
+      "rtp": 97.34,
+      "image": "https://picsum.photos/seed/penalty-shoot-out/400/300"
     },
     {
       "id_jogo": "7",
@@ -68,7 +86,10 @@
       "popularity": 95,
       "description": "Slot mitológico com Zeus e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "gates-of-olympus",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/gates-of-olympus/400/300"
     },
     {
       "id_jogo": "8",
@@ -78,7 +99,10 @@
       "popularity": 90,
       "description": "Versão aprimorada do Gates of Olympus com multiplicadores até 1000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "gates-of-olympus-1000",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/gates-of-olympus-1000/400/300"
     },
     {
       "id_jogo": "9",
@@ -88,7 +112,10 @@
       "popularity": 95,
       "description": "Slot de frutas e doces com multiplicadores e tumble feature.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "sweet-bonanza",
+      "rtp": 96.48,
+      "image": "https://picsum.photos/seed/sweet-bonanza/400/300"
     },
     {
       "id_jogo": "10",
@@ -98,7 +125,10 @@
       "popularity": 85,
       "description": "Versão live do Sweet Bonanza com apresentador ao vivo.",
       "categoria": "live",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "sweet-bonanza-candyland",
+      "rtp": 97.99,
+      "image": "https://picsum.photos/seed/sweet-bonanza-candyland/400/300"
     },
     {
       "id_jogo": "11",
@@ -108,7 +138,10 @@
       "popularity": 90,
       "description": "Slot de pesca com pescador e peixes dourados.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "big-bass-bonanza",
+      "rtp": 96.71,
+      "image": "https://picsum.photos/seed/big-bass-bonanza/400/300"
     },
     {
       "id_jogo": "12",
@@ -118,7 +151,10 @@
       "popularity": 85,
       "description": "Continuação do Big Bass com mais features de pesca.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "big-bass-splash",
+      "rtp": 97.24,
+      "image": "https://picsum.photos/seed/big-bass-splash/400/300"
     },
     {
       "id_jogo": "13",
@@ -128,7 +164,10 @@
       "popularity": 90,
       "description": "Jogo crash com astronauta no espaço.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "spaceman",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/spaceman/400/300"
     },
     {
       "id_jogo": "14",
@@ -138,7 +177,10 @@
       "popularity": 85,
       "description": "Slot de doces com cluster pays e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "sugar-rush",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/sugar-rush/400/300"
     },
     {
       "id_jogo": "15",
@@ -148,7 +190,10 @@
       "popularity": 90,
       "description": "Slot anime com princesa e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "starlight-princess",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/starlight-princess/400/300"
     },
     {
       "id_jogo": "16",
@@ -158,7 +203,10 @@
       "popularity": 80,
       "description": "Slot com lobos e tema do oeste americano.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "wolf-gold",
+      "rtp": 96.01,
+      "image": "https://picsum.photos/seed/wolf-gold/400/300"
     },
     {
       "id_jogo": "17",
@@ -168,7 +216,10 @@
       "popularity": 100,
       "description": "Aviator é o jogo crash mais popular da Spribe. Um avião decola e o multiplicador aumenta até ele voar embora. Jogador deve sacar antes do avião sumir. Conhecido como aviãozinho, é o crash game mais jogado no Brasil.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "aviator",
+      "rtp": 97.0,
+      "image": "https://picsum.photos/seed/aviator/400/300"
     },
     {
       "id_jogo": "18",
@@ -178,7 +229,10 @@
       "popularity": 85,
       "description": "JetX é um crash game com jato supersônico. O multiplicador cresce enquanto o jato voa. Sacar no momento certo é a chave para ganhar grandes prêmios.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "jetx",
+      "rtp": 97.0,
+      "image": "https://picsum.photos/seed/jetx/400/300"
     },
     {
       "id_jogo": "19",
@@ -188,7 +242,10 @@
       "popularity": 75,
       "description": "Balloon é um crash game onde um balão sobe e o multiplicador aumenta. Cuidado para não estourar! Sacar antes do estouro garante o prêmio.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "balloon",
+      "rtp": 98.03,
+      "image": "https://picsum.photos/seed/balloon/400/300"
     },
     {
       "id_jogo": "20",
@@ -198,7 +255,10 @@
       "popularity": 90,
       "description": "Mines é um jogo de estratégia onde você escolhe quadrados seguros em um campo minado. Cada escolha certa aumenta o multiplicador. Quanto mais arriscar, maior o prêmio.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "mines",
+      "rtp": 97.0,
+      "image": "https://picsum.photos/seed/mines/400/300"
     },
     {
       "id_jogo": "21",
@@ -208,7 +268,10 @@
       "popularity": 95,
       "description": "Clássico brasileiro entre Flamengo e Corinthians. Mengão contra Timão em uma das maiores rivalidades do futebol nacional. Apostas ao vivo e pré-jogo.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "flamengo-vs-corinthians",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/flamengo-vs-corinthians/400/300"
     },
     {
       "id_jogo": "22",
@@ -218,7 +281,10 @@
       "popularity": 95,
       "description": "Choque-Rei paulista entre Palmeiras e São Paulo. Verdão contra Bambi no maior clássico de São Paulo. Emoção garantida nas apostas esportivas.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "palmeiras-vs-sao-paulo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/palmeiras-vs-sao-paulo/400/300"
     },
     {
       "id_jogo": "23",
@@ -228,7 +294,10 @@
       "popularity": 80,
       "description": "Clássico entre Santos e Vasco da Gama. O Peixe contra o Gigante da Colina em confronto histórico do futebol brasileiro.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "santos-vs-vasco",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/santos-vs-vasco/400/300"
     },
     {
       "id_jogo": "24",
@@ -238,7 +307,10 @@
       "popularity": 90,
       "description": "Grenal - o maior clássico do sul do Brasil. Grêmio tricolor contra Internacional colorado em rivalidade histórica gaúcha.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "gremio-vs-internacional",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/gremio-vs-internacional/400/300"
     },
     {
       "id_jogo": "25",
@@ -248,7 +320,10 @@
       "popularity": 85,
       "description": "Clássico mineiro entre Cruzeiro e Atlético MG. A Raposa contra o Galo no maior derby de Minas Gerais.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "cruzeiro-vs-atletico-mg",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/cruzeiro-vs-atletico-mg/400/300"
     },
     {
       "id_jogo": "26",
@@ -258,7 +333,10 @@
       "popularity": 90,
       "description": "Book of Dead é um slot egípcio clássico da Play'n GO. Explore tumbas com Rich Wilde em busca do livro dos mortos. Free spins com símbolos expansíveis.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "book-of-dead",
+      "rtp": 96.21,
+      "image": "https://picsum.photos/seed/book-of-dead/400/300"
     },
     {
       "id_jogo": "27",
@@ -268,7 +346,10 @@
       "popularity": 85,
       "description": "Gonzo's Quest é um slot de aventura da NetEnt. Siga o explorador Gonzo em busca de El Dorado com avalanche de símbolos e multiplicadores crescentes.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "gonzos-quest",
+      "rtp": 95.97,
+      "image": "https://picsum.photos/seed/gonzos-quest/400/300"
     },
     {
       "id_jogo": "28",
@@ -278,7 +359,10 @@
       "popularity": 90,
       "description": "Starburst é o slot mais icônico da NetEnt. Joias cósmicas brilhantes com wilds expansíveis e re-spins. Simples e viciante.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "starburst",
+      "rtp": 96.09,
+      "image": "https://picsum.photos/seed/starburst/400/300"
     },
     {
       "id_jogo": "29",
@@ -288,7 +372,10 @@
       "popularity": 95,
       "description": "Mega Moolah é o slot de jackpot progressivo mais famoso do mundo. Tema de safari africano com 4 jackpots progressivos. Milhões em prêmios.",
       "categoria": "slot",
-      "tags": "FS JACKPOT"
+      "tags": "FS JACKPOT",
+      "slug": "mega-moolah",
+      "rtp": 88.12,
+      "image": "https://picsum.photos/seed/mega-moolah/400/300"
     },
     {
       "id_jogo": "30",
@@ -298,7 +385,10 @@
       "popularity": 85,
       "description": "Fruit Party é um slot colorido de frutas da Pragmatic Play. Cluster pays com multiplicadores até 256x. Frutas dançantes e muita diversão.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fruit-party",
+      "rtp": 94.07,
+      "image": "https://picsum.photos/seed/fruit-party/400/300"
     },
     {
       "id_jogo": "31",
@@ -308,7 +398,10 @@
       "popularity": 85,
       "description": "Clássico Vovô - Botafogo contra Fluminense no maior derby carioca. Fogão versus Flu em rivalidade histórica do Rio de Janeiro.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "botafogo-vs-fluminense",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/botafogo-vs-fluminense/400/300"
     },
     {
       "id_jogo": "32",
@@ -318,7 +411,10 @@
       "popularity": 95,
       "description": "Fla-Flu - o clássico das multidões. Flamengo contra Fluminense no maior clássico do Rio de Janeiro. Mengão versus Flu em rivalidade centenária.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "flamengo-vs-fluminense",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/flamengo-vs-fluminense/400/300"
     },
     {
       "id_jogo": "33",
@@ -328,7 +424,10 @@
       "popularity": 90,
       "description": "Majestoso - São Paulo contra Corinthians. Bambi versus Timão no clássico paulista de maior rivalidade.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "sao-paulo-vs-corinthians",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/sao-paulo-vs-corinthians/400/300"
     },
     {
       "id_jogo": "34",
@@ -338,7 +437,10 @@
       "popularity": 75,
       "description": "Ba-Vi - o clássico baiano entre Bahia e Vitória. Esquadrão de Aço contra Leão da Barra em rivalidade de Salvador.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "bahia-vs-vitoria",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/bahia-vs-vitoria/400/300"
     },
     {
       "id_jogo": "35",
@@ -348,7 +450,10 @@
       "popularity": 70,
       "description": "Clássico das Multidões pernambucano. Sport Recife contra Santa Cruz em rivalidade histórica de Pernambuco.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "sport-vs-santa-cruz",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/sport-vs-santa-cruz/400/300"
     },
     {
       "id_jogo": "36",
@@ -358,7 +463,10 @@
       "popularity": 75,
       "description": "Clássico-Rei cearense. Fortaleza contra Ceará no maior derby do nordeste. Leão do Pici versus Vozão.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "fortaleza-vs-ceara",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/fortaleza-vs-ceara/400/300"
     },
     {
       "id_jogo": "37",
@@ -368,7 +476,10 @@
       "popularity": 75,
       "description": "Atletiba - o clássico paranaense. Coritiba Coxa Branca contra Athletico Furacão em rivalidade de Curitiba.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "coritiba-vs-athletico-pr",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/coritiba-vs-athletico-pr/400/300"
     },
     {
       "id_jogo": "38",
@@ -378,7 +489,10 @@
       "popularity": 100,
       "description": "O maior clássico sul-americano. Brasil contra Argentina em rivalidade histórica. Seleção Brasileira versus Albiceleste.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT INTERNATIONAL"
+      "tags": "LIVE SPORT INTERNATIONAL",
+      "slug": "brasil-vs-argentina",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/brasil-vs-argentina/400/300"
     },
     {
       "id_jogo": "39",
@@ -388,7 +502,10 @@
       "popularity": 100,
       "description": "El Clásico - Real Madrid contra Barcelona. O maior clássico do futebol mundial. Merengues versus Blaugrana.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT INTERNATIONAL"
+      "tags": "LIVE SPORT INTERNATIONAL",
+      "slug": "real-madrid-vs-barcelona",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/real-madrid-vs-barcelona/400/300"
     },
     {
       "id_jogo": "40",
@@ -398,7 +515,10 @@
       "popularity": 95,
       "description": "O maior clássico inglês. Manchester United Red Devils contra Liverpool Reds em rivalidade histórica da Premier League.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT INTERNATIONAL"
+      "tags": "LIVE SPORT INTERNATIONAL",
+      "slug": "manchester-united-vs-liverpool",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/manchester-united-vs-liverpool/400/300"
     },
     {
       "id_jogo": "41",
@@ -408,7 +528,10 @@
       "popularity": 100,
       "description": "Seleção Brasileira nas Eliminatórias da Copa do Mundo. Canarinho em busca da vaga no mundial.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT INTERNATIONAL"
+      "tags": "LIVE SPORT INTERNATIONAL",
+      "slug": "selecao-brasileira-eliminatorias",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/selecao-brasileira-eliminatorias/400/300"
     },
     {
       "id_jogo": "42",
@@ -418,7 +541,10 @@
       "popularity": 90,
       "description": "Charles Do Bronx Oliveira no UFC. O brasileiro campeão dos leves em lutas emocionantes de MMA.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT MMA"
+      "tags": "LIVE SPORT MMA",
+      "slug": "ufc-charles-oliveira",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ufc-charles-oliveira/400/300"
     },
     {
       "id_jogo": "43",
@@ -428,7 +554,10 @@
       "popularity": 95,
       "description": "Alex Poatan Pereira no UFC. O brasileiro campeão dos meio-pesados com nocautes devastadores.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT MMA"
+      "tags": "LIVE SPORT MMA",
+      "slug": "ufc-alex-poatan-pereira",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ufc-alex-poatan-pereira/400/300"
     },
     {
       "id_jogo": "44",
@@ -438,7 +567,10 @@
       "popularity": 85,
       "description": "Seleção Brasileira de Vôlei. Campeões olímpicos e mundiais em ação na Liga das Nações e Mundiais.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT VOLLEYBALL"
+      "tags": "LIVE SPORT VOLLEYBALL",
+      "slug": "volei-selecao-brasileira",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/volei-selecao-brasileira/400/300"
     },
     {
       "id_jogo": "45",
@@ -448,7 +580,10 @@
       "popularity": 90,
       "description": "Los Angeles Lakers na NBA. Basquete americano com LeBron James e estrelas do Lakers.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT NBA"
+      "tags": "LIVE SPORT NBA",
+      "slug": "nba-los-angeles-lakers",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/nba-los-angeles-lakers/400/300"
     },
     {
       "id_jogo": "46",
@@ -458,7 +593,10 @@
       "popularity": 100,
       "description": "Crazy Time é o game show ao vivo mais popular da Evolution. Roda da fortuna com bônus incríveis: Cash Hunt, Pachinko, Coin Flip e Crazy Time.",
       "categoria": "live",
-      "tags": "LIVE CERT"
+      "tags": "LIVE CERT",
+      "slug": "crazy-time",
+      "rtp": 96.08,
+      "image": "https://picsum.photos/seed/crazy-time/400/300"
     },
     {
       "id_jogo": "47",
@@ -468,7 +606,10 @@
       "popularity": 90,
       "description": "Monopoly Live combina a roda da fortuna com o tabuleiro do Banco Imobiliário. Bônus 2 Rolls e 4 Rolls com Mr. Monopoly.",
       "categoria": "live",
-      "tags": "LIVE CERT"
+      "tags": "LIVE CERT",
+      "slug": "monopoly-live",
+      "rtp": 96.23,
+      "image": "https://picsum.photos/seed/monopoly-live/400/300"
     },
     {
       "id_jogo": "48",
@@ -478,7 +619,10 @@
       "popularity": 95,
       "description": "Lightning Roulette é a roleta ao vivo com multiplicadores de até 500x. Raios atingem números sortudos a cada rodada.",
       "categoria": "live",
-      "tags": "LIVE CERT"
+      "tags": "LIVE CERT",
+      "slug": "lightning-roulette",
+      "rtp": 97.3,
+      "image": "https://picsum.photos/seed/lightning-roulette/400/300"
     },
     {
       "id_jogo": "49",
@@ -488,7 +632,10 @@
       "popularity": 80,
       "description": "Dream Catcher é a roda da fortuna ao vivo da Evolution. Simples e emocionante com multiplicadores 2x e 7x.",
       "categoria": "live",
-      "tags": "LIVE CERT"
+      "tags": "LIVE CERT",
+      "slug": "dream-catcher",
+      "rtp": 98.26,
+      "image": "https://picsum.photos/seed/dream-catcher/400/300"
     },
     {
       "id_jogo": "50",
@@ -498,7 +645,10 @@
       "popularity": 85,
       "description": "Mega Ball combina bingo com loteria ao vivo. 51 bolas sorteadas e multiplicadores de até 100x na Mega Ball.",
       "categoria": "live",
-      "tags": "LIVE CERT"
+      "tags": "LIVE CERT",
+      "slug": "mega-ball",
+      "rtp": 97.57,
+      "image": "https://picsum.photos/seed/mega-ball/400/300"
     },
     {
       "id_jogo": "51",
@@ -508,7 +658,10 @@
       "popularity": 80,
       "description": "Plinko é um jogo onde a bolinha cai por pinos até atingir multiplicadores. Escolha o risco e veja onde a sorte te leva.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "plinko",
+      "rtp": 97.0,
+      "image": "https://picsum.photos/seed/plinko/400/300"
     },
     {
       "id_jogo": "52",
@@ -518,7 +671,10 @@
       "popularity": 75,
       "description": "Dice é um jogo de dados simples e rápido. Escolha over ou under e teste sua sorte com multiplicadores ajustáveis.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "dice",
+      "rtp": 97.94,
+      "image": "https://picsum.photos/seed/dice/400/300"
     },
     {
       "id_jogo": "53",
@@ -528,7 +684,10 @@
       "popularity": 80,
       "description": "Goal é um jogo de pênaltis instantâneo. Escolha onde chutar e torça para o goleiro não defender.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "goal",
+      "rtp": 97.62,
+      "image": "https://picsum.photos/seed/goal/400/300"
     },
     {
       "id_jogo": "54",
@@ -538,7 +697,10 @@
       "popularity": 70,
       "description": "HiLo é um jogo de cartas onde você aposta se a próxima carta será maior ou menor. Multiplicadores crescentes a cada acerto.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "hilo",
+      "rtp": 97.16,
+      "image": "https://picsum.photos/seed/hilo/400/300"
     },
     {
       "id_jogo": "55",
@@ -548,7 +710,10 @@
       "popularity": 75,
       "description": "Keno é uma loteria instantânea. Escolha seus números da sorte e veja quantos são sorteados para ganhar prêmios.",
       "categoria": "crash",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "keno",
+      "rtp": 97.89,
+      "image": "https://picsum.photos/seed/keno/400/300"
     },
     {
       "id_jogo": "56",
@@ -558,7 +723,10 @@
       "popularity": 85,
       "description": "Wanted Dead or a Wild é um slot de faroeste da Hacksaw Gaming. Bandidos, xerifes e multiplicadores até 12,500x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "wanted-dead-or-a-wild",
+      "rtp": 96.38,
+      "image": "https://picsum.photos/seed/wanted-dead-or-a-wild/400/300"
     },
     {
       "id_jogo": "57",
@@ -568,7 +736,10 @@
       "popularity": 85,
       "description": "The Dog House é um slot de cachorrinhos fofo da Pragmatic Play. Wilds pegajosos e multiplicadores até 6,750x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "the-dog-house",
+      "rtp": 96.51,
+      "image": "https://picsum.photos/seed/the-dog-house/400/300"
     },
     {
       "id_jogo": "58",
@@ -578,7 +749,10 @@
       "popularity": 90,
       "description": "The Dog House Megaways é a versão turbinada com até 117,649 formas de ganhar. Cachorros e multiplicadores ilimitados.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "the-dog-house-megaways",
+      "rtp": 95.62,
+      "image": "https://picsum.photos/seed/the-dog-house-megaways/400/300"
     },
     {
       "id_jogo": "59",
@@ -588,7 +762,10 @@
       "popularity": 80,
       "description": "Madame Destiny Megaways é um slot místico com a cigana da fortuna. Bola de cristal e multiplicadores progressivos.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "madame-destiny-megaways",
+      "rtp": 97.22,
+      "image": "https://picsum.photos/seed/madame-destiny-megaways/400/300"
     },
     {
       "id_jogo": "60",
@@ -598,7 +775,10 @@
       "popularity": 75,
       "description": "John Hunter explora tumbas egípcias em busca da Rainha Escaravelho. Aventura com multiplicadores e free spins.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "john-hunter-and-the-tomb-of-the-scarab-queen",
+      "rtp": 94.41,
+      "image": "https://picsum.photos/seed/john-hunter-and-the-tomb-of-the-scarab-queen/400/300"
     },
     {
       "id_jogo": "61",
@@ -608,7 +788,10 @@
       "popularity": 75,
       "description": "Fruit Shop Megaways é um slot clássico de frutas com mecânica Megaways. Até 117,649 formas de ganhar.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fruit-shop-megaways",
+      "rtp": 95.88,
+      "image": "https://picsum.photos/seed/fruit-shop-megaways/400/300"
     },
     {
       "id_jogo": "62",
@@ -618,7 +801,10 @@
       "popularity": 85,
       "description": "Dead or Alive 2 é um slot de faroeste com alta volatilidade. Sticky wilds e multiplicadores até 111,111x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "dead-or-alive-2",
+      "rtp": 96.82,
+      "image": "https://picsum.photos/seed/dead-or-alive-2/400/300"
     },
     {
       "id_jogo": "63",
@@ -628,7 +814,10 @@
       "popularity": 85,
       "description": "Reactoonz é um slot de aliens fofinhos com cluster pays. Cascatas e multiplicadores quânticos até 4,570x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "reactoonz",
+      "rtp": 96.51,
+      "image": "https://picsum.photos/seed/reactoonz/400/300"
     },
     {
       "id_jogo": "64",
@@ -638,7 +827,10 @@
       "popularity": 90,
       "description": "Reactoonz 2 é a sequência turbinada com mais aliens e features. Energoon wilds e multiplicadores ilimitados.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "reactoonz-2",
+      "rtp": 95.9,
+      "image": "https://picsum.photos/seed/reactoonz-2/400/300"
     },
     {
       "id_jogo": "65",
@@ -648,7 +840,10 @@
       "popularity": 90,
       "description": "Rise of Olympus reúne Zeus, Hades e Poseidon. Três deuses gregos com poderes especiais e multiplicadores até 5,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "rise-of-olympus",
+      "rtp": 96.5,
+      "image": "https://picsum.photos/seed/rise-of-olympus/400/300"
     },
     {
       "id_jogo": "66",
@@ -658,7 +853,10 @@
       "popularity": 90,
       "description": "Moon Princess é um slot anime com três princesas mágicas. Cluster pays e multiplicadores até 5,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "moon-princess",
+      "rtp": 96.0,
+      "image": "https://picsum.photos/seed/moon-princess/400/300"
     },
     {
       "id_jogo": "67",
@@ -668,7 +866,10 @@
       "popularity": 90,
       "description": "Jammin' Jars é um slot de potes de geleia dançantes. Cluster pays com multiplicadores progressivos até 20,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "jammin-jars",
+      "rtp": 96.83,
+      "image": "https://picsum.photos/seed/jammin-jars/400/300"
     },
     {
       "id_jogo": "68",
@@ -678,7 +879,10 @@
       "popularity": 85,
       "description": "Jammin' Jars 2 traz mais potes de geleia e features. Giga Jar e multiplicadores até 50,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "jammin-jars-2",
+      "rtp": 95.11,
+      "image": "https://picsum.photos/seed/jammin-jars-2/400/300"
     },
     {
       "id_jogo": "69",
@@ -688,7 +892,10 @@
       "popularity": 90,
       "description": "Razor Shark é um slot subaquático com tubarões ferozes. Mystery stacks e multiplicadores até 50,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "razor-shark",
+      "rtp": 96.7,
+      "image": "https://picsum.photos/seed/razor-shark/400/300"
     },
     {
       "id_jogo": "70",
@@ -698,7 +905,10 @@
       "popularity": 75,
       "description": "Fat Banker é um slot sobre um banqueiro ganancioso. Cofres de ouro e multiplicadores até 50,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fat-banker",
+      "rtp": 96.02,
+      "image": "https://picsum.photos/seed/fat-banker/400/300"
     },
     {
       "id_jogo": "71",
@@ -708,7 +918,10 @@
       "popularity": 90,
       "description": "Money Train 2 é um slot de trem do oeste com bandidos. Bonus game com multiplicadores persistentes até 50,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "money-train-2",
+      "rtp": 96.4,
+      "image": "https://picsum.photos/seed/money-train-2/400/300"
     },
     {
       "id_jogo": "72",
@@ -718,7 +931,10 @@
       "popularity": 95,
       "description": "Money Train 3 é a sequência explosiva com mais bandidos e features. Multiplicadores até 100,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "money-train-3",
+      "rtp": 96.1,
+      "image": "https://picsum.photos/seed/money-train-3/400/300"
     },
     {
       "id_jogo": "73",
@@ -728,7 +944,10 @@
       "popularity": 95,
       "description": "Bonanza é o slot Megaways original da Big Time Gaming. Mineração de ouro com até 117,649 formas de ganhar.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "bonanza",
+      "rtp": 96.0,
+      "image": "https://picsum.photos/seed/bonanza/400/300"
     },
     {
       "id_jogo": "74",
@@ -738,7 +957,10 @@
       "popularity": 85,
       "description": "Extra Chilli é um slot mexicano picante com Megaways. Feature drop e multiplicadores ilimitados.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "extra-chilli",
+      "rtp": 96.2,
+      "image": "https://picsum.photos/seed/extra-chilli/400/300"
     },
     {
       "id_jogo": "75",
@@ -748,7 +970,10 @@
       "popularity": 80,
       "description": "White Rabbit segue Alice no País das Maravilhas. Megaways expansível até 248,832 formas de ganhar.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "white-rabbit",
+      "rtp": 97.24,
+      "image": "https://picsum.photos/seed/white-rabbit/400/300"
     },
     {
       "id_jogo": "76",
@@ -758,7 +983,10 @@
       "popularity": 80,
       "description": "Buffalo King Megaways é um slot de bisões americanos. Até 200,704 formas de ganhar e multiplicadores crescentes.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "buffalo-king-megaways",
+      "rtp": 96.33,
+      "image": "https://picsum.photos/seed/buffalo-king-megaways/400/300"
     },
     {
       "id_jogo": "77",
@@ -768,7 +996,10 @@
       "popularity": 75,
       "description": "Mustang Gold é um slot de cavalos selvagens do oeste. Jackpots e money collect feature.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "mustang-gold",
+      "rtp": 94.56,
+      "image": "https://picsum.photos/seed/mustang-gold/400/300"
     },
     {
       "id_jogo": "78",
@@ -778,7 +1009,10 @@
       "popularity": 75,
       "description": "Pirate Gold Deluxe é um slot de piratas em busca de tesouros. Money symbols e multiplicadores até 32,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "pirate-gold-deluxe",
+      "rtp": 94.76,
+      "image": "https://picsum.photos/seed/pirate-gold-deluxe/400/300"
     },
     {
       "id_jogo": "79",
@@ -788,7 +1022,10 @@
       "popularity": 80,
       "description": "Wild West Gold é um slot de faroeste com xerifes e bandidos. Sticky wilds e multiplicadores até 10,000x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "wild-west-gold",
+      "rtp": 94.54,
+      "image": "https://picsum.photos/seed/wild-west-gold/400/300"
     },
     {
       "id_jogo": "80",
@@ -798,7 +1035,10 @@
       "popularity": 70,
       "description": "Aztec Gems é um slot asteca simples e rápido. Joias preciosas e multiplicadores até 375x.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "aztec-gems",
+      "rtp": 96.16,
+      "image": "https://picsum.photos/seed/aztec-gems/400/300"
     },
     {
       "id_jogo": "101",
@@ -808,7 +1048,10 @@
       "popularity": 98,
       "description": "Aposte no próximo jogo do Palmeiras. Verdão, maior campeão brasileiro, com tradição e títulos da Libertadores.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "palmeiras-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/palmeiras-proximo-jogo/400/300"
     },
     {
       "id_jogo": "102",
@@ -818,7 +1061,10 @@
       "popularity": 100,
       "description": "Aposte no próximo jogo do Flamengo. Mengão, time mais popular do Brasil, com torcida apaixonada.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "flamengo-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/flamengo-proximo-jogo/400/300"
     },
     {
       "id_jogo": "103",
@@ -828,7 +1074,10 @@
       "popularity": 98,
       "description": "Aposte no próximo jogo do Corinthians. Timão, time do povo, com a Fiel torcida.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "corinthians-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/corinthians-proximo-jogo/400/300"
     },
     {
       "id_jogo": "104",
@@ -838,7 +1087,10 @@
       "popularity": 95,
       "description": "Aposte no próximo jogo do São Paulo. Tricolor paulista, time de tradição e títulos mundiais.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "sao-paulo-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/sao-paulo-proximo-jogo/400/300"
     },
     {
       "id_jogo": "105",
@@ -848,7 +1100,10 @@
       "popularity": 90,
       "description": "Aposte no próximo jogo do Santos. Peixe, time de Pelé e Neymar, tradição santista.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "santos-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/santos-proximo-jogo/400/300"
     },
     {
       "id_jogo": "106",
@@ -858,7 +1113,10 @@
       "popularity": 88,
       "description": "Aposte no próximo jogo do Vasco. Gigante da Colina, tradição carioca.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "vasco-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/vasco-proximo-jogo/400/300"
     },
     {
       "id_jogo": "107",
@@ -868,7 +1126,10 @@
       "popularity": 87,
       "description": "Aposte no próximo jogo do Botafogo. Fogão, time glorioso do Rio de Janeiro.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "botafogo-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/botafogo-proximo-jogo/400/300"
     },
     {
       "id_jogo": "108",
@@ -878,7 +1139,10 @@
       "popularity": 86,
       "description": "Aposte no próximo jogo do Fluminense. Tricolor carioca, time de tradição.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "fluminense-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/fluminense-proximo-jogo/400/300"
     },
     {
       "id_jogo": "109",
@@ -888,7 +1152,10 @@
       "popularity": 92,
       "description": "Aposte no próximo jogo do Atlético Mineiro. Galo, campeão da Libertadores.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "atletico-mineiro-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/atletico-mineiro-proximo-jogo/400/300"
     },
     {
       "id_jogo": "110",
@@ -898,7 +1165,10 @@
       "popularity": 89,
       "description": "Aposte no próximo jogo do Cruzeiro. Raposa, time de tradição mineira.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "cruzeiro-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/cruzeiro-proximo-jogo/400/300"
     },
     {
       "id_jogo": "111",
@@ -908,7 +1178,10 @@
       "popularity": 90,
       "description": "Aposte no próximo jogo do Internacional. Colorado gaúcho, rival do Grêmio.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "internacional-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/internacional-proximo-jogo/400/300"
     },
     {
       "id_jogo": "112",
@@ -918,7 +1191,10 @@
       "popularity": 91,
       "description": "Aposte no próximo jogo do Grêmio. Tricolor gaúcho, time imortal.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "gremio-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/gremio-proximo-jogo/400/300"
     },
     {
       "id_jogo": "113",
@@ -928,7 +1204,10 @@
       "popularity": 85,
       "description": "Aposte no próximo jogo do Athletico. Furacão paranaense.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "athletico-paranaense-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/athletico-paranaense-proximo-jogo/400/300"
     },
     {
       "id_jogo": "114",
@@ -938,7 +1217,10 @@
       "popularity": 82,
       "description": "Aposte no próximo jogo do Coritiba. Coxa, time tradicional do Paraná.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "coritiba-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/coritiba-proximo-jogo/400/300"
     },
     {
       "id_jogo": "115",
@@ -948,7 +1230,10 @@
       "popularity": 84,
       "description": "Aposte no próximo jogo do Fortaleza. Leão do Pici, força do Nordeste.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "fortaleza-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/fortaleza-proximo-jogo/400/300"
     },
     {
       "id_jogo": "116",
@@ -958,7 +1243,10 @@
       "popularity": 81,
       "description": "Aposte no próximo jogo do Ceará. Vozão, tradição cearense.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "ceara-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ceara-proximo-jogo/400/300"
     },
     {
       "id_jogo": "117",
@@ -968,7 +1256,10 @@
       "popularity": 83,
       "description": "Aposte no próximo jogo do Bahia. Esquadrão de Aço, tradição baiana.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "bahia-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/bahia-proximo-jogo/400/300"
     },
     {
       "id_jogo": "118",
@@ -978,7 +1269,10 @@
       "popularity": 79,
       "description": "Aposte no próximo jogo do Vitória. Leão da Barra, rival do Bahia.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "vitoria-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/vitoria-proximo-jogo/400/300"
     },
     {
       "id_jogo": "119",
@@ -988,7 +1282,10 @@
       "popularity": 80,
       "description": "Aposte no próximo jogo do Sport. Leão da Ilha, tradição pernambucana.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "sport-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/sport-proximo-jogo/400/300"
     },
     {
       "id_jogo": "120",
@@ -998,7 +1295,10 @@
       "popularity": 77,
       "description": "Aposte no próximo jogo do Santa Cruz. Cobra Coral, rival do Sport.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "santa-cruz-proximo-jogo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/santa-cruz-proximo-jogo/400/300"
     },
     {
       "id_jogo": "121",
@@ -1008,7 +1308,10 @@
       "popularity": 99,
       "description": "Clássico nacional entre Palmeiras e Flamengo. Porco vs Mengão, os maiores do Brasil.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "palmeiras-vs-flamengo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/palmeiras-vs-flamengo/400/300"
     },
     {
       "id_jogo": "122",
@@ -1018,7 +1321,10 @@
       "popularity": 98,
       "description": "Clássico nacional entre Flamengo e Corinthians. Mengão vs Timão.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "flamengo-vs-corinthians",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/flamengo-vs-corinthians/400/300"
     },
     {
       "id_jogo": "123",
@@ -1028,7 +1334,10 @@
       "popularity": 100,
       "description": "Aposte ao vivo na Champions League. A maior competição de clubes da Europa.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "champions-league-ao-vivo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/champions-league-ao-vivo/400/300"
     },
     {
       "id_jogo": "124",
@@ -1038,7 +1347,10 @@
       "popularity": 97,
       "description": "Aposte ao vivo na Premier League. O melhor futebol inglês.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "premier-league-ao-vivo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/premier-league-ao-vivo/400/300"
     },
     {
       "id_jogo": "125",
@@ -1048,7 +1360,10 @@
       "popularity": 95,
       "description": "Aposte ao vivo na La Liga. O melhor futebol espanhol.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "la-liga-ao-vivo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/la-liga-ao-vivo/400/300"
     },
     {
       "id_jogo": "126",
@@ -1058,7 +1373,10 @@
       "popularity": 88,
       "description": "Aposte nas lutas de Amanda Nunes. A Leoa, maior lutadora de todos os tempos.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "ufc-amanda-nunes",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ufc-amanda-nunes/400/300"
     },
     {
       "id_jogo": "127",
@@ -1068,7 +1386,10 @@
       "popularity": 86,
       "description": "Aposte nas lutas de Deiveson Figueiredo. Deus da Guerra brasileiro.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "ufc-deiveson-figueiredo",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ufc-deiveson-figueiredo/400/300"
     },
     {
       "id_jogo": "128",
@@ -1078,7 +1399,10 @@
       "popularity": 84,
       "description": "Aposte nas lutas de Gilbert Burns. Durinho, faixa-preta de jiu-jitsu.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "ufc-gilbert-burns",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/ufc-gilbert-burns/400/300"
     },
     {
       "id_jogo": "129",
@@ -1088,7 +1412,10 @@
       "popularity": 92,
       "description": "Aposte ao vivo na Fórmula 1. A categoria máxima do automobilismo.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "formula-1-grande-premio",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/formula-1-grande-premio/400/300"
     },
     {
       "id_jogo": "130",
@@ -1098,7 +1425,10 @@
       "popularity": 89,
       "description": "Aposte nos jogos do Golden State Warriors. Time de Stephen Curry.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "nba-golden-state-warriors",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/nba-golden-state-warriors/400/300"
     },
     {
       "id_jogo": "131",
@@ -1108,7 +1438,10 @@
       "popularity": 87,
       "description": "Aposte nos jogos do Miami Heat. Tradição da NBA.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "nba-miami-heat",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/nba-miami-heat/400/300"
     },
     {
       "id_jogo": "132",
@@ -1118,7 +1451,10 @@
       "popularity": 94,
       "description": "Aposte no Super Bowl. A final do futebol americano.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "nfl-super-bowl",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/nfl-super-bowl/400/300"
     },
     {
       "id_jogo": "133",
@@ -1128,7 +1464,10 @@
       "popularity": 88,
       "description": "Aposte nos Grand Slams de tênis. Os maiores torneios do mundo.",
       "categoria": "esporte",
-      "tags": "LIVE SPORT"
+      "tags": "LIVE SPORT",
+      "slug": "tenis-grand-slam",
+      "rtp": null,
+      "image": "https://picsum.photos/seed/tenis-grand-slam/400/300"
     },
     {
       "id_jogo": "201",
@@ -1138,7 +1477,10 @@
       "popularity": 92,
       "description": "Slot asiático com dragão da fortuna. Símbolos orientais e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-dragon",
+      "rtp": 94.64,
+      "image": "https://picsum.photos/seed/fortune-dragon/400/300"
     },
     {
       "id_jogo": "202",
@@ -1148,7 +1490,10 @@
       "popularity": 88,
       "description": "Slot com gemas da fortuna e símbolos de riqueza asiática.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fortune-gems",
+      "rtp": 96.96,
+      "image": "https://picsum.photos/seed/fortune-gems/400/300"
     },
     {
       "id_jogo": "203",
@@ -1158,7 +1503,10 @@
       "popularity": 87,
       "description": "Slot com tema hindu e o deus Ganesha. Símbolos de prosperidade.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "ganesha-gold",
+      "rtp": 94.05,
+      "image": "https://picsum.photos/seed/ganesha-gold/400/300"
     },
     {
       "id_jogo": "204",
@@ -1168,7 +1516,10 @@
       "popularity": 86,
       "description": "Slot com Caishen, o deus chinês da riqueza. Multiplicadores e bônus.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "caishen-wins",
+      "rtp": 96.37,
+      "image": "https://picsum.photos/seed/caishen-wins/400/300"
     },
     {
       "id_jogo": "205",
@@ -1178,7 +1529,10 @@
       "popularity": 85,
       "description": "Slot com tema de fortuna dupla e símbolos asiáticos de sorte.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "double-fortune",
+      "rtp": 94.12,
+      "image": "https://picsum.photos/seed/double-fortune/400/300"
     },
     {
       "id_jogo": "206",
@@ -1188,7 +1542,10 @@
       "popularity": 84,
       "description": "Slot com porquinho dourado e símbolos de prosperidade.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "piggy-gold",
+      "rtp": 96.36,
+      "image": "https://picsum.photos/seed/piggy-gold/400/300"
     },
     {
       "id_jogo": "207",
@@ -1198,7 +1555,10 @@
       "popularity": 83,
       "description": "Slot com tema asteca e tesouros perdidos. Multiplicadores e rodadas grátis.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "treasures-of-aztec",
+      "rtp": 94.45,
+      "image": "https://picsum.photos/seed/treasures-of-aztec/400/300"
     },
     {
       "id_jogo": "208",
@@ -1208,7 +1568,10 @@
       "popularity": 82,
       "description": "Slot com tema de selva e animais exóticos. Bônus e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "jungle-delight",
+      "rtp": 94.38,
+      "image": "https://picsum.photos/seed/jungle-delight/400/300"
     },
     {
       "id_jogo": "209",
@@ -1218,7 +1581,10 @@
       "popularity": 81,
       "description": "Slot com herói salvador de gemas. Mecânica única e bônus.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "gem-saviour",
+      "rtp": 95.24,
+      "image": "https://picsum.photos/seed/gem-saviour/400/300"
     },
     {
       "id_jogo": "210",
@@ -1228,7 +1594,10 @@
       "popularity": 80,
       "description": "Slot com tema de Medusa e mitologia grega. Rodadas grátis e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "medusa",
+      "rtp": 96.93,
+      "image": "https://picsum.photos/seed/medusa/400/300"
     },
     {
       "id_jogo": "211",
@@ -1238,7 +1607,10 @@
       "popularity": 79,
       "description": "Slot com tema de búfalo americano. Símbolos selvagens e bônus.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "buffalo-win",
+      "rtp": 94.95,
+      "image": "https://picsum.photos/seed/buffalo-win/400/300"
     },
     {
       "id_jogo": "212",
@@ -1248,7 +1620,10 @@
       "popularity": 78,
       "description": "Slot com tema de faroeste e bandidos. Multiplicadores e rodadas grátis.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "wild-bandito",
+      "rtp": 96.51,
+      "image": "https://picsum.photos/seed/wild-bandito/400/300"
     },
     {
       "id_jogo": "213",
@@ -1258,7 +1633,10 @@
       "popularity": 90,
       "description": "Slot com tema de doces e balas. Similar ao Sweet Bonanza.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "candy-bonanza",
+      "rtp": 96.76,
+      "image": "https://picsum.photos/seed/candy-bonanza/400/300"
     },
     {
       "id_jogo": "214",
@@ -1268,7 +1646,10 @@
       "popularity": 89,
       "description": "Sequência do popular Fruit Party. Frutas coloridas e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fruit-party-2",
+      "rtp": 94.83,
+      "image": "https://picsum.photos/seed/fruit-party-2/400/300"
     },
     {
       "id_jogo": "215",
@@ -1278,7 +1659,10 @@
       "popularity": 87,
       "description": "Versão natalina do Sugar Rush. Doces e tema de Natal.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "sugar-rush-xmas",
+      "rtp": 95.77,
+      "image": "https://picsum.photos/seed/sugar-rush-xmas/400/300"
     },
     {
       "id_jogo": "216",
@@ -1288,7 +1672,10 @@
       "popularity": 86,
       "description": "Versão natalina do Starlight Princess. Tema de Natal e multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "starlight-christmas",
+      "rtp": 96.66,
+      "image": "https://picsum.photos/seed/starlight-christmas/400/300"
     },
     {
       "id_jogo": "217",
@@ -1298,7 +1685,10 @@
       "popularity": 85,
       "description": "Slot com tema africano e rinocerontes. Mecânica Megaways.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "great-rhino-megaways",
+      "rtp": 96.0,
+      "image": "https://picsum.photos/seed/great-rhino-megaways/400/300"
     },
     {
       "id_jogo": "218",
@@ -1308,7 +1698,10 @@
       "popularity": 84,
       "description": "Slot com tema mexicano e pimentas. Jackpot progressivo.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "chilli-heat",
+      "rtp": 95.62,
+      "image": "https://picsum.photos/seed/chilli-heat/400/300"
     },
     {
       "id_jogo": "219",
@@ -1318,7 +1711,10 @@
       "popularity": 83,
       "description": "Slot clássico com frutas em chamas. Símbolos tradicionais.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "hot-to-burn",
+      "rtp": 96.33,
+      "image": "https://picsum.photos/seed/hot-to-burn/400/300"
     },
     {
       "id_jogo": "220",
@@ -1328,7 +1724,10 @@
       "popularity": 82,
       "description": "Slot com tema de fogo e chamas. Multiplicadores e respin.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "fire-strike",
+      "rtp": 96.46,
+      "image": "https://picsum.photos/seed/fire-strike/400/300"
     },
     {
       "id_jogo": "301",
@@ -1338,7 +1737,10 @@
       "popularity": 91,
       "description": "Jogo de crash com foguete. Multiplicador crescente, saque antes de explodir.",
       "categoria": "crash",
-      "tags": "CRASH"
+      "tags": "CRASH",
+      "slug": "crash-x",
+      "rtp": 96.54,
+      "image": "https://picsum.photos/seed/crash-x/400/300"
     },
     {
       "id_jogo": "302",
@@ -1348,7 +1750,10 @@
       "popularity": 89,
       "description": "Jogo de crash com jato da sorte. Similar ao Aviator.",
       "categoria": "crash",
-      "tags": "CRASH"
+      "tags": "CRASH",
+      "slug": "lucky-jet",
+      "rtp": 96.41,
+      "image": "https://picsum.photos/seed/lucky-jet/400/300"
     },
     {
       "id_jogo": "303",
@@ -1358,7 +1763,10 @@
       "popularity": 86,
       "description": "Jogo de crash com tema espacial. Multiplicadores altos.",
       "categoria": "crash",
-      "tags": "CRASH"
+      "tags": "CRASH",
+      "slug": "rocket-queen",
+      "rtp": 97.66,
+      "image": "https://picsum.photos/seed/rocket-queen/400/300"
     },
     {
       "id_jogo": "304",
@@ -1368,7 +1776,10 @@
       "popularity": 85,
       "description": "Jogo de crash espacial. Multiplicadores e gráficos modernos.",
       "categoria": "crash",
-      "tags": "CRASH"
+      "tags": "CRASH",
+      "slug": "space-xy",
+      "rtp": 97.11,
+      "image": "https://picsum.photos/seed/space-xy/400/300"
     },
     {
       "id_jogo": "305",
@@ -1378,7 +1789,10 @@
       "popularity": 84,
       "description": "Jogo de crash com dirigível. Multiplicador crescente.",
       "categoria": "crash",
-      "tags": "CRASH"
+      "tags": "CRASH",
+      "slug": "zeppelin",
+      "rtp": 97.14,
+      "image": "https://picsum.photos/seed/zeppelin/400/300"
     },
     {
       "id_jogo": "401",
@@ -1388,7 +1802,10 @@
       "popularity": 93,
       "description": "Blackjack ao vivo com dealer brasileiro. Mesa em português.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "blackjack-brasileiro",
+      "rtp": 98.38,
+      "image": "https://picsum.photos/seed/blackjack-brasileiro/400/300"
     },
     {
       "id_jogo": "402",
@@ -1398,7 +1815,10 @@
       "popularity": 94,
       "description": "Roleta ao vivo com dealer brasileiro. Narração em português.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "roleta-brasileira",
+      "rtp": 98.0,
+      "image": "https://picsum.photos/seed/roleta-brasileira/400/300"
     },
     {
       "id_jogo": "403",
@@ -1408,7 +1828,10 @@
       "popularity": 88,
       "description": "Baccarat ao vivo com squeeze dramático. Alta qualidade.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "baccarat-squeeze",
+      "rtp": 97.83,
+      "image": "https://picsum.photos/seed/baccarat-squeeze/400/300"
     },
     {
       "id_jogo": "404",
@@ -1418,7 +1841,10 @@
       "popularity": 86,
       "description": "Dragon Tiger é um jogo de cartas ao vivo da Evolution. Jogo de cassino simples e rápido onde você aposta em Dragão ou Tigre. Duas cartas são distribuídas e a maior vence. Popular em cassinos asiáticos.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "dragon-tiger",
+      "rtp": 98.48,
+      "image": "https://picsum.photos/seed/dragon-tiger/400/300"
     },
     {
       "id_jogo": "405",
@@ -1428,7 +1854,10 @@
       "popularity": 87,
       "description": "Game show ao vivo Deal or No Deal. Maletas e multiplicadores.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "deal-or-no-deal",
+      "rtp": 98.38,
+      "image": "https://picsum.photos/seed/deal-or-no-deal/400/300"
     },
     {
       "id_jogo": "406",
@@ -1438,7 +1867,10 @@
       "popularity": 85,
       "description": "Game show ao vivo com Gonzo. Caça ao tesouro e multiplicadores.",
       "categoria": "live",
-      "tags": "LIVE CASINO"
+      "tags": "LIVE CASINO",
+      "slug": "gonzos-treasure-hunt",
+      "rtp": 97.12,
+      "image": "https://picsum.photos/seed/gonzos-treasure-hunt/400/300"
     },
     {
       "id_jogo": "501",
@@ -1448,7 +1880,10 @@
       "popularity": 90,
       "description": "Slot clássico com tema egípcio. Livro de Rá e faraós.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "book-of-ra",
+      "rtp": 94.73,
+      "image": "https://picsum.photos/seed/book-of-ra/400/300"
     },
     {
       "id_jogo": "502",
@@ -1458,7 +1893,10 @@
       "popularity": 88,
       "description": "Slot clássico com Cleópatra. Tema egípcio e rodadas grátis.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "cleopatra",
+      "rtp": 97.33,
+      "image": "https://picsum.photos/seed/cleopatra/400/300"
     },
     {
       "id_jogo": "503",
@@ -1468,7 +1906,10 @@
       "popularity": 87,
       "description": "Slot com tema egípcio e o olho de Hórus. Multiplicadores.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "eye-of-horus",
+      "rtp": 96.44,
+      "image": "https://picsum.photos/seed/eye-of-horus/400/300"
     },
     {
       "id_jogo": "504",
@@ -1478,7 +1919,10 @@
       "popularity": 86,
       "description": "Slot com tema egípcio. Similar ao Book of Dead.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "legacy-of-dead",
+      "rtp": 95.67,
+      "image": "https://picsum.photos/seed/legacy-of-dead/400/300"
     },
     {
       "id_jogo": "505",
@@ -1488,7 +1932,10 @@
       "popularity": 85,
       "description": "Slot com tema de vampiros e romance. História envolvente.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "immortal-romance",
+      "rtp": 97.3,
+      "image": "https://picsum.photos/seed/immortal-romance/400/300"
     },
     {
       "id_jogo": "506",
@@ -1498,7 +1945,10 @@
       "popularity": 84,
       "description": "Slot com tema de mitologia nórdica. Thor e deuses.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "thunderstruck-ii",
+      "rtp": 95.27,
+      "image": "https://picsum.photos/seed/thunderstruck-ii/400/300"
     },
     {
       "id_jogo": "507",
@@ -1508,7 +1958,10 @@
       "popularity": 83,
       "description": "Slot com tema viking. Guerreiros e batalhas épicas.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "vikings-go-berzerk",
+      "rtp": 94.19,
+      "image": "https://picsum.photos/seed/vikings-go-berzerk/400/300"
     },
     {
       "id_jogo": "508",
@@ -1518,7 +1971,10 @@
       "popularity": 82,
       "description": "Slot com tema egípcio e vale dos deuses. Mecânica única.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "valley-of-the-gods",
+      "rtp": 96.28,
+      "image": "https://picsum.photos/seed/valley-of-the-gods/400/300"
     },
     {
       "id_jogo": "509",
@@ -1528,7 +1984,10 @@
       "popularity": 81,
       "description": "Slot com tema de carnaval brasileiro. Samba e festa.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "samba-carnival",
+      "rtp": 96.14,
+      "image": "https://picsum.photos/seed/samba-carnival/400/300"
     },
     {
       "id_jogo": "510",
@@ -1538,7 +1997,10 @@
       "popularity": 80,
       "description": "Slot com tema de futebol. Copa do mundo e glória.",
       "categoria": "slot",
-      "tags": "FS CERT"
+      "tags": "FS CERT",
+      "slug": "football-glory",
+      "rtp": 96.81,
+      "image": "https://picsum.photos/seed/football-glory/400/300"
     }
   ]
 }
