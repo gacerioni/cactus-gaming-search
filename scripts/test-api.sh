@@ -35,7 +35,7 @@ test_endpoint() {
     fi
     
     http_code=$(echo "$response" | tail -n1)
-    body=$(echo "$response" | head -n-1)
+    body=$(echo "$response" | sed '$d')
     
     if [ "$http_code" = "200" ]; then
         echo -e "${GREEN}✓ OK${NC} (HTTP $http_code)"
@@ -78,11 +78,15 @@ test_endpoint "Autocomplete (olymp)" "GET" "/api/autocomplete?q=olymp"
 [ $? -eq 0 ] && ((passed++))
 echo ""
 
-# 3. Search
+# 3. Search (Hybrid)
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "3️⃣  Full-text Search"
+echo "3️⃣  Hybrid Search"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 test_endpoint "Search (tigre)" "POST" "/api/search" '{"query":"tigre"}'
+((total++))
+[ $? -eq 0 ] && ((passed++))
+
+test_endpoint "Search (mengao - alias)" "POST" "/api/search" '{"query":"mengao"}'
 ((total++))
 [ $? -eq 0 ] && ((passed++))
 
@@ -90,18 +94,27 @@ test_endpoint "Search (aviator)" "POST" "/api/search" '{"query":"aviator"}'
 ((total++))
 [ $? -eq 0 ] && ((passed++))
 
-test_endpoint "Search (slot)" "POST" "/api/search" '{"query":"slot"}'
+test_endpoint "Search with provider filter" "POST" "/api/search" '{"query":"fortune","filters":{"provider":"PG Soft"}}'
 ((total++))
 [ $? -eq 0 ] && ((passed++))
 
-test_endpoint "Search with filters" "POST" "/api/search" '{"query":"slot","filters":{"provider":"PG Soft"}}'
+test_endpoint "Search with categoria filter" "POST" "/api/search" '{"query":"fortune","filters":{"categoria":"slot"}}'
 ((total++))
 [ $? -eq 0 ] && ((passed++))
 echo ""
 
-# 4. Vector Search
+# 4. Categories
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "4️⃣  Vector Search"
+echo "4️⃣  Categories"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+test_endpoint "Categories" "GET" "/api/categories"
+((total++))
+[ $? -eq 0 ] && ((passed++))
+echo ""
+
+# 5. Vector Search
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "5️⃣  Vector Search"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 test_endpoint "Vector Search (tigre asiático)" "POST" "/api/vector-search" '{"query":"jogos de tigre asiático com multiplicadores"}'
 ((total++))
@@ -110,6 +123,31 @@ test_endpoint "Vector Search (tigre asiático)" "POST" "/api/vector-search" '{"q
 test_endpoint "Vector Search (aviãozinho)" "POST" "/api/vector-search" '{"query":"jogo do aviãozinho que sobe"}'
 ((total++))
 [ $? -eq 0 ] && ((passed++))
+echo ""
+
+# 6. Validate new fields in response
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "6️⃣  New Fields Validation (image, rtp, slug, categoria)"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -n "Checking new fields in search response... "
+fields_response=$(curl -s -X POST "$BASE_URL/api/search" \
+    -H "Content-Type: application/json" \
+    -d '{"query":"Fortune Tiger"}')
+has_image=$(echo "$fields_response" | jq -r '.games[0].image // empty' 2>/dev/null)
+has_rtp=$(echo "$fields_response" | jq -r '.games[0].rtp // empty' 2>/dev/null)
+has_slug=$(echo "$fields_response" | jq -r '.games[0].slug // empty' 2>/dev/null)
+has_cat=$(echo "$fields_response" | jq -r '.games[0].categoria // empty' 2>/dev/null)
+if [ -n "$has_image" ] && [ -n "$has_rtp" ] && [ -n "$has_slug" ] && [ -n "$has_cat" ]; then
+    echo -e "${GREEN}✓ OK${NC}"
+    echo "   image: $has_image"
+    echo "   rtp: $has_rtp"
+    echo "   slug: $has_slug"
+    echo "   categoria: $has_cat"
+    ((passed++))
+else
+    echo -e "${RED}✗ FAIL${NC} - Missing fields (image=$has_image rtp=$has_rtp slug=$has_slug cat=$has_cat)"
+fi
+((total++))
 echo ""
 
 # Resumo

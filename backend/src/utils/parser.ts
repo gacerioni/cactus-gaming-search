@@ -20,12 +20,19 @@ export function parseSearchResults(results: any[]): any[] {
 
       // Convert field array to object
       const game: any = { key };
-      
+
+      // Fields to exclude from response (binary/large data)
+      const EXCLUDED_FIELDS = new Set(['description_vector']);
+
       for (let j = 0; j < fields.length; j += 2) {
         if (j + 1 < fields.length) {
           const fieldName = fields[j];
+
+          // Skip binary/large fields
+          if (EXCLUDED_FIELDS.has(fieldName)) continue;
+
           let fieldValue = fields[j + 1];
-          
+
           // Parse JSON strings
           if (typeof fieldValue === 'string' && (fieldValue.startsWith('{') || fieldValue.startsWith('['))) {
             try {
@@ -34,7 +41,7 @@ export function parseSearchResults(results: any[]): any[] {
               // Keep as string if not valid JSON
             }
           }
-          
+
           game[fieldName] = fieldValue;
         }
       }
