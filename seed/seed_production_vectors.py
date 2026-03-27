@@ -148,10 +148,12 @@ def seed_autocomplete(client, games):
         pass
 
     suggestion_count = 0
+    pipe = client.pipeline(transaction=False)
+    BATCH_SIZE = 500
 
     for game in games:
         # Adicionar nome principal
-        client.execute_command(
+        pipe.execute_command(
             'FT.SUGADD', suggestion_key,
             game['nome'],
             game.get('popularity', 50),
@@ -161,19 +163,23 @@ def seed_autocomplete(client, games):
 
         # Adicionar aliases individuais
         aliases = game.get('aliases', '').split()
-        for alias in aliases[:10]:  # Limitar a 10 aliases por jogo
+        for alias in aliases[:10]:
             if len(alias) > 2:
-                try:
-                    client.execute_command(
-                        'FT.SUGADD', suggestion_key,
-                        alias,
-                        game.get('popularity', 50) * 0.8,  # Score menor para aliases
-                        'PAYLOAD', game['id_jogo']
-                    )
-                    suggestion_count += 1
-                except:
-                    pass  # Ignorar duplicatas
+                pipe.execute_command(
+                    'FT.SUGADD', suggestion_key,
+                    alias,
+                    game.get('popularity', 50) * 0.8,
+                    'PAYLOAD', game['id_jogo']
+                )
+                suggestion_count += 1
 
+        # Flush em batches pra não acumular demais
+        if suggestion_count % BATCH_SIZE < 11:
+            pipe.execute()
+            pipe = client.pipeline(transaction=False)
+
+    # Flush restante
+    pipe.execute()
     print(f"  ✓ {suggestion_count} sugestões adicionadas")
 
 def seed_synonyms(client, synonym_groups):
