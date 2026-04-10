@@ -296,6 +296,17 @@
     </div>
 
     <script>
+        // ─── HTML sanitization helper ─────────────────────────
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
         // CONFIGURAÇÃO: URL do Cloudflare Worker (PRODUÇÃO)
         const API_URL = 'https://cactus-worker.platformengineer.workers.dev';
         // const API_URL = 'http://localhost:3000';
@@ -350,7 +361,7 @@
                     .then(data => {
                         if (data.suggestions && data.suggestions.length > 0) {
                             autocompleteDiv.innerHTML = data.suggestions
-                                .map(s => `<div class="autocomplete-item" onclick="selectSuggestion('${s.text.replace(/'/g, "\\'")}')">${s.text}</div>`)
+                                .map(s => `<div class="autocomplete-item" onclick="selectSuggestion('${escapeHtml(s.text)}')"> ${escapeHtml(s.text)}</div>`)
                                 .join('');
                             autocompleteDiv.classList.add('show');
                         } else { autocompleteDiv.classList.remove('show'); }
@@ -405,12 +416,12 @@
             html += `</div><div class="results-grid">`;
 
             games.forEach(game => {
-                const nome = game.nome || 'Sem nome';
-                const provider = game.provider || '';
-                const desc = game.description || '';
-                const image = game.image || 'https://picsum.photos/seed/default/400/300';
-                const rtp = game.rtp;
-                const cat = game.categoria || '';
+                const nome = escapeHtml(game.nome || 'Sem nome');
+                const provider = escapeHtml(game.provider || '');
+                const desc = escapeHtml(game.description || '');
+                const image = escapeHtml(game.image || 'https://picsum.photos/seed/default/400/300');
+                const rtp = escapeHtml(game.rtp);
+                const cat = escapeHtml(game.categoria || '');
                 const score = game.score;
 
                 const catClass = `badge-cat-${cat}`;
