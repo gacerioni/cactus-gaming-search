@@ -317,7 +317,11 @@ export default {
       return json({ error: 'Not Found', path: url.pathname }, 404);
     } catch (error: any) {
       console.error('Worker error:', error?.message, error?.stack);
-      return json({ error: 'Internal Error', message: error?.message || String(error), stack: error?.stack?.split('\n').slice(0, 5) }, 500);
+      const isDev = env.ENVIRONMENT === 'development';
+      return json({
+        error: 'Internal Error',
+        message: isDev ? (error?.message || String(error)) : undefined,
+      }, 500);
     }
   },
 };
