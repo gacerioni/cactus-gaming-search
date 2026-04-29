@@ -71,6 +71,86 @@ Componentes principais:
 
 O backend antigo em [`backend/`](./backend/) permanece no repositorio como referencia, mas a demo atual usa a arquitetura edge: Cloudflare Worker direto no Redis Cloud.
 
+## Como a busca funciona
+
+A demo tem duas fases: uma fase de seed, que prepara o Redis, e uma fase de runtime, que acontece a cada busca do usuario.
+
+### 1. Seed: preparando o Redis
+
+```mermaid
+flowchart LR
+  G["games_data.json"] --> S["seed_production_vectors.py"]
+  I["search_intents.json"] --> S
+  S --> H["HASH jogo:id"]
+  S --> IDX["Index idx:jogos"]
+  S --> AC["Autocomplete ac:jogos"]
+  S --> SYN["Synonym groups"]
+  S --> D["Dict spellcheck protegido"]
+  S --> INT["Intent keys"]
+  S --> V["Vector embeddings"]
+```
+
+O seed grava no Redis tudo que a busca precisa para responder rapido:
+
+- `jogo:<id>` guarda os dados do jogo em HASH.
+- `idx:jogos` indexa nome, aliases, provider, categoria, tags e vetor.
+- `ac:jogos` alimenta o autocomplete com `FT.SUGGET`.
+- Synonym groups expandem vocabulario, por exemplo `aviator`, `aviao`, `aviaozinho`.
+- `dict:search_protected` evita correcoes ruins em termos como `velho`, `black`, `jack` e `futebol`.
+- `intent:<hash>` mapeia girias e frases curtas para uma intencao de negocio.
+- O campo vetorial guarda embeddings OpenAI para busca semantica.
+
+### 2. Runtime: respondendo uma busca
+
+```mermaid
+flowchart TD
+  U["Usuario busca aviaosinhu"] --> W["Cloudflare Worker"]
+  W --> N["Normaliza query"]
+  N --> INT["GET intent:hash"]
+  INT --> RC["GET cache:search"]
+  RC -->|hit| HIT["Retorna cache e pula etapas caras"]
+  RC -->|miss| SP["FT.SPELLCHECK"]
+  SP --> EC["GET cache:embedding"]
+  EC -->|hit| HY["FT.HYBRID"]
+  EC -->|miss| OA["OpenAI embedding"]
+  OA --> ES["SET cache:embedding"]
+  ES --> HY
+  HY --> RK["Boost intent + ranking"]
+  RK --> SC["SET cache:search"]
+  SC --> RES["Retorna resultados"]
+```
+
+Em outras palavras:
+
+- Autocomplete ajuda enquanto o usuario digita.
+- Sinonimos aumentam recall textual.
+- Spellcheck corrige erro de digitacao.
+- Intent entende giria, apelido ou frase incompleta.
+- Hybrid search mistura texto e semantica.
+- Cache deixa buscas quentes quase instantaneas.
+
+### O papel de cada recurso Redis
+
+| Recurso | Comando/estrutura | Papel na demo |
+| --- | --- | --- |
+| Autocomplete | `FT.SUGGET` | Sugere `Aviator` quando o usuario digita `avia` ou `aviaosinhu`. |
+| Full-text | `FT.HYBRID SEARCH` | Busca por nome, aliases, provider, categoria e tags com pesos. |
+| Sinonimos | `FT.SYNUPDATE` | Faz termos equivalentes se encontrarem no indice textual. |
+| Spellcheck | `FT.SPELLCHECK` | Corrige `aviaosinhu -> aviaozinho` e `mengaum -> mengao`. |
+| Intent | `GET intent:<hash>` | Resolve casos curados como `velho alguma coisa -> Gates of Olympus`. |
+| Vetorial | `VSIM @description_vector` | Captura significado quando o texto exato nao basta. |
+| Hybrid/RRF | `FT.HYBRID` | Combina ranking textual e vetorial em uma resposta unica. |
+| Result cache | `GET/SET cache:search:*` | Retorna a busca completa quando a query ja esta quente. |
+| Embedding cache | `GET/SET cache:embedding:*` | Reaproveita o vetor da query/rewrite por 7 dias. |
+
+### Sinonimo, spellcheck e intent nao sao a mesma coisa
+
+Sinonimo e equivalencia de vocabulario: `aviator`, `aviao` e `aviaozinho` devem conversar com os mesmos documentos.
+
+Spellcheck e correcao: `aviaosinhu` pode virar `aviaozinho` quando o termo parece digitado errado.
+
+Intent e decisao de negocio: se alguem busca `velho alguma coisa`, a demo entende que a melhor aposta e `Gates of Olympus`, reescreve a query para termos melhores e da boost no jogo certo.
+
 ## Pipeline de busca
 
 1. Normaliza a query: caixa baixa, sem acentos e sem pontuacao.
