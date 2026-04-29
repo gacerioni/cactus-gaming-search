@@ -1,0 +1,323 @@
+{
+  "version": "2026-04-cactus-demo",
+  "protected_spell_terms": [
+    "aovivo",
+    "black",
+    "jack",
+    "hoje",
+    "futebol",
+    "alguma",
+    "algo",
+    "coisa",
+    "velho",
+    "velhinho",
+    "zeus",
+    "netuno",
+    "poseidon",
+    "aviator",
+    "aviaozinho",
+    "tigrinho",
+    "triguinho",
+    "mengao",
+    "roletinha"
+  ],
+  "intents": [
+    {
+      "id": "aviator",
+      "canonical": "Aviator",
+      "id_jogo": "17",
+      "intent": "crash_game",
+      "categoria": "crash",
+      "provider": "Spribe",
+      "boost": 1200,
+      "rewrite": "aviator aviao avião aviaozinho aviãozinho crash spribe",
+      "terms": [
+        "aviator",
+        "aviao",
+        "avião",
+        "aviaozinho",
+        "aviãozinho",
+        "aviaosinhu",
+        "aviaosinho",
+        "aviaozin",
+        "jogo do aviao",
+        "jogo do avião",
+        "jogo do aviaozinho",
+        "jogo do aviãozinho",
+        "joguinho do aviao",
+        "joguinho do avião",
+        "jogo que o aviao sobe",
+        "jogo que o avião sobe"
+      ],
+      "synonyms": [
+        "aviator",
+        "aviao",
+        "avião",
+        "aviaozinho",
+        "aviador"
+      ]
+    },
+    {
+      "id": "fortune_tiger",
+      "canonical": "Fortune Tiger",
+      "id_jogo": "1",
+      "intent": "slot_game",
+      "categoria": "slot",
+      "provider": "PG Soft",
+      "boost": 1200,
+      "rewrite": "fortune tiger tigrinho tigre triguinho tigrinhu pg soft",
+      "terms": [
+        "fortune tiger",
+        "tigrinho",
+        "triguinho",
+        "tigrinhu",
+        "tigrao",
+        "tigrão",
+        "tigre",
+        "jogo do tigre",
+        "joguinho do tigre",
+        "tigre da fortuna",
+        "tigrinho pg"
+      ],
+      "synonyms": [
+        "tigrinho",
+        "triguinho",
+        "tigrinhu",
+        "tigre",
+        "tigrao",
+        "tigrão",
+        "fortune"
+      ]
+    },
+    {
+      "id": "mines",
+      "canonical": "Mines",
+      "id_jogo": "20",
+      "intent": "crash_game",
+      "categoria": "crash",
+      "provider": "Spribe",
+      "boost": 900,
+      "rewrite": "mines minas campo minado bombas spribe",
+      "terms": [
+        "mines",
+        "minas",
+        "campo minado",
+        "bombas",
+        "bomba",
+        "jogo da bomba",
+        "jogo das minas"
+      ],
+      "synonyms": [
+        "mines",
+        "minas",
+        "bombas",
+        "bomba"
+      ]
+    },
+    {
+      "id": "roulette",
+      "canonical": "Roleta Brasileira",
+      "id_jogo": "402",
+      "intent": "live_game",
+      "categoria": "live",
+      "provider": "Evolution",
+      "boost": 850,
+      "rewrite": "roleta roulette brasileira evolution live",
+      "terms": [
+        "roleta",
+        "roletinha",
+        "roulette",
+        "roleta brasileira",
+        "roleta ao vivo",
+        "jogo da roleta"
+      ],
+      "synonyms": [
+        "roleta",
+        "roletinha",
+        "roulette"
+      ]
+    },
+    {
+      "id": "blackjack",
+      "canonical": "Blackjack Brasileiro",
+      "id_jogo": "401",
+      "intent": "live_game",
+      "categoria": "live",
+      "provider": "Evolution",
+      "boost": 850,
+      "rewrite": "blackjack black jack 21 vinte e um cartas evolution live",
+      "terms": [
+        "blackjack",
+        "black jack",
+        "vinte e um",
+        "21",
+        "jogo do 21",
+        "blackjack brasileiro"
+      ],
+      "synonyms": [
+        "blackjack",
+        "black",
+        "jack",
+        "21"
+      ]
+    },
+    {
+      "id": "olympus_old_man",
+      "canonical": "Gates of Olympus",
+      "id_jogo": "7",
+      "intent": "slot_game",
+      "categoria": "slot",
+      "provider": "Pragmatic Play",
+      "boost": 900,
+      "rewrite": "gates of olympus zeus olimpo velho deus raio pragmatic",
+      "terms": [
+        "gates of olympus",
+        "gates",
+        "olympus",
+        "olimpo",
+        "zeus",
+        "jogo do zeus",
+        "velho",
+        "velhinho",
+        "jogo do velho",
+        "velho alguma coisa",
+        "barba branca",
+        "deus velho",
+        "velho do raio",
+        "jogo do raio"
+      ],
+      "synonyms": [
+        "zeus",
+        "olimpo",
+        "olympus",
+        "velho",
+        "velhinho"
+      ]
+    },
+    {
+      "id": "rise_of_olympus",
+      "canonical": "Rise of Olympus",
+      "id_jogo": "65",
+      "intent": "slot_game",
+      "categoria": "slot",
+      "provider": "Play'n GO",
+      "boost": 720,
+      "rewrite": "rise olympus zeus hades poseidon deuses gregos",
+      "terms": [
+        "poseidon",
+        "netuno",
+        "hades",
+        "deuses gregos",
+        "jogo do netuno",
+        "jogo do poseidon"
+      ],
+      "synonyms": [
+        "poseidon",
+        "netuno",
+        "hades"
+      ]
+    },
+    {
+      "id": "flamengo",
+      "canonical": "Flamengo - Próximo Jogo",
+      "id_jogo": "102",
+      "intent": "sports_team",
+      "categoria": "esporte",
+      "provider": "Sportsbet",
+      "boost": 950,
+      "rewrite": "flamengo mengao mengão mengaum rubro negro fla crf",
+      "terms": [
+        "flamengo",
+        "mengao",
+        "mengão",
+        "mengaum",
+        "mengo",
+        "fla",
+        "urubu",
+        "proximo jogo flamengo",
+        "próximo jogo flamengo"
+      ],
+      "synonyms": [
+        "flamengo",
+        "mengao",
+        "mengão",
+        "mengaum",
+        "fla"
+      ]
+    },
+    {
+      "id": "corinthians",
+      "canonical": "Corinthians - Próximo Jogo",
+      "id_jogo": "103",
+      "intent": "sports_team",
+      "categoria": "esporte",
+      "provider": "Sportsbet",
+      "boost": 900,
+      "rewrite": "corinthians timao timão coringao fiel sccp",
+      "terms": [
+        "corinthians",
+        "timao",
+        "timão",
+        "coringao",
+        "coringão",
+        "fiel",
+        "proximo jogo corinthians"
+      ],
+      "synonyms": [
+        "corinthians",
+        "timao",
+        "timão",
+        "coringao",
+        "coringão"
+      ]
+    },
+    {
+      "id": "sao_paulo",
+      "canonical": "São Paulo - Próximo Jogo",
+      "id_jogo": "104",
+      "intent": "sports_team",
+      "categoria": "esporte",
+      "provider": "Sportsbet",
+      "boost": 900,
+      "rewrite": "sao paulo são paulo bambi tricolor spfc morumbi",
+      "terms": [
+        "sao paulo",
+        "são paulo",
+        "bambi",
+        "spfc",
+        "tricolor paulista",
+        "morumbi",
+        "proximo jogo sao paulo"
+      ],
+      "synonyms": [
+        "bambi",
+        "spfc",
+        "tricolor"
+      ]
+    },
+    {
+      "id": "palmeiras",
+      "canonical": "Palmeiras - Próximo Jogo",
+      "id_jogo": "101",
+      "intent": "sports_team",
+      "categoria": "esporte",
+      "provider": "Sportsbet",
+      "boost": 900,
+      "rewrite": "palmeiras verdao verdão porco palestra alviverde",
+      "terms": [
+        "palmeiras",
+        "verdao",
+        "verdão",
+        "porco",
+        "palestra",
+        "proximo jogo palmeiras"
+      ],
+      "synonyms": [
+        "palmeiras",
+        "verdao",
+        "verdão",
+        "porco"
+      ]
+    }
+  ]
+}

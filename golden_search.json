@@ -1,0 +1,64 @@
+{
+  "version": "2026-04-cactus-demo",
+  "cases": [
+    {
+      "query": "aviaosinhu",
+      "top1": "Aviator",
+      "methods": ["spellcheck", "intent", "hybrid"],
+      "correctedQuery": "aviaozinho"
+    },
+    {
+      "query": "jogo do aviãozinho",
+      "top1": "Aviator",
+      "category": "crash"
+    },
+    {
+      "query": "triguinho",
+      "top1": "Fortune Tiger",
+      "category": "slot"
+    },
+    {
+      "query": "velho alguma coisa",
+      "top1": "Gates of Olympus",
+      "category": "slot"
+    },
+    {
+      "query": "mengaum",
+      "top3Any": ["Flamengo - Próximo Jogo", "Flamengo vs Corinthians", "Palmeiras vs Flamengo"],
+      "category": "esporte"
+    },
+    {
+      "query": "black jack",
+      "top1": "Blackjack Brasileiro",
+      "category": "live"
+    },
+    {
+      "query": "roletinha",
+      "top1": "Roleta Brasileira",
+      "category": "live"
+    },
+    {
+      "query": "futebol hoje",
+      "top3Category": "esporte"
+    }
+  ],
+  "autocomplete": [
+    {
+      "query": "avia",
+      "topPayload": "17",
+      "topTextAny": ["Aviator", "aviao", "avião", "aviaozinho"]
+    },
+    {
+      "query": "aviaosinhu",
+      "topPayload": "17"
+    },
+    {
+      "query": "trig",
+      "topPayload": "1"
+    },
+    {
+      "query": "velh",
+      "topPayload": "7"
+    }
+  ]
+}

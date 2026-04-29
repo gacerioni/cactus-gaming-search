@@ -3,455 +3,749 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cactus Gaming - Search Demo</title>
+    <title>Cactus Gaming - Redis Search Demo</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+        :root {
+            --bg: #f6f7f4;
+            --panel: #ffffff;
+            --ink: #1d2521;
+            --muted: #66736c;
+            --line: #dfe5dc;
+            --green: #18794e;
+            --green-2: #0f5f43;
+            --amber: #b7791f;
+            --red: #b42318;
+            --blue: #2463eb;
+            --violet: #6d3fc8;
+            --shadow: 0 10px 30px rgba(29, 37, 33, 0.08);
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .search-box {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 18px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        .autocomplete {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 1000;
-            display: none;
-        }
-        .autocomplete.show { display: block; }
-        .autocomplete-item {
-            padding: 12px 20px;
-            cursor: pointer;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .autocomplete-item:hover {
-            background: #f5f5f5;
-        }
-        .buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        button {
-            flex: 1;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .btn-search {
-            background: #667eea;
-            color: white;
-        }
-        .btn-vector {
-            background: #764ba2;
-            color: white;
-        }
-        /* Category filter chips */
-        .category-filters {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .chip {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 2px solid #e0e0e0;
-            background: white;
-            color: #555;
-            transition: all 0.2s;
-        }
-        .chip:hover { border-color: #667eea; color: #667eea; }
-        .chip.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-        .chip .chip-count {
-            background: rgba(0,0,0,0.1);
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-size: 11px;
-            margin-left: 4px;
-        }
-        .chip.active .chip-count { background: rgba(255,255,255,0.3); }
 
-        /* Results grid */
-        .results { margin-top: 30px; }
-        .results-grid {
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            background: var(--bg);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .app {
+            width: min(1440px, calc(100vw - 32px));
+            margin: 0 auto;
+            padding: 24px 0 40px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(28px, 4vw, 44px);
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .subtitle {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .health {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(5, minmax(112px, 1fr));
+            gap: 10px;
+            min-width: min(720px, 100%);
         }
-        .game-card {
-            background: white;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #f0f0f0;
+
+        .metric {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 10px 12px;
+            min-height: 64px;
         }
-        .game-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .game-card-img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #667eea22, #764ba222);
-        }
-        .game-card-body {
-            padding: 16px;
-        }
-        .game-card-title {
-            font-size: 16px;
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 11px;
             font-weight: 700;
-            color: #333;
-            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .game-card-provider {
-            color: #667eea;
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 8px;
+
+        .workspace {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 20px;
+            margin-top: 20px;
+            align-items: start;
         }
-        .game-card-desc {
-            color: #888;
-            font-size: 12px;
-            line-height: 1.5;
-            max-height: 36px;
-            overflow: hidden;
+
+        .search-surface,
+        .telemetry {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
         }
-        .game-card-footer {
+
+        .search-surface { padding: 16px; }
+
+        .search-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 132px;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--ink);
+            font-size: 17px;
+            background: #fbfcfa;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--green);
+            outline: 3px solid rgba(24, 121, 78, 0.16);
+        }
+
+        button {
+            height: 48px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--green);
+            color: white;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        button:hover { background: var(--green-2); }
+
+        button:disabled {
+            cursor: progress;
+            opacity: 0.75;
+        }
+
+        .autocomplete {
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 142px;
+            z-index: 20;
+            display: none;
+            max-height: 300px;
+            overflow: auto;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .autocomplete.show { display: block; }
+
+        .autocomplete-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 16px;
-            border-top: 1px solid #f0f0f0;
-            gap: 6px;
+            gap: 8px;
+            width: 100%;
+            min-height: 42px;
+            padding: 9px 12px;
+            border-bottom: 1px solid #eef2ed;
+            cursor: pointer;
+            background: white;
+        }
+
+        .autocomplete-item:hover { background: #f4f8f5; }
+
+        .autocomplete-score {
+            color: var(--muted);
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .presets,
+        .filters {
+            display: flex;
             flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
         }
-        .badge-cat {
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
+
+        .chip {
+            min-height: 34px;
+            padding: 7px 11px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fbfcfa;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 750;
+            cursor: pointer;
         }
-        .badge-cat-slot { background: #E3F2FD; color: #1565C0; }
-        .badge-cat-crash { background: #FFF3E0; color: #E65100; }
-        .badge-cat-live { background: #F3E5F5; color: #7B1FA2; }
-        .badge-cat-esporte { background: #E8F5E9; color: #2E7D32; }
-        .badge-rtp {
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-        }
-        .error {
-            background: #fee;
-            color: #c33;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        .chip:hover { border-color: var(--green); }
+
+        .chip.active {
             color: white;
-            font-size: 14px;
-            margin-bottom: 20px;
-            padding: 15px 20px;
-            border-radius: 10px;
-            line-height: 1.8;
+            background: var(--green);
+            border-color: var(--green);
         }
-        .stats strong {
-            font-weight: 600;
+
+        .statusline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
         }
+
         .badges {
             display: flex;
             gap: 6px;
-            margin-top: 8px;
             flex-wrap: wrap;
         }
+
         .badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            color: white;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 850;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .badge-fts {
-            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-            color: white;
+
+        .badge-hybrid { background: var(--green); }
+        .badge-spellcheck { background: var(--amber); }
+        .badge-intent { background: var(--blue); }
+        .badge-cache { background: var(--violet); }
+        .badge-vector { background: #555f6d; }
+
+        .results {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
         }
-        .badge-fuzzy {
-            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-            color: white;
+
+        .game-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: white;
+            min-height: 318px;
         }
-        .badge-vector {
-            background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
-            color: white;
+
+        .game-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #edf2ee;
         }
-        .score {
-            display: inline-block;
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
+
+        .game-body { padding: 12px; }
+
+        .game-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 850;
+            line-height: 1.25;
+        }
+
+        .game-provider {
+            margin-top: 4px;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .game-desc {
+            margin-top: 8px;
+            color: var(--muted);
             font-size: 12px;
-            font-weight: 700;
-            margin-left: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.45;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .game-footer {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            padding: 0 12px 12px;
+        }
+
+        .pill {
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #eff5f1;
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 850;
+            text-transform: uppercase;
+        }
+
+        .pill.score {
+            background: #e9f6ef;
+            color: var(--green-2);
+        }
+
+        .telemetry {
+            position: sticky;
+            top: 16px;
+            padding: 14px;
+        }
+
+        .telemetry h2 {
+            margin: 0 0 12px;
+            font-size: 16px;
+        }
+
+        .trace-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .trace {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid #edf1ec;
+            font-size: 13px;
+        }
+
+        .trace:last-child { border-bottom: 0; }
+
+        .trace-name {
+            color: var(--muted);
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .trace-value {
+            font-weight: 850;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        .query-plan {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f7faf7;
+            border: 1px solid var(--line);
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .empty,
+        .error {
+            margin-top: 16px;
+            padding: 18px;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid var(--line);
+            color: var(--muted);
+        }
+
+        .error {
+            border-color: rgba(180, 35, 24, 0.3);
+            color: var(--red);
+            background: #fff7f6;
+        }
+
+        @media (max-width: 1080px) {
+            .topbar { align-items: stretch; flex-direction: column; }
+            .health { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .workspace { grid-template-columns: 1fr; }
+            .telemetry { position: static; }
+        }
+
+        @media (max-width: 640px) {
+            .app { width: min(100vw - 20px, 1440px); padding-top: 12px; }
+            .search-row { grid-template-columns: 1fr; }
+            .autocomplete { right: 0; }
+            button { width: 100%; }
+            .statusline { align-items: flex-start; flex-direction: column; }
+            .health { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🌵 Cactus Gaming</h1>
-        <p class="subtitle">Search-as-a-Service com Redis</p>
+    <main class="app">
+        <header class="topbar">
+            <div>
+                <h1>Cactus Gaming</h1>
+                <p class="subtitle">Redis Search Demo</p>
+            </div>
+            <section class="health" id="healthMetrics">
+                <div class="metric"><div class="metric-label">Redis</div><div class="metric-value">--</div></div>
+                <div class="metric"><div class="metric-label">Index</div><div class="metric-value">--</div></div>
+                <div class="metric"><div class="metric-label">Terms</div><div class="metric-value">--</div></div>
+                <div class="metric"><div class="metric-label">Cache Hit</div><div class="metric-value">--</div></div>
+                <div class="metric"><div class="metric-label">Metrics</div><div class="metric-value">--</div></div>
+            </section>
+        </header>
 
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Digite para buscar... (ex: mengao, bambi, tigrinho)">
-            <div class="autocomplete" id="autocomplete"></div>
-        </div>
+        <section class="workspace">
+            <div>
+                <section class="search-surface">
+                    <div class="search-row">
+                        <input type="text" id="searchInput" autocomplete="off" placeholder="mengao, aviaosinhu, triguinho, velho alguma coisa">
+                        <button id="searchButton" type="button">Buscar</button>
+                        <div class="autocomplete" id="autocomplete"></div>
+                    </div>
 
-        <div class="buttons">
-            <button class="btn-search" onclick="search()">🔍 Buscar</button>
-        </div>
+                    <div class="presets" id="presets"></div>
+                    <div class="filters" id="categoryFilters"></div>
 
-        <div class="category-filters" id="categoryFilters"></div>
+                    <div class="statusline">
+                        <div id="resultSummary">Pronto</div>
+                        <div class="badges" id="methodBadges"></div>
+                    </div>
+                </section>
 
-        <p style="text-align: center; color: #666; font-size: 14px; margin-top: 10px;">
-            💡 Busca inteligente: Autocomplete → Sinônimos → Fuzzy → Vector Search
-        </p>
+                <div id="message"></div>
+                <section class="results" id="results"></section>
+            </div>
 
-        <div id="error"></div>
-        <div id="results"></div>
-    </div>
+            <aside class="telemetry">
+                <h2>Trace</h2>
+                <div class="trace-list" id="traceList">
+                    <div class="trace"><span class="trace-name">Aguardando busca</span><span class="trace-value">--</span></div>
+                </div>
+                <div class="query-plan" id="queryPlan">FT.HYBRID pronto</div>
+            </aside>
+        </section>
+    </main>
 
     <script>
-        // CONFIGURAÇÃO: URL do Cloudflare Worker (PRODUÇÃO)
         const API_URL = 'https://cactus-worker.platformengineer.workers.dev';
-        // const API_URL = 'http://localhost:3000';
 
         const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
         const autocompleteDiv = document.getElementById('autocomplete');
         const resultsDiv = document.getElementById('results');
-        const errorDiv = document.getElementById('error');
+        const messageDiv = document.getElementById('message');
         const categoryFiltersDiv = document.getElementById('categoryFilters');
+        const presetsDiv = document.getElementById('presets');
+        const resultSummary = document.getElementById('resultSummary');
+        const methodBadges = document.getElementById('methodBadges');
+        const traceList = document.getElementById('traceList');
+        const queryPlan = document.getElementById('queryPlan');
+        const healthMetrics = document.getElementById('healthMetrics');
+
+        const presets = ['aviaosinhu', 'jogo do aviãozinho', 'triguinho', 'velho alguma coisa', 'mengaum', 'black jack', 'roletinha', 'futebol hoje'];
+        const catMeta = {
+            slot: { label: 'Slots' },
+            crash: { label: 'Crash' },
+            live: { label: 'Live Casino' },
+            esporte: { label: 'Esportes' },
+        };
+        const methodMeta = {
+            hybrid: { label: 'FT.HYBRID', cls: 'badge-hybrid' },
+            spellcheck: { label: 'SPELLCHECK', cls: 'badge-spellcheck' },
+            intent: { label: 'INTENT', cls: 'badge-intent' },
+            embedding_cache: { label: 'EMBED CACHE', cls: 'badge-cache' },
+            result_cache: { label: 'RESULT CACHE', cls: 'badge-cache' },
+            vector_search: { label: 'VECTOR', cls: 'badge-vector' },
+        };
 
         let debounceTimer;
         let selectedCategory = null;
+        let lastCacheHitRatio = '--';
 
-        // Category icons/labels
-        const catMeta = {
-            slot: { icon: '🎰', label: 'Slots' },
-            crash: { icon: '🚀', label: 'Crash' },
-            live: { icon: '🎥', label: 'Live Casino' },
-            esporte: { icon: '⚽', label: 'Esportes' },
-        };
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
 
-        // Load categories on startup
+        function formatMs(value) {
+            if (value === undefined || value === null || Number.isNaN(Number(value))) return '--';
+            return `${Math.round(Number(value))}ms`;
+        }
+
+        function setMessage(html, type = 'empty') {
+            messageDiv.innerHTML = html ? `<div class="${type}">${html}</div>` : '';
+        }
+
+        function renderPresets() {
+            presetsDiv.innerHTML = presets.map(q => `<button class="chip" type="button" data-preset="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('');
+        }
+
+        async function loadMetrics() {
+            try {
+                const response = await fetch(`${API_URL}/api/metrics`);
+                const data = await response.json();
+                lastCacheHitRatio = data.redis?.keyspaceHitRatio !== undefined
+                    ? `${Math.round(data.redis.keyspaceHitRatio * 100)}%`
+                    : '--';
+
+                healthMetrics.innerHTML = `
+                    <div class="metric"><div class="metric-label">Redis</div><div class="metric-value">${escapeHtml(data.redis?.version || '--')}</div></div>
+                    <div class="metric"><div class="metric-label">Index</div><div class="metric-value">${escapeHtml(data.index?.docs ?? '--')} docs</div></div>
+                    <div class="metric"><div class="metric-label">Terms</div><div class="metric-value">${escapeHtml(data.index?.terms ?? '--')}</div></div>
+                    <div class="metric"><div class="metric-label">Cache Hit</div><div class="metric-value">${lastCacheHitRatio}</div></div>
+                    <div class="metric"><div class="metric-label">Ops/s</div><div class="metric-value">${escapeHtml(data.redis?.opsPerSec ?? '--')}</div></div>
+                `;
+            } catch (_e) {
+                healthMetrics.querySelectorAll('.metric-value').forEach(el => { el.textContent = '--'; });
+            }
+        }
+
         async function loadCategories() {
             try {
-                const r = await fetch(`${API_URL}/api/categories`);
-                const data = await r.json();
-                if (!data.categories) return;
-                let html = `<span class="chip active" onclick="selectCategory(null, this)">Todos</span>`;
-                data.categories.forEach(c => {
-                    const meta = catMeta[c.name] || { icon: '📁', label: c.name };
-                    html += `<span class="chip" onclick="selectCategory('${c.name}', this)">${meta.icon} ${meta.label} <span class="chip-count">${c.count}</span></span>`;
+                const response = await fetch(`${API_URL}/api/categories`);
+                const data = await response.json();
+                const chips = [`<button class="chip active" type="button" data-category="">Todos</button>`];
+                (data.categories || []).forEach(c => {
+                    const meta = catMeta[c.name] || { label: c.name };
+                    chips.push(`<button class="chip" type="button" data-category="${escapeHtml(c.name)}">${escapeHtml(meta.label)} ${escapeHtml(c.count)}</button>`);
                 });
-                categoryFiltersDiv.innerHTML = html;
-            } catch (e) { console.error('Categories error:', e); }
+                categoryFiltersDiv.innerHTML = chips.join('');
+            } catch (_e) {
+                categoryFiltersDiv.innerHTML = '';
+            }
         }
 
-        function selectCategory(cat, el) {
-            selectedCategory = cat;
-            categoryFiltersDiv.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-            if (searchInput.value) search();
+        function renderBadges(methods, cache) {
+            const all = [...(methods || [])];
+            if (cache?.result === 'hit') all.unshift('result_cache');
+            methodBadges.innerHTML = all.map(method => {
+                const meta = methodMeta[method] || { label: method, cls: 'badge-vector' };
+                return `<span class="badge ${meta.cls}">${escapeHtml(meta.label)}</span>`;
+            }).join('');
         }
 
-        // Autocomplete (preserved)
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(debounceTimer);
-            const query = e.target.value;
-            if (query.length < 2) { autocompleteDiv.classList.remove('show'); return; }
-            debounceTimer = setTimeout(() => {
-                fetch(`${API_URL}/api/autocomplete?q=${encodeURIComponent(query)}`)
-                    .then(r => r.json())
-                    .then(data => {
-                        if (data.suggestions && data.suggestions.length > 0) {
-                            autocompleteDiv.innerHTML = data.suggestions
-                                .map(s => `<div class="autocomplete-item" onclick="selectSuggestion('${s.text.replace(/'/g, "\\'")}')">${s.text}</div>`)
-                                .join('');
-                            autocompleteDiv.classList.add('show');
-                        } else { autocompleteDiv.classList.remove('show'); }
-                    })
-                    .catch(err => console.error('Autocomplete error:', err));
-            }, 300);
-        });
+        function renderTrace(data) {
+            const timing = data.timing || {};
+            const resultCacheHit = data.cache?.result === 'hit';
+            const rows = [
+                ['Redis connection', formatMs(timing.redisConnectMs)],
+                ['Redis result cache', formatMs(timing.resultCacheLookupMs)],
+                ['Intent lookup', formatMs(timing.intentLookupMs)],
+                ['Spellcheck', resultCacheHit ? 'skipped' : formatMs(timing.spellcheckMs)],
+                ['Embedding cache', resultCacheHit ? 'skipped' : formatMs(timing.embeddingCacheLookupMs)],
+                ['OpenAI embedding', resultCacheHit ? 'skipped' : (data.cache?.embedding === 'hit' ? 'hit' : formatMs(timing.openAiEmbeddingMs))],
+                ['Redis FT.HYBRID', resultCacheHit ? 'skipped' : formatMs(timing.redisHybridMs || timing.redisVectorMs)],
+                ['Total edge', formatMs(timing.totalMs || data.executionTime)],
+            ];
 
-        function selectSuggestion(text) {
+            traceList.innerHTML = rows.map(([name, value]) => `
+                <div class="trace">
+                    <span class="trace-name">${escapeHtml(name)}</span>
+                    <span class="trace-value">${escapeHtml(value)}</span>
+                </div>
+            `).join('');
+
+            const plan = data.queryPlan || {};
+            const corrected = data.correctedQuery ? `<br>corrigido: <strong>${escapeHtml(data.correctedQuery)}</strong>` : '';
+            const intent = data.intent ? `<br>intent: <strong>${escapeHtml(data.intent.canonical)}</strong>` : '';
+            const filter = plan.filterExpression ? `<br>filter: <strong>${escapeHtml(plan.filterExpression)}</strong>` : '';
+            const cache = plan.cache ? `<br>cache: <strong>${escapeHtml(plan.cache)}</strong>` : '';
+            queryPlan.innerHTML = `
+                <strong>${escapeHtml(plan.fusion || 'FT.HYBRID')}</strong>
+                <br>index: ${escapeHtml(plan.index || 'idx:jogos')}
+                <br>vectorK: ${escapeHtml(plan.vectorK ?? '--')}
+                ${filter}${corrected}${intent}${cache}
+            `;
+        }
+
+        function redisPrimaryMs(data) {
+            const timing = data.timing || {};
+            if (data.cache?.result === 'hit') return timing.resultCacheLookupMs;
+            return timing.redisHybridMs ?? timing.redisVectorMs ?? timing.redisMs;
+        }
+
+        function renderResults(data) {
+            const games = data.games || [];
+            resultsDiv.innerHTML = '';
+
+            if (!games.length) {
+                setMessage('Nenhum resultado encontrado');
+                return;
+            }
+
+            setMessage('');
+            resultSummary.textContent = `${data.total} resultados | Redis ${formatMs(redisPrimaryMs(data))} | Edge ${formatMs(data.timing?.totalMs || data.executionTime)}`;
+            renderBadges(data.searchMethods || [], data.cache || {});
+            renderTrace(data);
+
+            resultsDiv.innerHTML = games.map(game => {
+                const nome = game.nome || 'Sem nome';
+                const provider = game.provider || '';
+                const desc = game.description || '';
+                const image = game.image || `https://picsum.photos/seed/${encodeURIComponent(nome)}/400/225`;
+                const cat = game.categoria || '';
+                const score = Number(game.score || 0);
+                const rtp = game.rtp;
+
+                return `
+                    <article class="game-card">
+                        <img src="${escapeHtml(image)}" alt="${escapeHtml(nome)}" loading="lazy" onerror="this.src='https://picsum.photos/seed/cactus-fallback/400/225'">
+                        <div class="game-body">
+                            <h3 class="game-title">${escapeHtml(nome)}</h3>
+                            <div class="game-provider">${escapeHtml(provider)}</div>
+                            ${desc ? `<div class="game-desc">${escapeHtml(desc)}</div>` : ''}
+                        </div>
+                        <div class="game-footer">
+                            ${cat ? `<span class="pill">${escapeHtml(cat)}</span>` : ''}
+                            ${rtp ? `<span class="pill">RTP ${escapeHtml(rtp)}%</span>` : ''}
+                            <span class="pill score">${score.toFixed(2)}</span>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        async function search() {
+            const query = searchInput.value.trim();
+            if (!query) return;
+
+            searchButton.disabled = true;
+            setMessage('Buscando...');
+            resultSummary.textContent = 'Executando';
+            methodBadges.innerHTML = '';
+
+            try {
+                const body = { query };
+                if (selectedCategory) body.filters = { categoria: selectedCategory };
+
+                const response = await fetch(`${API_URL}/api/search`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                const data = await response.json();
+                if (!response.ok || data.error) throw new Error(data.message || data.error || `HTTP ${response.status}`);
+
+                renderResults(data);
+                loadMetrics();
+            } catch (err) {
+                setMessage(escapeHtml(err.message || err), 'error');
+                resultsDiv.innerHTML = '';
+            } finally {
+                searchButton.disabled = false;
+            }
+        }
+
+        function chooseSuggestion(text) {
             searchInput.value = text;
             autocompleteDiv.classList.remove('show');
             search();
         }
 
-        // Hybrid search (preserved logic)
-        async function search() {
-            const query = searchInput.value;
-            if (!query) return;
-            errorDiv.innerHTML = '';
-            resultsDiv.innerHTML = '<div class="loading">🔍 Buscando...</div>';
-            try {
-                const body = { query };
-                if (selectedCategory) body.filters = { categoria: selectedCategory };
-                const response = await fetch(`${API_URL}/api/search`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body)
-                });
-                const data = await response.json();
-                displayResults(data);
-            } catch (err) { showError('Erro na busca: ' + err.message); }
-        }
-
-        function displayResults(data) {
-            if (data.error) { showError(data.error); return; }
-            const games = data.games || [];
-            if (games.length === 0) {
-                resultsDiv.innerHTML = '<div class="loading">😕 Nenhum resultado encontrado</div>';
+        searchInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            const query = searchInput.value.trim();
+            if (query.length < 2) {
+                autocompleteDiv.classList.remove('show');
                 return;
             }
 
-            const searchMethods = data.searchMethods || [];
-            const methodBadges = searchMethods.map(m => {
-                const b = { fts:'<span class="badge badge-fts">🔍 FTS</span>', fuzzy:'<span class="badge badge-fuzzy">🔀 Fuzzy</span>', vector:'<span class="badge badge-vector">🧠 Vector</span>' };
-                return b[m] || '';
-            }).join(' ');
-            const execTime = data.executionTime ? `⚡ ${data.executionTime}ms` : '';
+            debounceTimer = setTimeout(async () => {
+                try {
+                    const response = await fetch(`${API_URL}/api/autocomplete?q=${encodeURIComponent(query)}`);
+                    const data = await response.json();
+                    const suggestions = data.suggestions || [];
+                    if (!suggestions.length) {
+                        autocompleteDiv.classList.remove('show');
+                        return;
+                    }
 
-            let html = `<div class="stats">📊 ${data.total} resultado${data.total > 1 ? 's' : ''}`;
-            if (methodBadges) html += `<br><strong>Métodos:</strong> ${methodBadges}`;
-            if (execTime) html += ` ${execTime}`;
-            html += `</div><div class="results-grid">`;
-
-            games.forEach(game => {
-                const nome = game.nome || 'Sem nome';
-                const provider = game.provider || '';
-                const desc = game.description || '';
-                const image = game.image || 'https://picsum.photos/seed/default/400/300';
-                const rtp = game.rtp;
-                const cat = game.categoria || '';
-                const score = game.score;
-
-                const catClass = `badge-cat-${cat}`;
-                const catLabel = catMeta[cat]?.icon ? `${catMeta[cat].icon} ${cat}` : cat;
-                const rtpHtml = rtp ? `<span class="badge-rtp">RTP ${rtp}%</span>` : '';
-                const scoreHtml = score !== undefined && score !== null ? `<span class="score">Score: ${Number(score).toFixed(2)}</span>` : '';
-
-                html += `
-                <div class="game-card">
-                    <img class="game-card-img" src="${image}" alt="${nome}" loading="lazy" onerror="this.src='https://picsum.photos/seed/fallback/400/300'">
-                    <div class="game-card-body">
-                        <div class="game-card-title">${nome}</div>
-                        <div class="game-card-provider">${provider}</div>
-                        ${desc ? `<div class="game-card-desc">${desc}</div>` : ''}
-                    </div>
-                    <div class="game-card-footer">
-                        <span class="badge-cat ${catClass}">${catLabel}</span>
-                        ${rtpHtml}
-                        ${scoreHtml}
-                    </div>
-                </div>`;
-            });
-
-            html += `</div>`;
-            resultsDiv.innerHTML = html;
-        }
-
-        function showError(message) {
-            errorDiv.innerHTML = `<div class="error">❌ ${message}</div>`;
-            resultsDiv.innerHTML = '';
-        }
-
-        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') search(); });
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !autocompleteDiv.contains(e.target))
-                autocompleteDiv.classList.remove('show');
+                    autocompleteDiv.innerHTML = suggestions.map(s => `
+                        <div class="autocomplete-item" data-suggestion="${escapeHtml(s.text)}">
+                            <span>${escapeHtml(s.text)}</span>
+                            <span class="autocomplete-score">${escapeHtml(s.id_jogo)} · ${Number(s.score || 0).toFixed(0)}</span>
+                        </div>
+                    `).join('');
+                    autocompleteDiv.classList.add('show');
+                } catch (_e) {
+                    autocompleteDiv.classList.remove('show');
+                }
+            }, 140);
         });
 
-        // Init
+        searchButton.addEventListener('click', search);
+
+        searchInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') search();
+            if (event.key === 'Escape') autocompleteDiv.classList.remove('show');
+        });
+
+        autocompleteDiv.addEventListener('click', event => {
+            const item = event.target.closest('.autocomplete-item');
+            if (item) chooseSuggestion(item.dataset.suggestion);
+        });
+
+        presetsDiv.addEventListener('click', event => {
+            const button = event.target.closest('[data-preset]');
+            if (!button) return;
+            searchInput.value = button.dataset.preset;
+            autocompleteDiv.classList.remove('show');
+            search();
+        });
+
+        categoryFiltersDiv.addEventListener('click', event => {
+            const button = event.target.closest('[data-category]');
+            if (!button) return;
+            selectedCategory = button.dataset.category || null;
+            categoryFiltersDiv.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
+            button.classList.add('active');
+            if (searchInput.value.trim()) search();
+        });
+
+        document.addEventListener('click', event => {
+            if (!autocompleteDiv.contains(event.target) && event.target !== searchInput) {
+                autocompleteDiv.classList.remove('show');
+            }
+        });
+
+        renderPresets();
         loadCategories();
+        loadMetrics();
     </script>
 </body>
 </html>
-
