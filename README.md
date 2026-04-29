@@ -1,169 +1,230 @@
-# 🌵 Cactus Gaming - Redis Search as a Service
+# Cactus Gaming Search
 
-**Search-as-a-Service** completo usando Redis, similar ao Algolia/Meilisearch.
+Demo de busca para jogos e apostas usando Redis como motor de search de baixa latencia na borda.
 
-**Features:**
-- 🔍 **Autocomplete** - Sugestões em tempo real
-- 📝 **Full-text Search** - Busca com sinônimos ("mengao" → Flamengo)
-- 🔀 **Fuzzy Match** - Tolerância a erros de digitação
-- 🧠 **Vector Search** - Busca semântica com IA
+A demo foi pensada para um caso realista do mercado brasileiro: usuarios digitam apelidos, erros foneticos, nomes incompletos e termos de intencao como `aviaosinhu`, `triguinho`, `mengaum` ou `velho alguma coisa`. O Redis entra como uma camada unica para autocomplete, full-text search, sinonimos, intents curados, cache e busca hibrida texto + vetor.
 
-## 🌐 URLs em Produção
+## Demo
 
-- **Frontend:** https://128b1c88.cactus-demo.pages.dev
-- **Backend API:** https://api-backend.platformengineer.io
-- **Servidor:** AWS EC2 (Ubuntu) - 18.212.93.54
+- Frontend: https://cactus-demo.pages.dev
+- Worker API: https://cactus-worker.platformengineer.workers.dev
+- Repository: https://github.com/gacerioni/cactus-gaming-search
 
-## 🎯 Experiência de Busca
+Teste rapido:
 
-Digite **"mengao"** → Acha Flamengo ✅
-Digite **"bambi"** → Acha São Paulo ✅
-Digite **"tigrinho"** → Acha Fortune Tiger ✅
-
-**Como funciona:**
-1. Autocomplete mostra sugestões enquanto digita
-2. Busca usa sinônimos (mengao = flamengo = fla)
-3. Se não achar, tenta fuzzy match
-4. Se ainda não achar, usa vector search (semântica)
-
-> **⚠️ IMPORTANTE:** Este projeto tem 4 componentes separados:
-> - `seed/` - Script Python (popular Redis com HASH schema)
-> - `backend/` - API Node.js (AWS EC2)
-> - `worker/` - Cloudflare Worker (Edge Proxy)
-> - `frontend/` - Demo HTML (Cloudflare Pages)
->
-> **Não existe `package.json` na raiz!** Entre em cada pasta antes de rodar `npm install`.
-
-## 📚 Documentação
-
-Toda a documentação está organizada em [`docs/`](./docs/):
-
-- **[docs/SETUP.md](./docs/SETUP.md)** - Configuração inicial do projeto
-- **[docs/TUTORIAL.md](./docs/TUTORIAL.md)** - Tutorial de uso
-- **[docs/DEPLOY_GUIDE.md](./docs/DEPLOY_GUIDE.md)** - Guia completo de deploy
-- **[docs/CLOUDFLARE_SETUP.md](./docs/CLOUDFLARE_SETUP.md)** - Setup do Cloudflare
-- **[docs/README.md](./docs/README.md)** - Índice completo da documentação
-
-## 🚀 Scripts
-
-Scripts de deploy e manutenção em [`scripts/`](./scripts/):
-
-- **[scripts/deploy_frontend.sh](./scripts/deploy_frontend.sh)** - Deploy rápido do frontend (~30s)
-- **[scripts/deploy_full_reset.sh](./scripts/deploy_full_reset.sh)** - Deploy completo com reindexação (~5min)
-- **[scripts/test-api.sh](./scripts/test-api.sh)** - Testes da API
-- **[scripts/README.md](./scripts/README.md)** - Documentação dos scripts
-
----
-
-## 🚀 Quick Start
-
-### 1. Seed Redis
 ```bash
-cd seed/
+curl -X POST https://cactus-worker.platformengineer.workers.dev/api/search \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"aviaosinhu"}'
+```
+
+## Por que Redis aqui
+
+Redis e uma boa escolha para este problema porque a base de jogos e eventos nao precisa ser enorme para entregar uma experiencia muito melhor que busca literal. O ganho vem de combinar varias tecnicas em uma API simples e rapida:
+
+- Autocomplete com `FT.SUGGET`
+- Full-text search com pesos por campo
+- Sinonimos e termos protegidos para portugues brasileiro
+- Spellcheck para erros comuns de digitacao
+- Intents curados para buscas de cauda curta e girias
+- Vector search com embeddings OpenAI
+- Hybrid search com `FT.HYBRID` e RRF fusion
+- Cache de embeddings e cache de resultados no proprio Redis
+- Filtros por tags/categoria/provider antes do ranking
+- Observabilidade de latencia por etapa no frontend
+
+## Exemplos de comportamento
+
+| Query do usuario | Resultado esperado | O que acontece |
+| --- | --- | --- |
+| `aviaosinhu` | Aviator | spellcheck + intent + busca hibrida |
+| `jogo do aviãozinho` | Aviator | intent curado + rewrite semantico |
+| `triguinho` | Fortune Tiger | apelido brasileiro mapeado para o jogo |
+| `velho alguma coisa` | Gates of Olympus | intent para Zeus/Olimpo |
+| `mengaum` | Flamengo | spellcheck + sinonimos de time |
+| `black jack` | Blackjack Brasileiro | normalizacao e busca textual |
+| `roletinha` | Roleta Brasileira | sinonimo/intent de live casino |
+
+Essas regras estao em [`search_intents.json`](./search_intents.json). Elas nao ficam hardcoded no ranking: o seed grava a curadoria no Redis e o Worker consulta em runtime.
+
+## Arquitetura
+
+```mermaid
+flowchart LR
+  U[Usuario] --> P[Cloudflare Pages]
+  P --> W[Cloudflare Worker]
+  W --> R[(Redis Cloud)]
+  W --> O[OpenAI Embeddings]
+  R --> W
+  W --> P
+```
+
+Componentes principais:
+
+- [`frontend/`](./frontend/) - UI da demo em Cloudflare Pages
+- [`worker/`](./worker/) - API edge em Cloudflare Worker
+- [`seed/`](./seed/) - seed Python que popula Redis com HASH, autocomplete, intents, sinonimos e embeddings
+- [`games_data.json`](./games_data.json) - dataset demo de jogos/eventos
+- [`search_intents.json`](./search_intents.json) - curadoria de termos brasileiros e intents
+- [`golden_search.json`](./golden_search.json) - casos de regressao da demo
+- [`scripts/run_golden_search.mjs`](./scripts/run_golden_search.mjs) - teste automatizado da API publicada
+
+O backend antigo em [`backend/`](./backend/) permanece no repositorio como referencia, mas a demo atual usa a arquitetura edge: Cloudflare Worker direto no Redis Cloud.
+
+## Pipeline de busca
+
+1. Normaliza a query: caixa baixa, sem acentos e sem pontuacao.
+2. Procura um intent deterministico no Redis.
+3. Verifica o cache de resultado.
+4. Se houver cache hit, retorna direto e pula spellcheck, embedding, OpenAI e `FT.HYBRID`.
+5. Se nao houver cache hit, roda spellcheck.
+6. Busca ou cria o embedding da query/rewrite.
+7. Executa `FT.HYBRID` combinando texto e vetor.
+8. Aplica boost de intent, popularidade e limpeza do ranking.
+9. Grava o resultado no Redis com TTL.
+
+### Cache
+
+Ha dois caches principais no Redis:
+
+- `cache:search:*` - resposta completa da busca
+- `cache:embedding:*` - vetor gerado pelo OpenAI
+
+TTLs atuais:
+
+- Busca curta ou com intent: 1 hora
+- Busca longa: 5 minutos
+- Embedding: 7 dias
+
+Na UI, o painel `Trace` mostra a latencia atomizada:
+
+- Redis connection
+- Redis result cache
+- Intent lookup
+- Spellcheck
+- Embedding cache
+- OpenAI embedding
+- Redis FT.HYBRID
+- Total edge
+
+Em cache hit, a demo mostra `skipped` para as etapas que nao precisaram rodar.
+
+## API
+
+### Search
+
+```bash
+curl -X POST https://cactus-worker.platformengineer.workers.dev/api/search \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"triguinho"}'
+```
+
+Com filtro:
+
+```bash
+curl -X POST https://cactus-worker.platformengineer.workers.dev/api/search \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"aviaozinho","filters":{"categoria":"crash"}}'
+```
+
+### Autocomplete
+
+```bash
+curl "https://cactus-worker.platformengineer.workers.dev/api/autocomplete?q=avia"
+```
+
+### Metrics
+
+```bash
+curl "https://cactus-worker.platformengineer.workers.dev/api/metrics"
+```
+
+### Vector Search
+
+```bash
+curl -X POST https://cactus-worker.platformengineer.workers.dev/api/vector-search \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"jogo crash com avião"}'
+```
+
+## Setup local
+
+Requisitos:
+
+- Node.js 22+
+- Python 3.12+
+- Redis Cloud com Redis Query Engine
+- Chave OpenAI para embeddings
+- Wrangler autenticado para deploy Cloudflare
+
+### 1. Popular Redis
+
+```bash
+cd seed
 python3 -m venv .venv
 source .venv/bin/activate
-cp .env.example .env  # Adicionar REDIS_URL e OPENAI_API_KEY
 pip install -r requirements.txt
+cp .env.example .env
+# preencher REDIS_URL e OPENAI_API_KEY
 python seed_production_vectors.py
 ```
 
-### 2. Rodar Backend
+### 2. Validar Worker
+
 ```bash
-# IMPORTANTE: Entrar na pasta backend primeiro!
-cd backend/
-
-# Configurar credenciais
-cp .env.example .env  # Adicionar REDIS_URL e OPENAI_API_KEY
-
-# Instalar e rodar
+cd worker
 npm install
-npm run dev
+npx tsc --noEmit
+npx wrangler deploy --dry-run
 ```
 
-### 3. Testar
+### 3. Rodar golden set
+
 ```bash
-curl "http://localhost:3000/api/autocomplete?q=tig"
+node scripts/run_golden_search.mjs https://cactus-worker.platformengineer.workers.dev
 ```
 
----
+### 4. Deploy completo
 
-## 📁 Estrutura
+O script abaixo limpa Redis, recria indice, gera embeddings, commita/pusha codigo e redeploya Worker + Pages:
 
-```
-cactus-gaming-search/
-├── docs/                      # 📚 Documentação completa
-│   ├── README.md              # Índice da documentação
-│   ├── SETUP.md               # Setup inicial
-│   ├── TUTORIAL.md            # Tutorial de uso
-│   ├── DEPLOY_GUIDE.md        # Guia de deploy
-│   └── CLOUDFLARE_SETUP.md    # Setup do Cloudflare
-├── scripts/                   # 🚀 Scripts de deploy
-│   ├── README.md              # Documentação dos scripts
-│   ├── deploy_frontend.sh     # Deploy rápido do frontend
-│   ├── deploy_full_reset.sh   # Deploy completo com reindexação
-│   └── test-api.sh            # Testes da API
-├── seed/                      # 🌱 Python - Popular Redis com embeddings
-│   ├── seed_production_vectors.py
-│   ├── clean_redis.py
-│   └── requirements.txt
-├── backend/                   # 🔧 Node.js - API Express + ioredis
-│   ├── src/
-│   ├── package.json
-│   └── tsconfig.json
-├── frontend/                  # 🎨 Frontend HTML (Cloudflare Pages)
-│   └── index.html
-├── worker/                    # ⚡ Cloudflare Worker (não usado atualmente)
-├── games_data.json            # 🎮 154 jogos com metadados e aliases
-└── README.md                  # Este arquivo
-```
-
----
-
-## 🎯 API Endpoints
-
-**Autocomplete**
 ```bash
-GET /api/autocomplete?q=tig
+./scripts/deploy_full_reset.sh
 ```
 
-**Search**
+Use com cuidado porque ele faz `git add`, `git commit` e `git push`.
+
+## Golden set
+
+O golden set evita regressao nos casos que mais importam para a narrativa da demo:
+
 ```bash
-POST /api/search
-{"query": "tigre", "filters": {"provider": "PG Soft"}}
+node scripts/run_golden_search.mjs
 ```
 
-**Vector Search**
-```bash
-POST /api/vector-search
-{"query": "jogos de tigre asiático"}
-```
+Ele valida:
 
----
+- top result esperado
+- categoria esperada
+- query corrigida quando aplicavel
+- metodos usados (`spellcheck`, `intent`, `hybrid`)
+- latencia Redis do autocomplete e da busca hibrida
 
-## 🔧 Stack
+## Estado atual da demo
 
-- **Redis Cloud** - RediSearch + RedisJSON + Vector (HNSW)
-- **OpenAI** - text-embedding-3-small (1536D)
-- **Node.js 22** - Express 5 + TypeScript 5.7 + ioredis
-- **Cloudflare Workers** - Edge global
-- **AWS EC2** - Backend (São Paulo)
+Seed atual:
 
----
+- 404 jogos/eventos
+- 1028 sugestoes de autocomplete
+- 106 termos de intent
+- 11 grupos de sinonimos
+- embeddings OpenAI `text-embedding-3-small` com 1536 dimensoes
 
-## 📊 Estatísticas do Projeto
+Endpoints publicados:
 
-- **154 jogos** cadastrados com aliases brasileiros
-- **Busca híbrida:** FTS + Fuzzy + Vector Search (KNN)
-- **Embeddings:** OpenAI text-embedding-3-small (1536D)
-- **Performance:** ~200-600ms por busca
-- **Recall:** 8-15 resultados relevantes por query
+- Frontend: https://cactus-demo.pages.dev
+- API: https://cactus-worker.platformengineer.workers.dev
 
----
+## Notas
 
-## 📖 Mais Info
-
-- **Problemas de setup?** Veja [docs/SETUP.md](./docs/SETUP.md)
-- **Deploy em produção:** Veja [docs/DEPLOY_GUIDE.md](./docs/DEPLOY_GUIDE.md)
-- **Dúvidas sobre scripts:** Veja [scripts/README.md](./scripts/README.md)
-- **Documentação completa:** Veja [docs/README.md](./docs/README.md)
-
+Este repositorio usa um dataset demonstrativo. A parte importante e o padrao: intents, sinonimos, tags, pesos de campo, cache e busca hibrida podem ser portados para um dataset real da Cactus sem mudar a arquitetura principal.
