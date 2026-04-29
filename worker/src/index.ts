@@ -16,10 +16,13 @@ interface Env {
 
 // ─── Constants ────────────────────────────────────────────
 const INDEX_NAME = 'idx:jogos';
-const SEARCH_CONFIG = {
-  weights: { fts: 1.0, fuzzy: 0.7, vector: 0.3, aliasBoost: 0.5 },
-  limits: { fts: 20, fuzzy: 20, vector: 20, final: 20 },
-  minScore: 0.05,
+const HYBRID_CONFIG = {
+  alpha: 0.7,        // FTS (BM25) weight in FT.HYBRID LINEAR
+  beta: 0.3,         // Vector similarity weight in FT.HYBRID LINEAR
+  popWeight: 0.05,   // Popularity tiebreaker weight
+  spellcheckDist: 2, // Levenshtein distance for FT.SPELLCHECK
+  limit: 20,         // Max results to return
+  minScore: 0.01,    // Minimum hybrid score to include
 };
 
 // ─── CORS ─────────────────────────────────────────────────
@@ -51,34 +54,7 @@ function getRedis(env: Env): Redis {
   });
 }
 
-// ─── Parser utils (ported from backend/src/utils/parser.ts) ──
-function parseSearchResults(results: any[]): any[] {
-  if (!results || results.length === 0 || results[0] === 0) return [];
-  const games: any[] = [];
-  const EXCLUDED = new Set(['description_vector']);
-  let i = 1;
-  while (i < results.length) {
-    const key = results[i++];
-    if (i < results.length) {
-      const fields = results[i++];
-      const game: any = { key };
-      for (let j = 0; j < fields.length; j += 2) {
-        if (j + 1 < fields.length) {
-          const fn = fields[j];
-          if (EXCLUDED.has(fn)) continue;
-          let fv = fields[j + 1];
-          if (typeof fv === 'string' && (fv.startsWith('{') || fv.startsWith('['))) {
-            try { fv = JSON.parse(fv); } catch (_e) { /* keep string */ }
-          }
-          game[fn] = fv;
-        }
-      }
-      games.push(game);
-    }
-  }
-  return games;
-}
-
+// ─── Parser utils ─────────────────────────────────────────
 function parseAutocompleteResults(results: any[]): any[] {
   if (!results || results.length === 0) return [];
   const suggestions: any[] = [];
@@ -90,103 +66,167 @@ function parseAutocompleteResults(results: any[]): any[] {
   return suggestions;
 }
 
-// ─── Scoring (ported from backend/src/services/scoring.service.ts) ──
-function positionScore(pos: number, total: number): number {
-  if (total === 0) return 0;
-  return Math.exp(-3 * pos / total);
-}
+// ─── FT.SPELLCHECK: correct typos before searching ───────
+// Stopwords that should never be "corrected" by spellcheck
+const STOPWORDS = new Set(['of', 'the', 'do', 'da', 'de', 'e', 'x', 'vs', 'em', 'no', 'na', 'ao', 'os', 'as', 'um', 'uma']);
 
-function combineAndScore(fts: any[], fuzzy: any[], vector: any[]): any[] {
-  const map = new Map<string, any>();
-  const w = SEARCH_CONFIG.weights;
+async function spellcheck(redis: Redis, query: string): Promise<string> {
+  try {
+    // Try distance 1 first (precise corrections), fallback to 2 for uncorrected terms
+    const result1 = await redis.call('FT.SPELLCHECK', INDEX_NAME, query, 'DISTANCE', '1') as any[];
 
-  const process = (results: any[], source: string, weight: number) => {
-    results.forEach((r: any, idx: number) => {
-      const id = r.key || r.id;
-      const score = positionScore(idx, results.length) * weight;
-      if (!map.has(id)) {
-        map.set(id, { ...r, _scores: { [source]: score }, finalScore: 0 });
-      } else {
-        const existing = map.get(id);
-        existing._scores[source] = Math.max(existing._scores[source] || 0, score);
+    let corrected = query;
+    const correctedTerms = new Set<string>();
+
+    // Pass 1: distance 1 (high confidence)
+    for (const item of result1) {
+      if (!Array.isArray(item) || item.length < 3) continue;
+      const original = String(item[1]);
+      const suggestions = item[2] as any[];
+      if (!suggestions || suggestions.length === 0) continue;
+      if (STOPWORDS.has(original.toLowerCase())) continue;
+      const bestSuggestion = String(suggestions[0][1]);
+      if (bestSuggestion === original) continue;
+      corrected = corrected.replace(original, bestSuggestion);
+      correctedTerms.add(original);
+    }
+
+    // Pass 2: distance 2 only for terms not corrected in pass 1
+    const remaining = query.split(/\s+/).filter(t => !correctedTerms.has(t) && !STOPWORDS.has(t.toLowerCase()) && t.length >= 3);
+    if (remaining.length > 0) {
+      const result2 = await redis.call('FT.SPELLCHECK', INDEX_NAME, remaining.join(' '), 'DISTANCE', '2') as any[];
+      for (const item of result2) {
+        if (!Array.isArray(item) || item.length < 3) continue;
+        const original = String(item[1]);
+        const suggestions = item[2] as any[];
+        if (!suggestions || suggestions.length === 0) continue;
+        if (STOPWORDS.has(original.toLowerCase())) continue;
+        // At distance 2, prefer suggestions closest to original (shortest edit distance)
+        // Sort by length difference to original as a proxy for edit closeness
+        const ranked = suggestions
+          .map((s: any) => ({ term: String(s[1]), freq: parseFloat(s[0]) || 0 }))
+          .filter((s: any) => s.term !== original)
+          .sort((a: any, b: any) => Math.abs(a.term.length - original.length) - Math.abs(b.term.length - original.length));
+        if (ranked.length > 0) {
+          corrected = corrected.replace(original, ranked[0].term);
+        }
       }
-    });
-  };
+    }
 
-  process(fts, 'fts', w.fts);
-  process(fuzzy, 'fuzzy', w.fuzzy);
-  process(vector, 'vector', w.vector);
-
-  // Calculate final scores
-  for (const r of map.values()) {
-    r.finalScore = Object.values(r._scores as Record<string, number>).reduce((a: number, b: number) => a + b, 0);
-    r.finalScore = Math.min(r.finalScore, 1.0);
-    r.score = r.finalScore;
-    delete r._scores;
+    return corrected;
+  } catch (e) {
+    console.warn('Spellcheck failed:', e);
+    return query;
   }
-
-  return Array.from(map.values())
-    .filter(r => r.finalScore >= SEARCH_CONFIG.minScore)
-    .sort((a, b) => b.finalScore - a.finalScore)
-    .slice(0, SEARCH_CONFIG.limits.final);
 }
 
-// ─── Filter builder ───────────────────────────────────────
-function buildFilterPrefix(filters?: any): string {
-  if (!filters?.categoria) return '';
-  const cat = filters.categoria.replace(/[^a-zA-Z0-9_àáâãéêíóôõúç]/g, '\\$&');
-  return `@categoria:{${cat}} `;
+// ─── FT.HYBRID: single-command text + vector search ──────
+// Returns: [total_results, N, results, [...games...], warnings, [], execution_time, ms]
+// Each game in results is: [__key, id, __score, score, field, val, ...]
+const LOAD_FIELDS = ['@nome', '@provider', '@aliases', '@categoria', '@image', '@rtp', '@slug', '@popularity'];
+
+function parseHybridResults(result: any[]): any[] {
+  // FT.HYBRID returns: [total_results, N, results, [game1, game2, ...], warnings, [], execution_time, X]
+  if (!result || result.length < 4) return [];
+  const games = result[3] as any[][];
+  if (!games || !Array.isArray(games)) return [];
+
+  return games.map(g => {
+    const gd: Record<string, any> = {};
+    for (let j = 0; j < g.length; j += 2) {
+      const key = typeof g[j] === 'string' ? g[j] : (g[j] as Buffer).toString();
+      let val = typeof g[j + 1] === 'string' ? g[j + 1] : (g[j + 1] as Buffer).toString();
+      // Parse JSON fields (aliases)
+      if (typeof val === 'string' && (val.startsWith('{') || val.startsWith('['))) {
+        try { val = JSON.parse(val); } catch (_e) { /* keep string */ }
+      }
+      gd[key] = val;
+    }
+    return gd;
+  });
 }
 
-// ─── Search functions ─────────────────────────────────────
-async function ftsSearch(redis: Redis, query: string, filters?: any): Promise<any[]> {
-  try {
-    const fp = buildFilterPrefix(filters);
-    const q = fp ? `(${fp}) ${query}` : query;
-    const results = await redis.call('FT.SEARCH', INDEX_NAME, q, 'LIMIT', '0', String(SEARCH_CONFIG.limits.fts)) as any[];
-    return parseSearchResults(results);
-  } catch (e) { console.warn('FTS failed:', e); return []; }
-}
+async function hybridSearch(redis: Redis, query: string, env: Env, filters?: any): Promise<{
+  games: any[];
+  correctedQuery: string;
+  methods: string[];
+  spellcheckMs: number;
+  hybridMs: number;
+}> {
+  const methods: string[] = [];
 
-async function fuzzySearch(redis: Redis, query: string, filters?: any): Promise<any[]> {
-  try {
-    const terms = query.split(/\s+/).filter(t => t.length > 2);
-    const fuzzyTerms = new Set<string>();
-    terms.forEach(t => {
-      fuzzyTerms.add(`*${t}*`);
-      if (t.length >= 5) fuzzyTerms.add(`*${t.substring(0, Math.floor(t.length * 0.6))}*`);
-    });
-    const fuzzyQuery = Array.from(fuzzyTerms).join(' | ');
-    if (!fuzzyQuery) return [];
-    const fp = buildFilterPrefix(filters);
-    const q = fp ? `(${fp}) (${fuzzyQuery})` : fuzzyQuery;
-    const results = await redis.call('FT.SEARCH', INDEX_NAME, q, 'LIMIT', '0', String(SEARCH_CONFIG.limits.fuzzy)) as any[];
-    return parseSearchResults(results);
-  } catch (e) { console.warn('Fuzzy failed:', e); return []; }
-}
+  // Step 1: Spellcheck (correct typos)
+  const spellStart = Date.now();
+  const correctedQuery = await spellcheck(redis, query);
+  const spellcheckMs = Date.now() - spellStart;
+  if (correctedQuery !== query) methods.push('spellcheck');
 
-async function vectorSearch(redis: Redis, query: string, env: Env, filters?: any): Promise<any[]> {
-  try {
-    const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
-    const embResp = await openai.embeddings.create({ model: 'text-embedding-3-small', input: query });
-    const embedding = embResp.data[0].embedding;
+  // Step 2: Generate embedding for semantic search (use ORIGINAL query to preserve intent)
+  const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
+  const embResp = await openai.embeddings.create({ model: 'text-embedding-3-small', input: query });
+  const embedding = embResp.data[0].embedding;
+  const buf = Buffer.allocUnsafe(embedding.length * 4);
+  embedding.forEach((v, i) => buf.writeFloatLE(v, i * 4));
 
-    const buf = Buffer.allocUnsafe(embedding.length * 4);
-    embedding.forEach((v, i) => buf.writeFloatLE(v, i * 4));
+  // Step 3: FT.HYBRID — single command: BM25 text search + vector similarity
+  const hybridStart = Date.now();
+  const searchQuery = correctedQuery;
+  const args: any[] = [
+    'FT.HYBRID', INDEX_NAME,
+    'SEARCH', searchQuery,
+    'YIELD_SCORE_AS', 'text_score',
+    'VSIM', '@description_vector', '$vec',
+    'COMBINE', 'LINEAR', 6,
+    'ALPHA', HYBRID_CONFIG.alpha,
+    'BETA', HYBRID_CONFIG.beta,
+    'YIELD_SCORE_AS', 'hybrid_score',
+    'LOAD', LOAD_FIELDS.length, ...LOAD_FIELDS,
+    'PARAMS', 2, 'vec', buf,
+  ];
 
-    const fp = buildFilterPrefix(filters);
-    const knnQ = fp
-      ? `(${fp})=>[KNN ${SEARCH_CONFIG.limits.vector} @description_vector $vec AS score]`
-      : `*=>[KNN ${SEARCH_CONFIG.limits.vector} @description_vector $vec AS score]`;
+  const result = await redis.call(...args) as any[];
+  const hybridMs = Date.now() - hybridStart;
+  methods.push('hybrid');
 
-    const results = await redis.call(
-      'FT.SEARCH', INDEX_NAME, knnQ,
-      'PARAMS', '2', 'vec', buf,
-      'RETURN', '8', 'nome', 'provider', 'aliases', 'categoria', 'image', 'rtp', 'slug', 'score',
-      'SORTBY', 'score', 'DIALECT', '2'
-    ) as any[];
-    return parseSearchResults(results);
-  } catch (e) { console.warn('Vector failed:', e); return []; }
+  // Parse results
+  let games = parseHybridResults(result);
+
+  // Apply popularity boost as tiebreaker
+  const maxHybrid = games.length > 0
+    ? Math.max(...games.map(g => parseFloat(g.hybrid_score || g.__score || '0')))
+    : 1;
+
+  games = games.map(g => {
+    const hybridScore = parseFloat(g.hybrid_score || g.__score || '0');
+    const textScore = parseFloat(g.text_score || '0');
+    const popularity = Math.min(parseInt(g.popularity || '0', 10), 100) / 100;
+
+    // Normalize hybrid score to 0-1, then add small popularity boost
+    const normalized = maxHybrid > 0 ? hybridScore / maxHybrid : 0;
+    const finalScore = Math.min(normalized * (1 - HYBRID_CONFIG.popWeight) + popularity * HYBRID_CONFIG.popWeight, 1.0);
+
+    return {
+      ...g,
+      score: finalScore,
+      _debug: { textScore, hybridScore, popularity, normalized, finalScore },
+    };
+  });
+
+  // Sort by final score, filter, limit
+  games = games
+    .filter(g => g.score >= HYBRID_CONFIG.minScore)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, HYBRID_CONFIG.limit);
+
+  // Clean internal fields
+  games.forEach(g => {
+    delete g.__key;
+    delete g.__score;
+    delete g.text_score;
+    delete g.hybrid_score;
+  });
+
+  return { games, correctedQuery, methods, spellcheckMs, hybridMs };
 }
 
 // ─── Route: POST /api/search ──────────────────────────────
@@ -199,26 +239,18 @@ async function handleSearch(body: any, env: Env): Promise<Response> {
   await redis.connect();
 
   try {
-    const [ftsR, fuzzyR, vectorR] = await Promise.allSettled([
-      ftsSearch(redis, query, filters),
-      fuzzySearch(redis, query, filters),
-      vectorSearch(redis, query, env, filters),
-    ]);
-
-    const fts = ftsR.status === 'fulfilled' ? ftsR.value : [];
-    const fuzzy = fuzzyR.status === 'fulfilled' ? fuzzyR.value : [];
-    const vector = vectorR.status === 'fulfilled' ? vectorR.value : [];
-
-    const methods: string[] = [];
-    if (fts.length) methods.push('fts');
-    if (fuzzy.length) methods.push('fuzzy');
-    if (vector.length) methods.push('vector');
-
-    const games = combineAndScore(fts, fuzzy, vector);
+    const { games, correctedQuery, methods, spellcheckMs, hybridMs } = await hybridSearch(redis, query, env, filters);
 
     return json({
-      query, filters: filters || {}, total: games.length,
-      games, searchMethods: methods, executionTime: Date.now() - startTime,
+      query,
+      correctedQuery: correctedQuery !== query ? correctedQuery : undefined,
+      filters: filters || {},
+      total: games.length,
+      results: games,
+      games,
+      searchMethods: methods,
+      executionTime: Date.now() - startTime,
+      timing: { spellcheckMs, hybridMs, totalMs: Date.now() - startTime },
     });
   } finally { redis.disconnect(); }
 }
@@ -266,14 +298,30 @@ async function handleCategories(env: Env): Promise<Response> {
 
 // ─── Route: POST /api/vector-search ───────────────────────
 async function handleVectorSearch(body: any, env: Env): Promise<Response> {
-  const { query, k } = body || {};
+  const { query } = body || {};
   if (!query) return json({ error: 'Query is required' }, 400);
 
   const redis = getRedis(env);
   await redis.connect();
   try {
-    const results = await vectorSearch(redis, query, env);
-    return json({ query, total: results.length, games: results, method: 'vector_search', model: 'text-embedding-3-small' });
+    // Vector-only search via FT.HYBRID with alpha=0 (pure vector)
+    const openai = new OpenAI({ apiKey: env.OPENAI_API_KEY });
+    const embResp = await openai.embeddings.create({ model: 'text-embedding-3-small', input: query });
+    const embedding = embResp.data[0].embedding;
+    const buf = Buffer.allocUnsafe(embedding.length * 4);
+    embedding.forEach((v: number, i: number) => buf.writeFloatLE(v, i * 4));
+
+    const result = await redis.call(
+      'FT.HYBRID', INDEX_NAME,
+      'SEARCH', '*',
+      'VSIM', '@description_vector', '$vec',
+      'COMBINE', 'LINEAR', 4, 'ALPHA', 0.0, 'BETA', 1.0,
+      'LOAD', LOAD_FIELDS.length, ...LOAD_FIELDS,
+      'PARAMS', 2, 'vec', buf,
+    ) as any[];
+
+    const games = parseHybridResults(result);
+    return json({ query, total: games.length, games, method: 'vector_search', model: 'text-embedding-3-small' });
   } finally { redis.disconnect(); }
 }
 
